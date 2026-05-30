@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Function rooms in Gravesend, Kent. Ruckland Rooms — birthdays, anniversaries, christenings, parties and celebrations for up to 180 guests. In-house catering, licensed bar, private parking." />
-  <meta name="keywords" content="function rooms Gravesend, birthday party venue Kent, party venue Gravesend, anniversary venue, christening venue Gravesend, celebration venue Kent" />
-  <meta property="og:title" content="Functions & Celebrations — Ruckland Rooms, Gravesend" />
-  <meta property="og:description" content="Every occasion deserves the right room. Birthdays, anniversaries, christenings and more — with in-house catering, a licensed bar and a team that makes it effortless." />
+  <meta name="description" content="The history of Ruckland House, Gravesend — a Victorian mansion, the birthplace of Kent county cricket, and home to the Gravesend Masonic Centre since 1905." />
+  <meta name="keywords" content="Ruckland House history, Gravesend heritage, Bat and Ball Ground history, Kent cricket history, Gravesend Masonic Hall" />
+  <meta property="og:title" content="Our Heritage — Ruckland Rooms, Gravesend | Est. 1905" />
+  <meta property="og:description" content="A Victorian mansion, the cradle of Kent county cricket, and a community gathering place since 1905. The story of Ruckland House." />
   <meta property="og:type" content="website" />
-  <title>Functions & Celebrations — Ruckland Rooms, Gravesend | Est. 1905</title>
+  <meta property="og:url" content="https://www.rucklandrooms.com/heritage.html" />
+  <title>Our Heritage — Ruckland Rooms, Gravesend | Est. 1905</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,683 +19,403 @@
 
   <style>
     /* ============================================================
-       OCCASIONS PAGE — additional styles
-       Mirrors the weddings.html pattern exactly
+       HERITAGE PAGE
+       Tone: editorial, authoritative, warm. More text-forward
+       than other pages — this is storytelling, not selling.
     ============================================================ */
 
-    /* ---- Page Hero ---- */
+    /* ---- Hero ---- */
     .page-hero {
       position: relative;
-      min-height: 92svh;
+      min-height: 80svh;
       display: flex;
       align-items: flex-end;
       overflow: hidden;
-      padding-bottom: 6rem;
+      padding-bottom: 5.5rem;
     }
     .page-hero__img {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=1800&q=85&auto=format&fit=crop');
+      position: absolute; inset: 0;
+      background-image: url('images/heritage-building.jpg');
       background-size: cover;
       background-position: center 40%;
       z-index: 0;
+      filter: sepia(20%) brightness(0.82);
+      transition: transform 8s ease-out;
     }
+    .page-hero__img.loaded { transform: scale(1.03); }
     .page-hero__overlay {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
-        linear-gradient(to top, rgba(14,22,34,0.93) 0%, rgba(14,22,34,0.55) 45%, rgba(14,22,34,0.18) 100%),
-        linear-gradient(160deg, rgba(28,43,58,0.3) 0%, transparent 60%);
+        linear-gradient(to top, rgba(14,22,34,0.94) 0%, rgba(14,22,34,0.55) 50%, rgba(14,22,34,0.18) 100%),
+        linear-gradient(160deg, rgba(28,43,58,0.35) 0%, transparent 60%);
       z-index: 1;
     }
     .page-hero__inner {
-      position: relative;
-      z-index: 2;
-      width: 90%;
-      max-width: 1180px;
+      position: relative; z-index: 2;
+      width: 90%; max-width: 820px;
       margin-inline: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: flex-end;
     }
     .page-hero__breadcrumb {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-accent);
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-accent); font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 1.5rem;
     }
     .page-hero__breadcrumb a { color: rgba(255,255,255,0.4); transition: color var(--duration) var(--ease); }
     .page-hero__breadcrumb a:hover { color: var(--gold-light); }
     .page-hero__breadcrumb span { color: rgba(255,255,255,0.2); }
     .page-hero__label {
-      font-family: var(--font-accent);
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      display: block;
-      margin-bottom: 0.75rem;
+      font-family: var(--font-accent); font-size: 0.72rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-light); display: block; margin-bottom: 0.75rem;
     }
     .page-hero__title {
       font-family: var(--font-display);
-      font-size: clamp(3rem, 6vw, 5.2rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.07;
-      margin-bottom: 1.4rem;
-      opacity: 0;
-      animation: fadeUp 1s var(--ease) 0.2s forwards;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 300; color: var(--white);
+      line-height: 1.07; margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.2s forwards;
     }
     .page-hero__title em { font-style: italic; color: var(--gold-light); }
     .page-hero__sub {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.75;
-      max-width: 46ch;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 1s var(--ease) 0.4s forwards;
-    }
-    .page-hero__actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 1s var(--ease) 0.6s forwards;
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      line-height: 1.8; max-width: 54ch;
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.4s forwards;
     }
 
-    /* Hero fact strip */
-    .page-hero__facts {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      opacity: 0;
-      animation: fadeUp 1s var(--ease) 0.8s forwards;
+    /* ---- Timeline strip ---- */
+    .timeline-strip {
+      background: var(--navy);
+      overflow-x: auto;
+      scrollbar-width: none;
     }
-    .hero-fact {
+    .timeline-strip::-webkit-scrollbar { display: none; }
+    .timeline-strip__inner {
       display: flex;
-      align-items: center;
-      gap: 1.2rem;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      padding: 1rem 1.4rem;
-      transition: background var(--duration) var(--ease);
+      width: max-content;
+      min-width: 100%;
+      padding: 0 5%;
     }
-    .hero-fact:first-child { border-radius: 6px 6px 0 0; }
-    .hero-fact:last-child  { border-radius: 0 0 6px 6px; }
-    .hero-fact:hover { background: rgba(255,255,255,0.11); }
-    .hero-fact__icon {
-      flex-shrink: 0;
-      width: 2rem;
+    .ts-item {
       display: flex;
       align-items: center;
-      justify-content: center;
+      padding: 1.1rem 1.6rem 1.1rem 0;
+      gap: 1.6rem;
+      position: relative;
+      flex: 0 0 auto;
     }
-    .hero-fact__icon svg {
-      width: 18px;
-      height: 18px;
-      stroke: var(--gold-light);
-      fill: none;
-      stroke-width: 1.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .ts-item::after {
+      content: '·';
+      color: rgba(184,146,74,0.35);
+      font-size: 1.4rem;
+      position: absolute;
+      right: 0;
+      top: 50%; transform: translateY(-50%);
     }
-    .hero-fact__text { flex: 1; }
-    .hero-fact__value {
+    .ts-item:last-child::after { display: none; }
+    .ts-item__year {
       font-family: var(--font-display);
-      font-size: 1.05rem;
-      color: var(--white);
-      line-height: 1.2;
-      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      white-space: nowrap;
+      line-height: 1;
     }
-    .hero-fact__label {
+    .ts-item__label {
+      font-family: var(--font-accent);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+    }
+
+    /* ---- Section layout ---- */
+    .h-section {
+      padding: 6rem 0;
+    }
+    .h-section + .h-section {
+      padding-top: 0;
+    }
+    .h-section--alt {
+      background: var(--cream-dark);
+    }
+    .h-section--dark {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .h-section__inner {
+      width: 90%;
+      max-width: 1100px;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+    .h-section__inner--reverse {
+      grid-template-columns: 1fr 280px;
+    }
+
+    /* ---- Section sidebar ---- */
+    .h-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .h-sidebar__era {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .h-sidebar__era-sub {
+      font-family: var(--font-accent);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--stone);
+      display: block;
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .h-section--dark .h-sidebar__era-sub {
+      color: rgba(255,255,255,0.35);
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+    .h-sidebar__heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--navy);
+    }
+    .h-section--dark .h-sidebar__heading { color: var(--white); }
+    .h-sidebar__heading em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ---- Section body ---- */
+    .h-body p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--navy-mid);
+      margin-bottom: 1.25em;
+    }
+    .h-body p:last-child { margin-bottom: 0; }
+    .h-section--dark .h-body p { color: rgba(255,255,255,0.65); }
+
+    /* ---- Pull quote ---- */
+    .h-pull {
+      margin: 2rem 0;
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--gold);
+      background: var(--gold-pale);
+    }
+    .h-section--dark .h-pull {
+      background: rgba(184,146,74,0.08);
+    }
+    .h-pull p {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--navy);
+      margin-bottom: 0.6rem !important;
+    }
+    .h-section--dark .h-pull p { color: rgba(255,255,255,0.85); }
+    .h-pull cite {
+      font-family: var(--font-accent);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone);
+      font-style: normal;
+    }
+    .h-section--dark .h-pull cite { color: rgba(255,255,255,0.35); }
+
+    /* ---- Stat row ---- */
+    .h-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--cream-dark);
+      border: 1px solid var(--cream-dark);
+      margin: 2rem 0;
+    }
+    .h-section--dark .h-stats {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.08);
+    }
+    .h-stat {
+      background: var(--cream);
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+    }
+    .h-section--dark .h-stat { background: var(--navy); }
+    .h-stat__num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .h-stat__lbl {
       font-family: var(--font-accent);
       font-size: 0.6rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
+      color: var(--stone);
+      display: block;
+    }
+    .h-section--dark .h-stat__lbl { color: rgba(255,255,255,0.4); }
+
+    /* ---- Divider ornament ---- */
+    .h-ornament {
+      text-align: center;
+      padding: 2rem 0;
+    }
+    .h-ornament__line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .h-ornament__line::before,
+    .h-ornament__line::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 60px;
+      background: var(--gold);
+      opacity: 0.35;
+    }
+    .h-ornament__diamond {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      opacity: 0.6;
     }
 
-    /* ---- Intro ---- */
-    .o-intro {
-      padding: var(--gap-xl) 0;
-      background: var(--cream);
+    /* ---- Notable names ---- */
+    .notable {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--gold);
     }
-    .o-intro__inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--gap-xl);
-      align-items: center;
+    .h-section--dark .notable { color: var(--gold-light); }
+
+    /* ---- Image placeholder (until real photos are added) ---- */
+    .h-img-wrap {
+      position: relative;
     }
-    .o-intro__img { position: relative; }
-    .o-intro__img-main {
+    .h-img-wrap img {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-soft);
-      filter: saturate(0.92);
+      display: block;
     }
-    .o-intro__img-accent {
+    .h-img-wrap__placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .h-img-wrap__placeholder span {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: rgba(184,146,74,0.25);
+      font-weight: 300;
+    }
+    .h-img-wrap::before {
+      content: '';
       position: absolute;
-      bottom: -2rem;
-      right: -2rem;
-      width: 55%;
+      top: -12px; left: -12px;
+      right: 12px; bottom: 12px;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-md);
+      opacity: 0.2;
+      z-index: -1;
+    }
+    .h-img-caption {
+      font-family: var(--font-accent);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: 0.9rem;
+      text-align: center;
+    }
+
+    /* ---- Second image alongside body ---- */
+    .h-body-img {
+      width: 100%;
       aspect-ratio: 4/3;
       object-fit: cover;
       border-radius: var(--radius-md);
-      box-shadow: var(--shadow-soft);
-      border: 4px solid var(--cream);
-    }
-    .o-intro__img::before {
-      content: '';
-      position: absolute;
-      top: -14px; left: -14px;
-      right: 14px; bottom: 14px;
-      border: 1px solid var(--gold);
-      border-radius: var(--radius-md);
-      opacity: 0.3;
-      z-index: -1;
-    }
-    .o-intro__pull {
-      font-family: var(--font-display);
-      font-size: clamp(1.4rem, 2.5vw, 2rem);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--navy-mid);
-      line-height: 1.4;
-      border-left: 3px solid var(--gold);
-      padding-left: 1.4rem;
-      margin: var(--gap-md) 0;
-    }
-
-    /* ---- Occasion cards ---- */
-    .o-occasions {
-      padding: var(--gap-xl) 0;
-      background: var(--cream-dark);
-    }
-    .o-occasions__header {
-      text-align: center;
-      margin-bottom: var(--gap-lg);
-    }
-    .o-occasions__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    .occ-card {
-      background: var(--white);
-      border-radius: var(--radius-md);
-      overflow: hidden;
       box-shadow: var(--shadow-card);
-      transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
-      display: flex;
-      flex-direction: column;
+      margin: 1.8rem 0;
+      display: block;
     }
-    .occ-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
-    .occ-card__img {
+    .h-body-img-placeholder {
       width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      filter: saturate(0.88);
-      transition: filter var(--duration) var(--ease);
-    }
-    .occ-card:hover .occ-card__img { filter: saturate(1.05); }
-    .occ-card__body {
-      padding: 1.6rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .occ-card__icon {
-      width: 2.4rem;
-      height: 2.4rem;
-      border-radius: 50%;
-      background: var(--gold-pale);
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--cream-dark) 0%, var(--gold-pale) 100%);
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 0.25rem;
-      flex-shrink: 0;
+      margin: 1.8rem 0;
     }
-    .occ-card__icon svg {
-      width: 14px; height: 14px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+    .h-section--dark .h-body-img-placeholder {
+      background: linear-gradient(135deg, rgba(28,43,58,0.8) 0%, rgba(46,64,87,0.8) 100%);
     }
-    .occ-card__title {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      color: var(--navy);
-    }
-    .occ-card__desc {
-      font-size: 0.87rem;
-      color: var(--navy-soft);
-      line-height: 1.65;
-      max-width: none;
-      flex: 1;
-    }
-
-    /* ---- Menus section ---- */
-    .o-menus {
-      padding: var(--gap-xl) 0;
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
-    .o-menus::before {
-      content: 'Menus';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-family: var(--font-display);
-      font-size: clamp(6rem, 14vw, 14rem);
-      font-weight: 300;
-      color: rgba(255,255,255,0.025);
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .o-menus__header {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      margin-bottom: var(--gap-lg);
-    }
-    .o-menus__header .label { color: var(--gold-light); }
-    .o-menus__header h2 { color: var(--white); }
-    .o-menus__header p { color: rgba(255,255,255,0.6); margin-inline: auto; margin-top: 0.75rem; }
-
-    .o-menus__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Featured menu — full width */
-    .menu-card {
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
-      transition: background var(--duration) var(--ease);
-    }
-    .menu-card:hover { background: rgba(255,255,255,0.08); }
-    .menu-card--featured {
-      grid-column: span 2;
-      background: rgba(184,146,74,0.1);
-      border-color: rgba(184,146,74,0.3);
-    }
-    .menu-card__header {
-      padding: 1.6rem 1.8rem 1.2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .menu-card--featured .menu-card__header {
-      border-bottom-color: rgba(184,146,74,0.2);
-    }
-    .menu-card__badge {
-      font-family: var(--font-accent);
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold-light);
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-    .menu-card__name {
-      font-family: var(--font-display);
-      font-size: 1.55rem;
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1.15;
-    }
-    .menu-card__price {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: var(--gold-light);
-      white-space: nowrap;
-      line-height: 1;
-      padding-top: 0.25rem;
-    }
-    .menu-card__price-label {
-      font-family: var(--font-accent);
-      font-size: 0.55rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      display: block;
-      text-align: right;
-      margin-top: 0.15rem;
-    }
-    .menu-card__body {
-      padding: 1.4rem 1.8rem 1.8rem;
-      flex: 1;
-    }
-    .menu-card__items {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.3rem 1.5rem;
-    }
-    .menu-card__items--single { grid-template-columns: 1fr; }
-    .menu-card__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.5;
-      padding: 0.2rem 0;
-    }
-    .menu-card__item::before {
-      content: '';
-      display: block;
-      width: 3px;
-      height: 3px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      margin-top: 0.55rem;
-      opacity: 0.7;
-    }
-    .menu-card__actions {
-      padding: 0 1.8rem 1.6rem;
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    /* PDF download button — same as weddings */
-    .btn--download {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: var(--font-accent);
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.75rem 1.4rem;
-      border-radius: var(--radius-sm);
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.12);
-      transition: all var(--duration) var(--ease);
-      cursor: pointer;
-    }
-    .btn--download:hover {
-      background: rgba(255,255,255,0.13);
-      color: var(--white);
-      border-color: rgba(255,255,255,0.25);
-    }
-
-    /* ---- Hire strip ---- */
-    .o-hire {
-      padding: var(--gap-xl) 0;
-      background: var(--cream);
-    }
-    .o-hire__inner {
-      display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: var(--gap-xl);
-      align-items: start;
-    }
-
-    /* Coordinator card — identical pattern to weddings */
-    .coordinator-card {
-      background: var(--navy);
-      border-radius: var(--radius-md);
-      padding: 2.4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .coordinator-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-light));
-    }
-    .coordinator-card__label {
+    .h-body-img-placeholder span {
       font-family: var(--font-accent);
       font-size: 0.62rem;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gold-light);
-      display: block;
-      margin-bottom: 0.5rem;
+      color: var(--stone);
     }
-    .coordinator-card__name {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 0.3rem;
-    }
-    .coordinator-card__title {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      max-width: none;
-      margin-bottom: 1.2rem;
-    }
-    .coordinator-card__divider {
-      width: 40px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.4;
-      margin-bottom: 1.2rem;
-    }
-    .coordinator-card__bio {
-      font-size: 0.88rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.75;
-      max-width: none;
-      margin-bottom: 1rem;
-    }
-    .coordinator-card__contact { display: flex; flex-direction: column; gap: 0.6rem; }
-    .coordinator-card__link {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 0.88rem;
-      color: var(--gold-light);
-      transition: color var(--duration) var(--ease);
-    }
-    .coordinator-card__link:hover { color: var(--white); }
-
-    /* What's included list */
-    .incl-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      margin-top: var(--gap-md);
-    }
-    .incl-item {
-      display: grid;
-      grid-template-columns: 2.2rem 1fr;
-      gap: 0.75rem;
-      align-items: start;
-    }
-    .incl-item__icon {
-      width: 2.2rem;
-      height: 2.2rem;
-      border-radius: 50%;
-      background: var(--gold-pale);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .incl-item__icon svg {
-      width: 13px; height: 13px;
-      stroke: var(--gold);
-      fill: none;
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .incl-item__text { }
-    .incl-item__title {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--navy);
-      display: block;
-      line-height: 1.3;
-    }
-    .incl-item__desc {
-      font-size: 0.8rem;
-      color: var(--navy-soft);
-      line-height: 1.55;
-      max-width: none;
-      margin-top: 0.1rem;
-    }
-
-    /* ---- Gallery ---- */
-    .o-gallery {
-      padding: var(--gap-xl) 0;
-      background: var(--cream-dark);
-    }
-    .o-gallery__header { text-align: center; margin-bottom: var(--gap-lg); }
-
-    .gallery-mosaic {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(2, 260px);
-      gap: 0.75rem;
-    }
-    .gallery-mosaic__item {
-      overflow: hidden;
-      border-radius: var(--radius-md);
-      position: relative;
-    }
-    .gallery-mosaic__item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: saturate(0.88);
-      transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
-    }
-    .gallery-mosaic__item:hover img { transform: scale(1.05); filter: saturate(1.05); }
-    .gallery-mosaic__item:nth-child(1) { grid-column: span 4; grid-row: span 2; }
-    .gallery-mosaic__item:nth-child(2) { grid-column: span 5; }
-    .gallery-mosaic__item:nth-child(3) { grid-column: span 3; }
-    .gallery-mosaic__item:nth-child(4) { grid-column: span 3; }
-    .gallery-mosaic__item:nth-child(5) { grid-column: span 5; }
-    .gallery-mosaic__item::after {
-      content: attr(data-caption);
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 0.75rem;
-      background: linear-gradient(to top, rgba(14,22,34,0.8), transparent);
-      color: rgba(255,255,255,0.8);
-      font-family: var(--font-accent);
-      font-size: 0.58rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      opacity: 0;
-      transition: opacity var(--duration) var(--ease);
-    }
-    .gallery-mosaic__item:hover::after { opacity: 1; }
-
-    /* ---- Testimonials ---- */
-    .o-testimonials {
-      padding: var(--gap-xl) 0;
-      background: var(--cream);
-    }
-    .o-testimonials__header { text-align: center; margin-bottom: var(--gap-lg); }
-
-    /* ---- FAQ ---- */
-    .o-faq {
-      padding: var(--gap-xl) 0;
-      background: var(--navy);
-    }
-    .o-faq__header { text-align: center; margin-bottom: var(--gap-lg); }
-    .o-faq__header .label { color: var(--gold-light); }
-    .o-faq__header h2 { color: var(--white); }
-    .faq-list { border-top: 1px solid rgba(255,255,255,0.08); }
-    .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .faq-item summary {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.3rem 0;
-      cursor: pointer;
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      color: var(--white);
-      list-style: none;
-      user-select: none;
-      gap: 1rem;
-    }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item__icon { font-size: 1.2rem; color: var(--gold); flex-shrink: 0; transition: transform var(--duration) var(--ease); }
-    details[open] .faq-item__icon { transform: rotate(45deg); }
-    .faq-item__answer { padding-bottom: 1.3rem; font-size: 0.9rem; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 72ch; }
-
-    /* ---- Animations ---- */
-
-    /* Push hero content below fixed header */
-    .page-hero__inner { padding-top: 5rem; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal--delay-1 { transition-delay: 0.1s; }
-    .reveal--delay-2 { transition-delay: 0.2s; }
-    .reveal--delay-3 { transition-delay: 0.3s; }
-    .reveal--delay-4 { transition-delay: 0.4s; }
-    .reveal--delay-5 { transition-delay: 0.5s; }
 
     /* ---- Responsive ---- */
-    @media (max-width: 1024px) {
-      .page-hero__inner { grid-template-columns: 1fr; }
-      .page-hero__facts { display: none; }
-      .page-hero { padding-bottom: 4rem; min-height: 80svh; }
-      .o-intro__inner { grid-template-columns: 1fr; }
-      .o-intro__img { max-width: 520px; margin-bottom: 2rem; }
-      .o-intro__img-accent { display: none; }
-      .o-occasions__grid { grid-template-columns: 1fr 1fr; }
-      .o-menus__grid { grid-template-columns: 1fr; }
-      .menu-card--featured { grid-column: span 1; }
-      .o-hire__inner { grid-template-columns: 1fr; }
-      .gallery-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .gallery-mosaic__item { grid-column: span 1 !important; aspect-ratio: 4/3; }
+    @media (max-width: 840px) {
+      .h-section__inner,
+      .h-section__inner--reverse {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .h-sidebar { position: static; }
+      .h-section__inner--reverse .h-sidebar { order: -1; }
+      .h-stats { grid-template-columns: repeat(2, 1fr); }
+      .page-hero__inner { max-width: none; }
     }
-    @media (max-width: 768px) {
-      .page-hero__title { font-size: clamp(2.6rem, 10vw, 3.5rem); }
-      .page-hero__actions { flex-direction: column; }
-      .o-occasions__grid { grid-template-columns: 1fr; }
-      .menu-card__items { grid-template-columns: 1fr; }
-      .gallery-mosaic { grid-template-columns: 1fr; }
-      .gallery-mosaic__item { aspect-ratio: 16/9; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 
 <body>
 
-<!-- ================================================ HEADER ================================================ -->
-  <header class="site-header" id="site-header">
+  <!-- ================================================
+       HEADER & NAVIGATION
+  ================================================ -->
+    <header class="site-header" id="site-header">
     <div class="container">
       <nav class="nav" aria-label="Main navigation">
         <a href="index.html" class="nav__brand" aria-label="Ruckland House home">
@@ -704,7 +425,7 @@
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="rooms.html" class="nav__link">Our Rooms</a></li>
-          <li><a href="heritage.html" class="nav__link">Heritage</a></li>
+          <li><a href="heritage.html" class="nav__link" aria-current="page">Heritage</a></li>
           <li class="nav__dropdown">
             <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
               Occasions
@@ -712,7 +433,7 @@
             </button>
             <ul class="nav__dropdown-menu" role="menu">
               <li role="none"><a href="weddings.html" class="nav__dropdown-item" role="menuitem">Weddings</a></li>
-              <li role="none"><a href="occasions.html" class="nav__dropdown-item" role="menuitem" aria-current="page">Celebrations</a></li>
+              <li role="none"><a href="occasions.html" class="nav__dropdown-item" role="menuitem">Celebrations</a></li>
               <li role="none"><a href="wakes.html" class="nav__dropdown-item" role="menuitem">Wakes</a></li>
               <li role="none"><a href="meetings.html" class="nav__dropdown-item" role="menuitem">Meetings</a></li>
             </ul>
@@ -726,7 +447,8 @@
     </div>
   </header>
 
-  <nav class="nav__mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
+  <!-- Mobile drawer -->
+    <nav class="nav__mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
     <button class="nav__mobile-close" id="nav-close" aria-label="Close menu">&times;</button>
     <a href="index.html" class="nav__mobile-link">Home</a>
     <a href="rooms.html" class="nav__mobile-link">Our Rooms</a>
@@ -739,770 +461,367 @@
     <a href="#begin-planning" class="nav__mobile-link text-gold">Enquire Now</a>
   </nav>
 
-<main>
+  <main>
 
-<!-- ================================================ HERO ================================================ -->
-<section class="page-hero" aria-label="Functions and Celebrations at Ruckland Rooms">
-  <div class="page-hero__img" id="hero-img" aria-hidden="true"></div>
-  <div class="page-hero__overlay" aria-hidden="true"></div>
-
-  <div class="page-hero__inner">
-    <div class="page-hero__content">
-      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-        <a href="index.html">Home</a>
-        <span aria-hidden="true">›</span>
-        <span aria-current="page">Occasions</span>
-      </nav>
-      <span class="page-hero__label">Private Functions · Gravesend</span>
-      <h1 class="page-hero__title">
-        Every<br />
-        <em>Occasion</em><br />
-        Deserves This.
-      </h1>
-      <p class="page-hero__sub">
-        Birthdays that feel like events. Anniversaries that get the room they deserve.
-        Christenings, parties, and gatherings of all kinds — at Ruckland Rooms,
-        every celebration is treated as the main event.
-      </p>
-      <div class="page-hero__actions">
-        <a href="contact.html" class="btn btn--primary">Enquire Now</a>
-        <a href="#menus" class="btn btn--ghost">View Menus</a>
-      </div>
-    </div>
-
-    <div class="page-hero__facts" aria-label="At a glance">
-      <div class="hero-fact">
-        <span class="hero-fact__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </span>
-        <div class="hero-fact__text">
-          <span class="hero-fact__value">Up to 180 guests</span>
-          <span class="hero-fact__label">Reception capacity</span>
-        </div>
-      </div>
-      <div class="hero-fact">
-        <span class="hero-fact__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
-        </span>
-        <div class="hero-fact__text">
-          <span class="hero-fact__value">In-house catering</span>
-          <span class="hero-fact__label">Freshly prepared, on-site</span>
-        </div>
-      </div>
-      <div class="hero-fact">
-        <span class="hero-fact__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 11v11"/><path d="M5 3h14a1 1 0 0 1 .8 1.6l-4.8 6.4a2 2 0 0 0-.4 1.2V14a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.8a2 2 0 0 0-.4-1.2L5.2 4.6A1 1 0 0 1 5 3z"/></svg>
-        </span>
-        <div class="hero-fact__text">
-          <span class="hero-fact__value">Fully licensed bar</span>
-          <span class="hero-fact__label">Pub prices, all evening</span>
-        </div>
-      </div>
-      <div class="hero-fact">
-        <span class="hero-fact__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </span>
-        <div class="hero-fact__text">
-          <span class="hero-fact__value">Private car park</span>
-          <span class="hero-fact__label">On-site, no charge</span>
-        </div>
-      </div>
-      <div class="hero-fact">
-        <span class="hero-fact__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </span>
-        <div class="hero-fact__text">
-          <span class="hero-fact__value">Flexible budgets</span>
-          <span class="hero-fact__label">Menus from £7.95 per person</span>
-        </div>
-      </div>
-      <div class="hero-fact">
-        <span class="hero-fact__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </span>
-        <div class="hero-fact__text">
-          <span class="hero-fact__value">Est. 1905</span>
-          <span class="hero-fact__label">Over a century of occasions</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================ INTRO ================================================ -->
-<section class="o-intro" aria-labelledby="intro-title">
-  <div class="container">
-    <div class="o-intro__inner">
-      <div class="o-intro__img reveal">
-        <img class="o-intro__img-main"
-          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=85&auto=format&fit=crop"
-          alt="Beautifully set celebration table with flowers and candles"
-          width="900" height="1200" loading="lazy" />
-        <img class="o-intro__img-accent"
-          src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80&auto=format&fit=crop"
-          alt="Birthday celebration with guests"
-          width="600" height="450" loading="lazy" />
-      </div>
-
-      <div class="reveal reveal--delay-2">
-        <span class="label">The Right Room for the Right Moment</span>
-        <h2 id="intro-title">Small Gatherings.<br />Grand <em>Celebrations.</em><br />Everything Between.</h2>
-
-        <blockquote class="o-intro__pull">
-          "A venue with the character to match any occasion — and the team to make it effortless."
-        </blockquote>
-
-        <p style="max-width:none;">
-          Whether you're organising a surprise 50th, a christening lunch, a retirement party
-          or an anniversary dinner, Ruckland Rooms offers something most venues simply can't —
-          a building with genuine character, and a team that genuinely cares.
+    <!-- ================================================
+         HERO
+    ================================================ -->
+    <section class="page-hero" aria-label="Our Heritage">
+      <div class="page-hero__img" id="hero-img"></div>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__inner">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Our Heritage</span>
+        </nav>
+        <span class="page-hero__label">Est. 1905 · Gravesend, Kent</span>
+        <h1 class="page-hero__title">
+          A Building That<br /><em>Remembers</em>
+        </h1>
+        <p class="page-hero__sub">
+          Victorian mansion. Cradle of Kent county cricket. Community gathering place 
+          for over a century. The story of Ruckland House is woven into the fabric 
+          of Gravesend itself.
         </p>
-        <p style="margin-top:0.75rem; max-width:none;">
-          Hire the room and bring your own ideas, or hand everything to us and
-          let our in-house kitchen and bar team take it from there. Menus are
-          flexible, pricing is transparent, and our events coordinator Tracy is
-          on hand throughout. There's no template for a great party — so we
-          don't offer one.
-        </p>
-        <p style="margin-top:0.75rem; max-width:none;">
-          From 20 guests to 180, from a weekday lunch to a Saturday night that runs
-          until midnight — Ruckland Rooms is yours to shape.
-        </p>
+      </div>
+    </section>
 
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
-          <a href="#menus" class="btn btn--primary">Browse Menus</a>
-          <a href="contact.html" class="btn btn--outline">Get a Quote</a>
+    <!-- ================================================
+         TIMELINE STRIP
+    ================================================ -->
+    <div class="timeline-strip" aria-label="Key dates in Ruckland House history">
+      <div class="timeline-strip__inner">
+        <div class="ts-item">
+          <span class="ts-item__year">1830s</span>
+          <span class="ts-item__label">Mansion Built</span>
+        </div>
+        <div class="ts-item">
+          <span class="ts-item__year">1840</span>
+          <span class="ts-item__label">First Cricket Match</span>
+        </div>
+        <div class="ts-item">
+          <span class="ts-item__year">1845</span>
+          <span class="ts-item__label">Tom Adams Lays the Wicket</span>
+        </div>
+        <div class="ts-item">
+          <span class="ts-item__year">1849</span>
+          <span class="ts-item__label">First First-Class Match</span>
+        </div>
+        <div class="ts-item">
+          <span class="ts-item__year">1868</span>
+          <span class="ts-item__label">First Australian Tourists Arrive</span>
+        </div>
+        <div class="ts-item">
+          <span class="ts-item__year">1895</span>
+          <span class="ts-item__label">W. G. Grace Scores 257</span>
+        </div>
+        <div class="ts-item">
+          <span class="ts-item__year">1905</span>
+          <span class="ts-item__label">Masonic Acquisition</span>
+        </div>
+        <div class="ts-item">
+          <span class="ts-item__year">Today</span>
+          <span class="ts-item__label">Ruckland Rooms</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ================================================ OCCASIONS GRID ================================================ -->
-<section class="o-occasions" aria-labelledby="occ-title">
-  <div class="container">
-    <header class="o-occasions__header reveal">
-      <span class="label">What We Host</span>
-      <h2 id="occ-title">Every Reason to Celebrate</h2>
-      <p style="margin-inline:auto; margin-top:0.75rem;">Life's milestones deserve more than a back room in a pub. Here's what we do best.</p>
-    </header>
+    <!-- ================================================
+         SECTION 1 — Origins
+    ================================================ -->
+    <section class="h-section" aria-labelledby="origins-title">
+      <div class="h-section__inner">
 
-    <div class="o-occasions__grid">
+        <aside class="h-sidebar reveal">
+          <div class="h-sidebar__era">c.1830s</div>
+          <span class="h-sidebar__era-sub">The Early Victorian Era</span>
+          <h2 class="h-sidebar__heading" id="origins-title">
+            A Gentleman's Mansion<br /><em>on Wrotham Road</em>
+          </h2>
+        </aside>
 
-      <article class="occ-card reveal reveal--delay-1">
-        <img class="occ-card__img"
-          src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700&q=80&auto=format&fit=crop"
-          alt="Birthday party celebration" width="700" height="394" loading="lazy" />
-        <div class="occ-card__body">
-          <div class="occ-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div class="h-body reveal reveal--delay-1">
+          <p>
+            Ruckland House takes its name from its original proprietor, <span class="notable">Lawrence Ruck</span>, a Gravesend grocer of considerable standing who built the mansion house on Wrotham Road in the early decades of the nineteenth century. The house was recorded in contemporary accounts as a "large mansion" — a descriptor that speaks to both its physical scale and the social ambitions of the merchant class that lined this stretch of road south of the town centre.
+          </p>
+          <p>
+            The timing was no accident. In the first half of the nineteenth century, Gravesend was at the height of its prosperity. With the coming of the steamboats and the construction of the town's piers, thousands of day-trippers poured in from London. Business boomed, pleasure grounds opened, and the most fashionable of these — Rosherville Gardens — rivalled the Vauxhall Gardens in London itself. Wrotham Road, turnpiked in 1825 and the main artery south from the riverside, was precisely where a successful merchant of the era would choose to build.
+          </p>
+          <div class="h-body-img-placeholder" aria-hidden="true">
+            <!--
+              SUGGESTED IMAGE: A period illustration or map of Gravesend c.1830–1850,
+              or an early photograph of Wrotham Road. Dimensions: 800×600px minimum.
+              Replace this div with: <img src="images/heritage-gravesend-1830s.jpg" alt="..." class="h-body-img" />
+            -->
+            <span>Image: Gravesend c.1830s</span>
           </div>
-          <h3 class="occ-card__title">Birthday Parties</h3>
-          <p class="occ-card__desc">
-            Milestone birthdays deserve a milestone venue. The Ruckland Room gives
-            a 40th, 50th or 60th the scale it deserves — with catering, a bar, and
-            a dance floor already taken care of.
+          <p>
+            The Ruck family's commercial prosperity underwrote a substantial private estate. Its grounds extended well beyond the house itself, encompassing open land to the south that would soon find a singular purpose — and in doing so would shape the sporting history of the entire county of Kent.
+          </p>
+          <p>
+            The house remained in private family occupation for several decades before passing through the hands of successive owners, including the <span class="notable">Darnley family</span> of Cobham Hall and the <span class="notable">Billings family</span>, each of whom maintained the property and its grounds.
           </p>
         </div>
-      </article>
 
-      <article class="occ-card reveal reveal--delay-2">
-        <img class="occ-card__img"
-          src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=700&q=80&auto=format&fit=crop"
-          alt="Anniversary dinner celebration" width="700" height="394" loading="lazy" />
-        <div class="occ-card__body">
-          <div class="occ-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-          </div>
-          <h3 class="occ-card__title">Anniversaries</h3>
-          <p class="occ-card__desc">
-            Silver, gold, pearl — every anniversary is a story worth celebrating
-            properly. We'll set the table, stock the bar, and let the two of you
-            enjoy the evening you deserve.
-          </p>
-        </div>
-      </article>
-
-      <article class="occ-card reveal reveal--delay-3">
-        <img class="occ-card__img"
-          src="https://images.unsplash.com/photo-1544126592-807ade215a0b?w=700&q=80&auto=format&fit=crop"
-          alt="Christening celebration gathering" width="700" height="394" loading="lazy" />
-        <div class="occ-card__body">
-          <div class="occ-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
-          </div>
-          <h3 class="occ-card__title">Christenings</h3>
-          <p class="occ-card__desc">
-            A relaxed, welcoming space for family and friends to come together.
-            Our catering team can do anything from a simple fork buffet to a
-            full sit-down lunch for the whole family.
-          </p>
-        </div>
-      </article>
-
-      <article class="occ-card reveal reveal--delay-1">
-        <img class="occ-card__img"
-          src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&q=80&auto=format&fit=crop"
-          alt="Retirement party celebration" width="700" height="394" loading="lazy" />
-        <div class="occ-card__body">
-          <div class="occ-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3 class="occ-card__title">Retirement Parties</h3>
-          <p class="occ-card__desc">
-            Years of hard work deserves a proper send-off. A private room, a
-            well-stocked bar, and a kitchen that can feed a crowd — everything
-            a good retirement party needs.
-          </p>
-        </div>
-      </article>
-
-      <article class="occ-card reveal reveal--delay-2">
-        <img class="occ-card__img"
-          src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=700&q=80&auto=format&fit=crop"
-          alt="Community gathering and events" width="700" height="394" loading="lazy" />
-        <div class="occ-card__body">
-          <div class="occ-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 class="occ-card__title">Community Events</h3>
-          <p class="occ-card__desc">
-            Club dinners, society events, awards evenings — Ruckland Rooms has
-            hosted the Gravesend Masonic community for over a century. Community
-            is in our bones.
-          </p>
-        </div>
-      </article>
-
-      <article class="occ-card reveal reveal--delay-3">
-        <img class="occ-card__img"
-          src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?w=700&q=80&auto=format&fit=crop"
-          alt="Private dining and celebration" width="700" height="394" loading="lazy" />
-        <div class="occ-card__body">
-          <div class="occ-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3 class="occ-card__title">Private Hire</h3>
-          <p class="occ-card__desc">
-            Not sure which category you fall into? It doesn't matter. If you
-            need a private room, a bar, and good food — call Tracy. We'll make
-            it work.
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================================================ MENUS ================================================ -->
-<section class="o-menus" id="menus" aria-labelledby="menus-title">
-  <div class="container">
-    <header class="o-menus__header reveal">
-      <span class="label">Our Menus</span>
-      <h2 id="menus-title">Fresh. Flexible. Freshly Made.</h2>
-      <p>
-        All menus are prepared in our own kitchen using quality ingredients.
-        Every menu below is a starting point — talk to Tracy and we'll tailor
-        it around you. Prices are inclusive of VAT.
-      </p>
-    </header>
-
-    <div class="o-menus__grid">
-
-      <!-- FEATURED: Excelsior -->
-      <div class="menu-card menu-card--featured reveal">
-        <div class="menu-card__header">
-          <div>
-            <span class="menu-card__badge">Signature Menu · Our Finest</span>
-            <div class="menu-card__name">Excelsior Fork Buffet</div>
-          </div>
-          <div style="text-align:right; flex-shrink:0;">
-            <div class="menu-card__price">£21.95</div>
-            <span class="menu-card__price-label">per person · inc. VAT</span>
-          </div>
-        </div>
-        <div class="menu-card__body">
-          <div class="menu-card__items">
-            <div class="menu-card__item">Dressed Whole Salmon</div>
-            <div class="menu-card__item">King Prawn Crown</div>
-            <div class="menu-card__item">Roasted Topside of Beef</div>
-            <div class="menu-card__item">Honey Glazed Ham</div>
-            <div class="menu-card__item">Tuna Niçoise in a Wholemeal Jacket</div>
-            <div class="menu-card__item">Watercress, Peach &amp; Walnut Salad with Grain Mustard Dressing</div>
-            <div class="menu-card__item">Pasta, Mushroom &amp; Sundried Pepper Salad</div>
-            <div class="menu-card__item">Crudités &amp; Dips</div>
-            <div class="menu-card__item">New Potatoes</div>
-            <div class="menu-card__item">Bread Rolls</div>
-            <div class="menu-card__item">Selection of Desserts</div>
-            <div class="menu-card__item">Cheese &amp; Biscuits</div>
-          </div>
-        </div>
-        <div class="menu-card__actions">
-          <a href="contact.html" class="btn btn--primary" style="font-size:0.78rem; padding:0.8rem 1.6rem;">Enquire About This Menu</a>
-          <a href="pdfs/ruckland-rooms-excelsior-fork-buffet.pdf" class="btn--download" download>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download PDF
-          </a>
-        </div>
       </div>
+    </section>
 
-      <!-- Fork Buffet 1 -->
-      <div class="menu-card reveal reveal--delay-1">
-        <div class="menu-card__header">
-          <div>
-            <span class="menu-card__badge">Fork Buffet</span>
-            <div class="menu-card__name">Buffet One</div>
-          </div>
-          <div style="text-align:right; flex-shrink:0;">
-            <div class="menu-card__price">£14.25</div>
-            <span class="menu-card__price-label">per person · inc. VAT</span>
-          </div>
-        </div>
-        <div class="menu-card__body">
-          <div class="menu-card__items menu-card__items--single">
-            <div class="menu-card__item">Smoked Salmon &amp; Cream Cheese Roulade</div>
-            <div class="menu-card__item">Selection of Cold Meats</div>
-            <div class="menu-card__item">Selection of Quiches</div>
-            <div class="menu-card__item">Caesar Salad</div>
-            <div class="menu-card__item">Niçoise Salad</div>
-            <div class="menu-card__item">Pasta &amp; Mushroom Salad</div>
-            <div class="menu-card__item">Coleslaw</div>
-            <div class="menu-card__item">Bowls of Olives</div>
-            <div class="menu-card__item">Selection of Savoury Nibbles</div>
-            <div class="menu-card__item">French Bread</div>
-            <div class="menu-card__item">Hot New Potatoes</div>
-            <div class="menu-card__item">Selection of Desserts</div>
-          </div>
-        </div>
-        <div class="menu-card__actions">
-          <a href="pdfs/ruckland-rooms-function-menus.pdf" class="btn--download" download>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download All Menus PDF
-          </a>
-        </div>
-      </div>
-
-      <!-- Fork Buffet 2 -->
-      <div class="menu-card reveal reveal--delay-2">
-        <div class="menu-card__header">
-          <div>
-            <span class="menu-card__badge">Fork Buffet</span>
-            <div class="menu-card__name">Buffet Two</div>
-          </div>
-          <div style="text-align:right; flex-shrink:0;">
-            <div class="menu-card__price">£13.95</div>
-            <span class="menu-card__price-label">per person · inc. VAT</span>
-          </div>
-        </div>
-        <div class="menu-card__body">
-          <div class="menu-card__items menu-card__items--single">
-            <div class="menu-card__item">Selection of Rustic Sandwiches &amp; Wraps</div>
-            <div class="menu-card__item">Crab Sticks with Marie Rose Dip</div>
-            <div class="menu-card__item">Prawns in Filo</div>
-            <div class="menu-card__item">Selection of Warm Quiches</div>
-            <div class="menu-card__item">Mini Cornish Pasties</div>
-            <div class="menu-card__item">Chicken Satay</div>
-            <div class="menu-card__item">Warm Baby Jacket Potatoes with Sour Cream</div>
-            <div class="menu-card__item">Pasta &amp; Mushroom Salad</div>
-            <div class="menu-card__item">Rice Salad · Coleslaw · Crisps</div>
-            <div class="menu-card__item">Selection of Desserts</div>
-          </div>
-        </div>
-        <div class="menu-card__actions">
-          <a href="pdfs/ruckland-rooms-function-menus.pdf" class="btn--download" download>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download All Menus PDF
-          </a>
-        </div>
-      </div>
-
-      <!-- Evening Buffet 3 -->
-      <div class="menu-card reveal reveal--delay-1">
-        <div class="menu-card__header">
-          <div>
-            <span class="menu-card__badge">Evening Buffet</span>
-            <div class="menu-card__name">Evening Buffet Three</div>
-          </div>
-          <div style="text-align:right; flex-shrink:0;">
-            <div class="menu-card__price">£8.95</div>
-            <span class="menu-card__price-label">per person · inc. VAT</span>
-          </div>
-        </div>
-        <div class="menu-card__body">
-          <div class="menu-card__items menu-card__items--single">
-            <div class="menu-card__item">Sandwiches &amp; Wraps</div>
-            <div class="menu-card__item">Thai Fish Cakes with Sweet Chilli Dip</div>
-            <div class="menu-card__item">Selection of Quiches</div>
-            <div class="menu-card__item">Sausage Rolls</div>
-            <div class="menu-card__item">Warm Vegetable Samosas</div>
-            <div class="menu-card__item">Warm Vegetable Spring Rolls</div>
-            <div class="menu-card__item">Honey &amp; Rosemary Glazed Sausages</div>
-            <div class="menu-card__item">Roast Chicken in a Southern-Style Crumb</div>
-            <div class="menu-card__item">Crisps</div>
-          </div>
-        </div>
-        <div class="menu-card__actions">
-          <a href="pdfs/ruckland-rooms-function-menus.pdf" class="btn--download" download>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download All Menus PDF
-          </a>
-        </div>
-      </div>
-
-      <!-- Evening Buffet 4 -->
-      <div class="menu-card reveal reveal--delay-2">
-        <div class="menu-card__header">
-          <div>
-            <span class="menu-card__badge">Evening Buffet</span>
-            <div class="menu-card__name">Evening Buffet Four</div>
-          </div>
-          <div style="text-align:right; flex-shrink:0;">
-            <div class="menu-card__price">£7.95</div>
-            <span class="menu-card__price-label">per person · inc. VAT</span>
-          </div>
-        </div>
-        <div class="menu-card__body">
-          <div class="menu-card__items menu-card__items--single">
-            <div class="menu-card__item">Selection of Marinated Chicken Drumsticks</div>
-            <div class="menu-card__item">Selection of Sandwiches</div>
-            <div class="menu-card__item">Cocktail Sausages</div>
-            <div class="menu-card__item">Cheese &amp; Pineapple</div>
-            <div class="menu-card__item">Mini Scotch Eggs</div>
-            <div class="menu-card__item">Cocktail Pork Pies</div>
-            <div class="menu-card__item">Sausage Rolls</div>
-            <div class="menu-card__item">Crudités &amp; Dips</div>
-            <div class="menu-card__item">Crisps</div>
-          </div>
-        </div>
-        <div class="menu-card__actions">
-          <a href="pdfs/ruckland-rooms-function-menus.pdf" class="btn--download" download>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download All Menus PDF
-          </a>
-        </div>
-      </div>
-
-      <!-- Menu note card -->
-      <div class="menu-card menu-card--featured reveal" style="border-color:rgba(255,255,255,0.1); background:rgba(255,255,255,0.04);">
-        <div class="menu-card__body" style="padding:2rem;">
-          <span class="label" style="color:var(--gold-light);">Bespoke Menus</span>
-          <h3 style="font-family:var(--font-display); font-size:1.5rem; color:var(--white); font-weight:400; margin-bottom:0.75rem;">
-            None of these quite right?
-          </h3>
-          <p style="font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.75; max-width:none; margin-bottom:1.2rem;">
-            Every menu above is a starting point. Our kitchen can add, remove,
-            or swap items to suit dietary needs, preferences, or a theme.
-            If you have something specific in mind — a particular dish, a cuisine,
-            a style — tell Tracy and she'll get you a revised quote.
-          </p>
-          <p style="font-size:0.85rem; color:rgba(255,255,255,0.4); max-width:none; font-style:italic;">
-            All prices are inclusive of VAT. Custom menus are priced individually.
-          </p>
-          <div style="margin-top:1.4rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
-            <a href="contact.html" class="btn btn--primary" style="font-size:0.78rem; padding:0.8rem 1.6rem;">Request a Custom Menu</a>
-            <a href="pdfs/ruckland-rooms-function-menus.pdf" class="btn--download" download>
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download All Menus
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================================================ HIRE & COORDINATOR ================================================ -->
-<section class="o-hire" aria-labelledby="hire-title">
-  <div class="container">
-    <div class="o-hire__inner">
-
-      <div class="reveal">
-        <span class="label">Hiring Ruckland Rooms</span>
-        <h2 id="hire-title">Everything You Need,<br /><em>Included as Standard.</em></h2>
-        <p style="margin-top:0.75rem; max-width:none;">
-          Every private hire at Ruckland Rooms comes with more than just four walls.
-          Below is what's always part of the package — regardless of which menu or
-          format you choose.
-        </p>
-
-        <div class="incl-list">
-          <div class="incl-item">
-            <div class="incl-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            </div>
-            <div class="incl-item__text">
-              <span class="incl-item__title">Exclusive room hire</span>
-              <span class="incl-item__desc">The Ruckland Room (up to 180) or the Pocahontas Room for more intimate gatherings — yours for the duration of your event.</span>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <div class="incl-item__text">
-              <span class="incl-item__title">Private car park</span>
-              <span class="incl-item__desc">Free for all your guests, for the full duration. No pay-and-display, no circling the block.</span>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 11v11"/><path d="M5 3h14a1 1 0 0 1 .8 1.6l-4.8 6.4a2 2 0 0 0-.4 1.2V14a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.8a2 2 0 0 0-.4-1.2L5.2 4.6A1 1 0 0 1 5 3z"/></svg>
-            </div>
-            <div class="incl-item__text">
-              <span class="incl-item__title">Fully licensed bar</span>
-              <span class="incl-item__desc">Staffed by our own team throughout your event. Wines, spirits, ales, soft drinks — all at pub prices.</span>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <div class="incl-item__text">
-              <span class="incl-item__title">Tables, chairs &amp; linen</span>
-              <span class="incl-item__desc">Round or long tables, configured to your needs. White linen included as standard.</span>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="incl-item__text">
-              <span class="incl-item__title">Event coordinator</span>
-              <span class="incl-item__desc">Tracy is with you from your first enquiry to the end of the evening — planning, troubleshooting, and making sure everything runs to time.</span>
-            </div>
-          </div>
-          <div class="incl-item">
-            <div class="incl-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-            </div>
-            <div class="incl-item__text">
-              <span class="incl-item__title">Air conditioning</span>
-              <span class="incl-item__desc">Comfortable year-round. Summer parties stay cool; winter celebrations stay warm.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal reveal--delay-2" style="position:sticky; top:6rem;">
-        <div class="coordinator-card">
-          <span class="coordinator-card__label">Your Events Coordinator</span>
-          <div class="coordinator-card__name">Tracy</div>
-          <p class="coordinator-card__title">Events &amp; Functions Manager · Ruckland Rooms</p>
-          <div class="coordinator-card__divider"></div>
-          <p class="coordinator-card__bio">
-            Tracy has been running private functions at Ruckland Rooms for years.
-            She knows the rooms inside out, the menus inside out, and exactly what
-            it takes to turn a booking into an occasion people actually remember.
-          </p>
-          <p class="coordinator-card__bio" style="margin-top:0;">
-            Give her a rough idea of what you're planning and she'll come back to you
-            with a quote, a menu suggestion, and probably a few ideas you hadn't
-            thought of yet.
-          </p>
-          <div class="coordinator-card__contact">
-            <a href="tel:01474352171" class="coordinator-card__link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              01474 352171
-            </a>
-            <a href="tel:07850484975" class="coordinator-card__link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-              07850 48 49 75
-            </a>
-            <a href="mailto:info@rucklandrooms.com" class="coordinator-card__link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              info@rucklandrooms.com
-            </a>
-          </div>
-        </div>
-
-        <div style="margin-top:1.5rem; background:var(--cream-dark); border-radius:var(--radius-md); padding:1.6rem; border:1px solid var(--cream);">
-          <span class="label" style="font-size:0.65rem;">Check Availability</span>
-          <p style="font-size:0.85rem; color:var(--navy-mid); margin-top:0.25rem; max-width:none;">
-            Weekend dates book up quickly, especially in summer. Get in touch early
-            and we'll confirm availability with no obligation.
-          </p>
-          <a href="contact.html" class="btn btn--primary" style="margin-top:1rem; font-size:0.75rem; padding:0.75rem 1.4rem;">
-            Check Your Date
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ================================================ GALLERY ================================================ -->
-<section class="o-gallery" aria-labelledby="gallery-title">
-  <div class="container">
-    <header class="o-gallery__header reveal">
-      <span class="label">The Atmosphere</span>
-      <h2 id="gallery-title">See the Rooms</h2>
-      <p style="margin-inline:auto; margin-top:0.75rem;">A venue that feels as good as it looks — whatever the occasion.</p>
-    </header>
-
-    <div class="gallery-mosaic reveal">
-      <div class="gallery-mosaic__item" data-caption="The Ruckland Room">
-        <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=900&q=80&auto=format&fit=crop"
-          alt="The Ruckland Room set for a celebration" width="900" height="1200" loading="lazy" />
-      </div>
-      <div class="gallery-mosaic__item" data-caption="Celebration Setting">
-        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80&auto=format&fit=crop"
-          alt="Guests enjoying a celebration at Ruckland Rooms" width="800" height="533" loading="lazy" />
-      </div>
-      <div class="gallery-mosaic__item" data-caption="Table Dressing">
-        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=700&q=80&auto=format&fit=crop"
-          alt="Beautifully dressed event table" width="700" height="467" loading="lazy" />
-      </div>
-      <div class="gallery-mosaic__item" data-caption="The Details">
-        <img src="https://images.unsplash.com/photo-1547393947-1849a9bc25c8?w=700&q=80&auto=format&fit=crop"
-          alt="Celebration drinks and details" width="700" height="467" loading="lazy" />
-      </div>
-      <div class="gallery-mosaic__item" data-caption="The Bar">
-        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&q=80&auto=format&fit=crop"
-          alt="Guests at a function at Ruckland Rooms" width="800" height="533" loading="lazy" />
+    <div class="h-ornament" aria-hidden="true">
+      <div class="h-ornament__line">
+        <div class="h-ornament__diamond"></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ================================================ TESTIMONIALS ================================================ -->
-<section class="o-testimonials" aria-labelledby="testi-title">
-  <div class="container">
-    <header class="o-testimonials__header reveal">
-      <span class="label">What People Say</span>
-      <h2 id="testi-title">In Their Own Words</h2>
-    </header>
+    <!-- ================================================
+         SECTION 2 — Cricket
+    ================================================ -->
+    <section class="h-section h-section--alt" aria-labelledby="cricket-title">
+      <div class="h-section__inner h-section__inner--reverse">
 
-    <div class="testimonials__grid">
-      <article class="testimonial-card reveal reveal--delay-1">
-        <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-        <p class="testimonial-card__text">
-          "Had a great night on Saturday. Thanks to those that came and to Tracy and
-          the staff for all their hard work and a really lovely meal. Couldn't have
-          asked for more."
-        </p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar" aria-hidden="true">J</div>
-          <div>
-            <span class="testimonial-card__name">James &amp; Family</span>
-            <span class="testimonial-card__occasion">Birthday Party</span>
+        <div class="h-body reveal">
+
+          <p>
+            The grounds of Ruckland House enter the historical record most vividly through their connection to cricket. The first recorded match on the site took place in 1840, when a Gravesend team played Penenden Heath — a fixture of local significance at a time when cricket was becoming central to Kent's civic identity.
+          </p>
+
+          <div class="h-pull">
+            <p>"The cricket ground was laid out in the grounds of Ruckland House, described as a 'large mansion', and used as the private cricket ground for the house."</p>
+            <cite>Howard Milton — Bat and Ball Gravesend: A First-class Cricket History (1999)</cite>
           </div>
-        </div>
-      </article>
 
-      <article class="testimonial-card reveal reveal--delay-2">
-        <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-        <p class="testimonial-card__text">
-          "A big thank you for making our evening another night to remember.
-          The catering and bar staff did us proud once again — everyone commented
-          on how well run it all was."
-        </p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar" aria-hidden="true">M</div>
-          <div>
-            <span class="testimonial-card__name">Michelle &amp; David</span>
-            <span class="testimonial-card__occasion">Anniversary Celebration</span>
+          <p>
+            Around 1845, <span class="notable">Thomas Miles Adams</span> (1810–1894) — a lifelong Gravesend resident and one of Kent's most distinguished cricketers — laid a new wicket in the mansion grounds, levelling and turfing the site using turf brought from Cobham Park. Adams had played for Kent since 1836, also representing the Marylebone Cricket Club (MCC) and various All England Elevens. He made over 150 appearances in important matches and later umpired a further 20 between 1852 and 1865.
+          </p>
+          <p>
+            Under Adams's stewardship, possibly with fellow Gravesend cricketer <span class="notable">William Smith</span>, the private ground was transformed into a venue of county and eventually national standing. In 1849 — just four years after Adams laid the wicket — Kent County Cricket Club played their first first-class match on the site, against an All-England Eleven. A ground born from the leisure of a single merchant family had become a stage for the highest level of English cricket.
+          </p>
+
+          <div class="h-stats" aria-label="Cricket ground statistics">
+            <div class="h-stat">
+              <span class="h-stat__num">145</span>
+              <span class="h-stat__lbl">First-class matches played</span>
+            </div>
+            <div class="h-stat">
+              <span class="h-stat__num">122</span>
+              <span class="h-stat__lbl">Years of first-class cricket</span>
+            </div>
+            <div class="h-stat">
+              <span class="h-stat__num">257</span>
+              <span class="h-stat__lbl">W. G. Grace's record innings, 1895</span>
+            </div>
+            <div class="h-stat">
+              <span class="h-stat__num">1868</span>
+              <span class="h-stat__lbl">Australia's first touring team arrived here</span>
+            </div>
           </div>
-        </div>
-      </article>
 
-      <article class="testimonial-card reveal reveal--delay-3">
-        <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
-        <p class="testimonial-card__text">
-          "Perfect venue for our family gathering. The food was brilliant and
-          Tracy was incredibly helpful throughout the whole process. We'll
-          definitely be coming back for the next one."
-        </p>
-        <div class="testimonial-card__author">
-          <div class="testimonial-card__avatar" aria-hidden="true">R</div>
-          <div>
-            <span class="testimonial-card__name">Robert &amp; Family</span>
-            <span class="testimonial-card__occasion">Family Christening</span>
+        </div>
+
+        <aside class="h-sidebar reveal reveal--delay-1">
+          <div class="h-sidebar__era">1840–<br/>1903</div>
+          <span class="h-sidebar__era-sub">The Cricket Years</span>
+          <h2 class="h-sidebar__heading" id="cricket-title">
+            The Birth of<br /><em>Kent Cricket</em><br />in These Grounds
+          </h2>
+          <div class="h-img-wrap" style="margin-top: 2rem;">
+            <div class="h-img-wrap__placeholder" aria-hidden="true">
+              <!--
+                SUGGESTED IMAGE: A Victorian-era cricket photograph or illustration.
+                Replace with: <img src="images/heritage-cricket.jpg" alt="Victorian cricket at the Bat and Ball Ground, Gravesend" />
+              -->
+              <span>RH</span>
+            </div>
+            <p class="h-img-caption">The Bat and Ball Ground, Gravesend</p>
           </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+        </aside>
 
-<!-- ================================================ FAQ ================================================ -->
-<section class="o-faq" aria-labelledby="faq-title">
-  <div class="container container--narrow">
-    <header class="o-faq__header reveal">
-      <span class="label">Good to Know</span>
-      <h2 id="faq-title">Common Questions</h2>
-    </header>
-
-    <div class="faq-list reveal">
-      <details class="faq-item">
-        <summary>How many guests can you accommodate?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
-        <p class="faq-item__answer">The Ruckland Room holds up to 120 for formal sit-down dining and up to 180 for a buffet or standing event. For smaller gatherings of 20–50 people, the Pocahontas Room with its adjoining Lounge Bar is an ideal and more intimate option.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Can the menus be changed or customised?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
-        <p class="faq-item__answer">Every menu on this page is a starting point. Our kitchen can substitute items, accommodate dietary requirements (vegetarian, vegan, gluten-free, allergens), or build something entirely from scratch. Just ask Tracy for a revised quote.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Is there a bar at the venue?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
-        <p class="faq-item__answer">Yes — Ruckland Rooms has a fully licensed bar staffed by our own team. We serve wines, spirits, ales, lagers, and soft drinks at pub prices throughout your event. No inflated hotel bar prices here.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Is there parking?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
-        <p class="faq-item__answer">Yes — we have our own private car park available at no charge to your guests. The venue is also centrally located in Gravesend, a short walk from the railway station, so guests travelling by train are well catered for too.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>How do I get a quote?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
-        <p class="faq-item__answer">The quickest route is to call Tracy directly on 01474 352171 or 07850 48 49 75. Alternatively, use the contact form and she'll come back to you promptly. Give her a rough guest count, a date if you have one, and an idea of what you're planning — she'll do the rest.</p>
-      </details>
-
-      <details class="faq-item">
-        <summary>Can I bring my own cake or decorations?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
-        <p class="faq-item__answer">Absolutely. This is your event — bring whatever makes it personal. We provide tables, chairs, linen, and a cake stand. Beyond that, the room is yours to dress as you like.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ================================================ CTA ================================================ -->
-<section class="cta-band" id="begin-planning" aria-labelledby="cta-title">
-  <div class="container">
-    <div class="cta-band__inner reveal">
-      <div class="rule"><div class="rule__diamond"></div></div>
-      <span class="label">Begin Planning</span>
-      <h2 class="cta-band__title" id="cta-title">Your Occasion Starts<br /><em>With a Conversation</em></h2>
-      <p class="cta-band__sub">No long forms, no holding music. Call Tracy, tell her what you're planning, and let's talk through the options.</p>
-      <div class="cta-band__actions">
-        <a href="contact.html" class="btn btn--primary">Send an Enquiry</a>
-        <a href="tel:01474352171" class="btn btn--outline">Call 01474 352171</a>
       </div>
-      <div class="cta-band__contact">
-        <div class="cta-band__contact-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span>25 Wrotham Road, Gravesend, Kent DA11 0PA</span>
+    </section>
+
+    <!-- ================================================
+         SECTION 3 — Famous Visitors
+    ================================================ -->
+    <section class="h-section h-section--dark" aria-labelledby="visitors-title">
+      <div class="h-section__inner">
+
+        <aside class="h-sidebar reveal">
+          <div class="h-sidebar__era">1868<br/>&amp; 1895</div>
+          <span class="h-sidebar__era-sub">History on the Ground</span>
+          <h2 class="h-sidebar__heading" id="visitors-title">
+            Moments That<br /><em>Made History</em>
+          </h2>
+        </aside>
+
+        <div class="h-body reveal reveal--delay-1">
+          <p>
+            The ground that Lawrence Ruck's estate made possible went on to host two of the most remarkable moments in the history of English cricket — moments connected not just to the ground itself, but to the town of Gravesend.
+          </p>
+          <p>
+            In May 1868, the first Australian cricket team ever to tour England sailed into Gravesend aboard the ship <em>Paramatta</em> after a three-month voyage from Sydney. The thirteen players were First Nations men — Jardwadjali, Gunditjmara and Wotjobaluk peoples from the western district of Victoria — captained by the English cricketer <span class="notable">Charles Lawrence</span>. They were taken to lunch at the Bat and Ball Inn beside the ground before playing one of their earliest matches on the very turf that Lawrence Ruck's estate had made possible.
+          </p>
+          <p>
+            It was a tour of profound significance. The players went on to contest 47 matches across England that summer, winning 14 and drawing 19. It would be another ten years before a second Australian team followed them. Gravesend — and the ground born from a merchant's private estate — was where it all began.
+          </p>
+
+          <div class="h-body-img-placeholder" aria-hidden="true">
+            <!--
+              SUGGESTED IMAGE: The 1868 Aboriginal cricket team photograph (widely reproduced,
+              check rights). Or a reproduction of a period match illustration.
+              Replace with: <img src="images/heritage-aboriginal-team-1868.jpg" alt="..." class="h-body-img" />
+            -->
+            <span>Image: Aboriginal XI, 1868 Tour of England</span>
+          </div>
+
+          <div class="h-pull">
+            <p>"He received three hearty cheers as he made his way along the street to his hotel — a triumphal procession through the town."</p>
+            <cite>Bristol Times and Mirror, on W. G. Grace at Gravesend, 1895</cite>
+          </div>
+
+          <p>
+            In 1895, <span class="notable">W. G. Grace</span> — already a legend at 46 — scored 257 for Gloucestershire against Kent on the ground, the highest individual innings ever recorded there. He was on the field for every single ball of the match: scoring 257, remaining unbeaten on 73 in the second innings, and bowling 43 overs in Kent's first innings of 470. When he finally left the field, the crowd had waited for him to change. He emerged from the pavilion to three hearty cheers and made his way along the street to his hotel in what reporters called a triumphal procession through the town. The Bristol Times and Mirror considered it a record no other player had equalled. He was approaching his 47th birthday.
+          </p>
         </div>
-        <div class="cta-band__contact-item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:info@rucklandrooms.com">info@rucklandrooms.com</a>
-        </div>
+
+      </div>
+    </section>
+
+    <div class="h-ornament" style="background: var(--cream);" aria-hidden="true">
+      <div class="h-ornament__line">
+        <div class="h-ornament__diamond"></div>
       </div>
     </div>
-  </div>
-</section>
 
-</main>
+    <!-- ================================================
+         SECTION 4 — Masonic Acquisition
+    ================================================ -->
+    <section class="h-section" aria-labelledby="masonic-title">
+      <div class="h-section__inner">
 
-<!-- ================================================ FOOTER ================================================ -->
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="footer__inner">
-      <div>
-                  <div class="footer__logo-wrap">
+        <aside class="h-sidebar reveal">
+          <div class="h-sidebar__era">1905</div>
+          <span class="h-sidebar__era-sub">A New Chapter</span>
+          <h2 class="h-sidebar__heading" id="masonic-title">
+            The Masons<br /><em>&amp; a New Purpose</em>
+          </h2>
+        </aside>
+
+        <div class="h-body reveal reveal--delay-1">
+          <p>
+            In 1905, Ruckland House entered a new phase of its long life. The property on Wrotham Road was purchased for the sum of £2,100 to serve as a Masonic Temple — a transaction recorded in the civic annals of Gravesend that year alongside the purchase of the town cemetery and the extension of the electricity supply to Northfleet.
+          </p>
+          <p>
+            The <span class="notable">Gravesend Masonic Hall Company Limited</span> was formally incorporated on 16 June 1905, with its registered address at 25 Wrotham Road — the same address the building holds to this day. The Company remains active, a continuous institutional presence spanning over one hundred and twenty years.
+          </p>
+
+          <div class="h-pull">
+            <p>"Through the years it has been transformed and extended to allow its progression from a large family home to the business it is today. With the retention of many of its original features, it makes it a truly quirky and comfortable space."</p>
+            <cite>Ruckland House — official description</cite>
+          </div>
+
+          <p>
+            Through the twentieth century, Ruckland House was adapted to meet the needs of its new occupants while retaining much of its Victorian character. Extensions were added, rooms reconfigured, and the building evolved from a private family residence into a functioning Masonic centre serving the lodges of East Kent.
+          </p>
+          <p>
+            Several lodges have met regularly at the Hall, among them the <span class="notable">Lodge of Sympathy No. 483</span>, <span class="notable">Chantry Lodge No. 6454</span>, <span class="notable">Cobham Lodge No. 7269</span>, and <span class="notable">Libertas Secunda Lodge No. 6433</span> — the last founded in 1947 by local river pilots, reflecting Gravesend's deep and enduring ties to the Thames. The Masonic stewardship brought with it a philosophy of community service, charitable giving, and civic involvement that has been consistent with the building's wider history.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="h-ornament" aria-hidden="true">
+      <div class="h-ornament__line">
+        <div class="h-ornament__diamond"></div>
+      </div>
+    </div>
+
+    <!-- ================================================
+         SECTION 5 — Today
+    ================================================ -->
+    <section class="h-section h-section--alt" aria-labelledby="today-title">
+      <div class="h-section__inner h-section__inner--reverse">
+
+        <div class="h-body reveal">
+          <p>
+            Ruckland House today operates as both the Gravesend Masonic Centre and a well-regarded events venue serving the wider community. The building at 25 Wrotham Road hosts weddings, celebrations, meetings, and family occasions — a continuation of its role as a gathering place at the heart of Gravesend life.
+          </p>
+          <p>
+            The original structure survives as the core of the building, with many of its Victorian features intact. The rooms bear witness to nearly two centuries of continuous occupation: as a merchant's family seat, as the cradle of county cricket, and as a centre of fraternal life in East Kent.
+          </p>
+          <p>
+            Few buildings in Gravesend carry so layered a heritage within a single address — a quiet mansion on a busy road that once shaped the landscape of English cricket, and has served the community without interruption for nearly two hundred years.
+          </p>
+          <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="rooms.html" class="btn btn--primary">Explore the Rooms</a>
+            <a href="contact.html" class="btn btn--ghost">Make an Enquiry</a>
+          </div>
+        </div>
+
+        <aside class="h-sidebar reveal reveal--delay-1">
+          <div class="h-sidebar__era">Today</div>
+          <span class="h-sidebar__era-sub">Ruckland Rooms</span>
+          <h2 class="h-sidebar__heading" id="today-title">
+            Nearly Two Centuries<br /><em>of Gathering</em>
+          </h2>
+          <div class="h-img-wrap" style="margin-top: 2rem;">
+            <div class="h-img-wrap__placeholder" aria-hidden="true">
+              <!--
+                SUGGESTED IMAGE: A current exterior or interior photo of Ruckland House.
+                Replace with: <img src="images/heritage-today.jpg" alt="Ruckland House today, 25 Wrotham Road, Gravesend" />
+              -->
+              <span>RH</span>
+            </div>
+            <p class="h-img-caption">Ruckland House — 25 Wrotham Road, Gravesend</p>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ================================================
+         CTA BAND
+    ================================================ -->
+    <section class="cta-band" id="begin-planning" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band__inner reveal">
+          <div class="rule"><div class="rule__diamond"></div></div>
+          <span class="label">Book the Venue</span>
+          <h2 class="cta-band__title" id="cta-title">
+            Add Your Story<br /><em>to Ours</em>
+          </h2>
+          <p class="cta-band__sub">
+            Nearly two centuries of gatherings have passed through these rooms. 
+            Your occasion — whatever it is — belongs here too.
+          </p>
+          <div class="cta-band__actions">
+            <a href="contact.html" class="btn btn--primary">Send an Enquiry</a>
+            <a href="tel:01474352171" class="btn btn--outline">Call 01474 352171</a>
+          </div>
+          <div class="cta-band__contact">
+            <div class="cta-band__contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>25 Wrotham Road, Gravesend, Kent DA11 0PA</span>
+            </div>
+            <div class="cta-band__contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:info@rucklandrooms.com">info@rucklandrooms.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+                    <div class="footer__logo-wrap">
             <img
               src="images/logo-white.webp"
               alt="Ruckland House — Gravesend, Est. 1905"
@@ -1511,17 +830,15 @@
               loading="lazy"
             />
           </div>
-          <div class="footer__brand-name">Ruckland Rooms</div>
-        <span class="footer__brand-sub">Gravesend · Est. 1905</span>
-        <p class="footer__tagline">A heritage venue at the heart of Gravesend — for weddings, celebrations, gatherings, and every moment in between.</p>
-        <div class="footer__social">
-          <a href="https://www.facebook.com/Ruckland-House-2132019600415374/" target="_blank" rel="noopener noreferrer" aria-label="Follow Ruckland Rooms on Facebook">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            Follow on Facebook
-          </a>
+          <p class="footer__tagline">A heritage venue at the heart of Gravesend — for weddings, celebrations, gatherings, and every moment in between.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/Ruckland-House-2132019600415374/" target="_blank" rel="noopener noreferrer" aria-label="Follow Ruckland Rooms on Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Follow on Facebook
+            </a>
+          </div>
         </div>
-      </div>
-              <nav aria-label="Footer navigation">
+                <nav aria-label="Footer navigation">
           <span class="footer__col-title">Explore</span>
           <ul class="footer__nav">
             <li><a href="rooms.html">Our Rooms</a></li>
@@ -1533,65 +850,83 @@
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </nav>
-      <div>
-        <span class="footer__col-title">Find Us</span>
-        <address class="footer__address">
-          <strong>Ruckland Rooms</strong><br />
-          25 Wrotham Road<br />Gravesend<br />Kent<br />DA11 0PA
-        </address>
-        <p style="margin-top:0.75rem; font-size:0.75rem; color:rgba(255,255,255,0.35); max-width:none;">Private car park available.<br />Close to Gravesend railway station.</p>
-      </div>
-      <div>
-        <span class="footer__col-title">Get in Touch</span>
-        <a href="tel:01474352171" class="footer__contact-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          01474 352171
-        </a>
-        <a href="mailto:info@rucklandrooms.com" class="footer__contact-link">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          info@rucklandrooms.com
-        </a>
-        <div style="margin-top:1.2rem;">
-          <a href="#begin-planning" class="btn btn--primary" style="font-size:0.7rem; padding:0.7rem 1.4rem;">Make an Enquiry</a>
+        <div>
+          <span class="footer__col-title">Find Us</span>
+          <address class="footer__address">
+            <strong>Ruckland Rooms</strong><br />
+            25 Wrotham Road<br />Gravesend<br />Kent<br />DA11 0PA
+          </address>
+          <p style="margin-top:0.75rem; font-size:0.75rem; color:rgba(255,255,255,0.35); max-width:none;">Private car park available.<br />Close to Gravesend railway station.</p>
+        </div>
+        <div>
+          <span class="footer__col-title">Get in Touch</span>
+          <a href="tel:01474352171" class="footer__contact-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            01474 352171
+          </a>
+          <a href="mailto:info@rucklandrooms.com" class="footer__contact-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@rucklandrooms.com
+          </a>
+          <div style="margin-top:1.2rem;">
+            <a href="#begin-planning" class="btn btn--primary" style="font-size:0.7rem; padding:0.7rem 1.4rem;">Make an Enquiry</a>
+          </div>
         </div>
       </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <script>document.write(new Date().getFullYear())</script> Ruckland Rooms, Gravesend. All rights reserved. All hires are subject to our terms &amp; conditions, available on request.</p>
+        <nav class="footer__legal" aria-label="Legal navigation">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms &amp; Conditions</a>
+          <a href="sitemap.html">Sitemap</a>
+        </nav>
+      </div>
     </div>
-    <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2025 Ruckland Rooms, Gravesend. All rights reserved. All hires are subject to our terms &amp; conditions, available on request.</p>
-      <nav class="footer__legal" aria-label="Legal navigation">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms &amp; Conditions</a>
-        <a href="sitemap.html">Sitemap</a>
-      </nav>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+  <!-- ================================================
+       JAVASCRIPT
+  ================================================ -->
+  <script>
+    // Sticky header
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
 
-  const heroImg = document.getElementById('hero-img');
-  if (heroImg) {
-    window.addEventListener('scroll', () => { heroImg.style.transform = `translateY(${window.scrollY * 0.25}px)`; }, { passive: true });
-  }
+    // Hero parallax + image load animation
+    const heroImg = document.getElementById('hero-img');
+    if (heroImg) {
+      window.addEventListener('scroll', () => {
+        heroImg.style.transform = `translateY(${window.scrollY * 0.2}px)`;
+      }, { passive: true });
+      // Trigger Ken Burns on load
+      setTimeout(() => heroImg.classList.add('loaded'), 100);
+    }
 
-  const toggle = document.getElementById('nav-toggle');
-  const mobileNav = document.getElementById('nav-mobile');
-  const closeBtn = document.getElementById('nav-close');
-  function openNav() { toggle.classList.add('open'); mobileNav.classList.add('open'); mobileNav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-  function closeNav() { toggle.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-  toggle.addEventListener('click', () => mobileNav.classList.contains('open') ? closeNav() : openNav());
-  closeBtn.addEventListener('click', closeNav);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
-  document.querySelectorAll('.nav__mobile-link').forEach(l => l.addEventListener('click', closeNav));
+    // Mobile nav
+    const toggle    = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('nav-mobile');
+    const closeBtn  = document.getElementById('nav-close');
+    function openNav()  { toggle.classList.add('open'); mobileNav.classList.add('open'); mobileNav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeNav() { toggle.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    toggle.addEventListener('click', () => mobileNav.classList.contains('open') ? closeNav() : openNav());
+    closeBtn.addEventListener('click', closeNav);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+    document.querySelectorAll('.nav__mobile-link').forEach(l => l.addEventListener('click', closeNav));
 
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-  revealEls.forEach(el => observer.observe(el));
-</script>
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
