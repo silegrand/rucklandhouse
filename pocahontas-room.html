@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Pocahontas Room — an intimate, carpeted event space at Ruckland House, Gravesend. Up to 60 guests, private Lounge Bar access, natural light, air conditioning. Named in honour of Gravesend's extraordinary history." />
+  <meta property="og:title" content="The Pocahontas Room — Ruckland House, Gravesend" />
+  <meta property="og:description" content="Intimate, warm, and entirely yours. Up to 60 guests, private Lounge Bar access, and a story behind the name that only Gravesend can tell." />
+  <meta property="og:type" content="website" />
+  <title>The Pocahontas Room — Ruckland House, Gravesend | Est. 1905</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <style>
+    /* ── Page hero ── */
+    .page-hero {
+      position: relative;
+      min-height: 90svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-bottom: 5rem;
+    }
+    .page-hero__img {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1560472355-536de3962603?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover; background-position: center 40%;
+      z-index: 0;
+      transition: transform 8s ease-out;
+    }
+    .page-hero__img.loaded { transform: scale(1.03); }
+    .page-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(14,22,34,0.93) 0%, rgba(14,22,34,0.5) 50%, rgba(14,22,34,0.15) 100%);
+      z-index: 1;
+    }
+    .page-hero__inner {
+      position: relative; z-index: 2;
+      width: 90%; max-width: 1180px; margin-inline: auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: end;
+      padding-top: 5rem;
+    }
+    .page-hero__breadcrumb {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-accent); font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 1.5rem;
+    }
+    .page-hero__breadcrumb a { color: rgba(255,255,255,0.4); transition: color var(--duration) var(--ease); }
+    .page-hero__breadcrumb a:hover { color: var(--gold-light); }
+    .page-hero__breadcrumb span { color: rgba(255,255,255,0.2); }
+    .page-hero__title { font-family: var(--font-display); font-size: clamp(3rem, 6vw, 5rem); font-weight: 300; color: var(--white); line-height: 1.07; margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 1s var(--ease) 0.2s forwards; }
+    .page-hero__title em { font-style: italic; color: var(--gold-light); }
+    .page-hero__sub { font-size: 1.05rem; color: rgba(255,255,255,0.72); line-height: 1.75; max-width: 46ch; margin-bottom: 2rem; opacity: 0; animation: fadeUp 1s var(--ease) 0.4s forwards; }
+    .page-hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 1s var(--ease) 0.6s forwards; }
+    .page-hero__facts { display: flex; flex-direction: column; gap: 1px; opacity: 0; animation: fadeUp 1s var(--ease) 0.8s forwards; }
+    .hero-fact { display: flex; align-items: center; gap: 1.2rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 1rem 1.4rem; transition: background var(--duration) var(--ease); }
+    .hero-fact:first-child { border-radius: 6px 6px 0 0; }
+    .hero-fact:last-child  { border-radius: 0 0 6px 6px; }
+    .hero-fact:hover { background: rgba(255,255,255,0.11); }
+    .hero-fact__icon { flex-shrink: 0; width: 2rem; display: flex; align-items: center; justify-content: center; color: var(--gold-light); }
+    .hero-fact__icon svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .hero-fact__value { font-family: var(--font-display); font-size: 1.05rem; color: var(--white); line-height: 1.2; display: block; }
+    .hero-fact__label { font-family: var(--font-accent); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+    /* ── Capacity strip ── */
+    .cap-strip { background: var(--navy); border-top: 1px solid rgba(184,146,74,0.2); }
+    .cap-strip__inner { max-width: 1180px; margin: 0 auto; padding: 0 5%; display: flex; align-items: center; }
+    .cap-strip__item { flex: 1; text-align: center; padding: 1.4rem 1rem; }
+    .cap-strip__num { font-family: var(--font-display); font-size: 2.4rem; font-weight: 300; color: var(--gold-light); line-height: 1; display: block; }
+    .cap-strip__lbl { font-family: var(--font-accent); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: block; margin-top: 0.2rem; }
+    .cap-strip__div { width: 1px; height: 36px; background: rgba(184,146,74,0.2); flex-shrink: 0; }
+
+    /* ── Intro ── */
+    .p-intro { padding: var(--gap-xl) 0; background: var(--cream); }
+    .p-intro__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-xl); align-items: center; }
+    .p-intro__img { position: relative; }
+    .p-intro__img-main { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); }
+    .p-intro__img::before { content: ''; position: absolute; top: -14px; left: -14px; right: 14px; bottom: 14px; border: 1px solid var(--gold); border-radius: var(--radius-md); opacity: 0.25; z-index: -1; }
+    .p-intro__pull { font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.65rem); font-weight: 400; font-style: italic; color: var(--navy-mid); line-height: 1.5; border-left: 3px solid var(--gold); padding-left: 1.4rem; margin: var(--gap-md) 0; }
+
+    /* ── The name — Pocahontas story ── */
+    .p-story { padding: var(--gap-xl) 0; background: var(--navy); position: relative; overflow: hidden; }
+    .p-story::before { content: '1617'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: var(--font-display); font-size: clamp(8rem, 18vw, 20rem); font-weight: 300; color: rgba(255,255,255,0.025); white-space: nowrap; pointer-events: none; }
+    .p-story__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-xl); align-items: center; position: relative; z-index: 1; }
+    .p-story__content .label { color: var(--gold-light); }
+    .p-story__content h2 { color: var(--white); }
+    .p-story__content p { color: rgba(255,255,255,0.65); max-width: none; margin-top: 0.75rem; line-height: 1.8; }
+    .p-story__pull { font-family: var(--font-display); font-size: clamp(1.2rem, 1.8vw, 1.6rem); font-weight: 400; font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.5; border-left: 3px solid var(--gold); padding-left: 1.4rem; margin: var(--gap-md) 0; }
+    .p-story__fact { background: rgba(255,255,255,0.05); border: 1px solid rgba(184,146,74,0.2); border-radius: var(--radius-md); padding: 2rem; }
+    .p-story__fact-year { font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; color: var(--gold); line-height: 1; display: block; margin-bottom: 0.5rem; }
+    .p-story__fact-text { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: none; }
+
+    /* ── Features ── */
+    .p-features { padding: var(--gap-xl) 0; background: var(--cream-dark); }
+    .p-features__header { text-align: center; margin-bottom: var(--gap-lg); }
+    .feat-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--cream-dark); border-radius: var(--radius-md); overflow: hidden; max-width: 640px; margin: 0 auto; }
+    .feat-list__item { display: flex; align-items: center; gap: 1.2rem; background: var(--white); padding: 1.1rem 1.4rem; transition: background var(--duration) var(--ease); border-bottom: 1px solid var(--cream-dark); }
+    .feat-list__item:last-child { border-bottom: none; }
+    .feat-list__item:hover { background: var(--cream); }
+    .feat-list__icon { width: 36px; height: 36px; border-radius: 50%; background: var(--gold-pale); border: 1px solid rgba(184,146,74,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--gold); }
+    .feat-list__icon svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+    .feat-list__text { font-size: 0.9rem; color: var(--navy-mid); line-height: 1.5; }
+    .feat-list__text strong { display: block; font-weight: 600; color: var(--navy); font-size: 0.88rem; margin-bottom: 0.1rem; }
+
+    /* ── Uses ── */
+    .p-uses { padding: var(--gap-xl) 0; background: var(--cream); }
+    .p-uses__header { text-align: center; margin-bottom: var(--gap-lg); }
+    .uses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .use-card { border: 1px solid var(--cream-dark); border-radius: var(--radius-md); padding: 2rem; transition: box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease); }
+    .use-card:hover { box-shadow: var(--shadow-soft); border-color: var(--gold); }
+    .use-card__icon { color: var(--gold); margin-bottom: 1rem; }
+    .use-card__icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
+    .use-card__title { font-family: var(--font-display); font-size: 1.2rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .use-card__desc { font-size: 0.85rem; color: var(--navy-soft); line-height: 1.65; max-width: none; }
+
+    /* ── Also see ── */
+    .p-also { padding: var(--gap-xl) 0; background: var(--navy); }
+    .p-also__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center; }
+    .p-also__card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-md); padding: 2.5rem; transition: background var(--duration) var(--ease); text-decoration: none; display: block; }
+    .p-also__card:hover { background: rgba(255,255,255,0.1); }
+    .p-also__label { font-family: var(--font-accent); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); display: block; margin-bottom: 0.5rem; }
+    .p-also__title { font-family: var(--font-display); font-size: 1.8rem; font-weight: 400; color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; }
+    .p-also__title em { font-style: italic; color: var(--gold-light); }
+    .p-also__desc { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.7; max-width: none; margin-bottom: 1.2rem; }
+    .p-also__link { font-family: var(--font-accent); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-light); display: inline-flex; align-items: center; gap: 0.4rem; transition: gap var(--duration) var(--ease); }
+    .p-also__card:hover .p-also__link { gap: 0.7rem; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+
+    @media (max-width: 1024px) {
+      .page-hero__inner { grid-template-columns: 1fr; }
+      .page-hero__facts { display: none; }
+      .p-intro__inner { grid-template-columns: 1fr; }
+      .p-story__inner { grid-template-columns: 1fr; }
+      .uses-grid { grid-template-columns: 1fr 1fr; }
+      .p-also__inner { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .page-hero__title { font-size: clamp(2.6rem, 10vw, 3.5rem); }
+      .page-hero__actions { flex-direction: column; }
+      .cap-strip__inner { flex-wrap: wrap; }
+      .cap-strip__item { min-width: 45%; }
+      .cap-strip__div { display: none; }
+      .uses-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="nav__brand" aria-label="Ruckland House home">
+          <span class="nav__brand-name">Ruckland House</span>
+          <span class="nav__brand-sub">Gravesend · Est. 1905</span>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="rooms.html" class="nav__link" aria-current="page">Our Rooms</a></li>
+          <li><a href="heritage.html" class="nav__link">Heritage</a></li>
+          <li class="nav__dropdown">
+            <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Occasions
+              <svg class="nav__dropdown-caret" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="nav__dropdown-menu" role="menu">
+              <li role="none"><a href="weddings.html" class="nav__dropdown-item" role="menuitem">Weddings</a></li>
+              <li role="none"><a href="occasions.html" class="nav__dropdown-item" role="menuitem">Celebrations</a></li>
+              <li role="none"><a href="wakes.html" class="nav__dropdown-item" role="menuitem">Wakes</a></li>
+              <li role="none"><a href="meetings.html" class="nav__dropdown-item" role="menuitem">Meetings</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#begin-planning" class="nav__cta">Enquire Now</a>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav__mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="nav__mobile-close" id="nav-close" aria-label="Close menu">&times;</button>
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <a href="rooms.html" class="nav__mobile-link">Our Rooms</a>
+    <a href="heritage.html" class="nav__mobile-link">Heritage</a>
+    <span class="nav__mobile-label">Occasions</span>
+    <a href="weddings.html" class="nav__mobile-sub-link">Weddings</a>
+    <a href="occasions.html" class="nav__mobile-sub-link">Celebrations</a>
+    <a href="wakes.html" class="nav__mobile-sub-link">Wakes</a>
+    <a href="meetings.html" class="nav__mobile-sub-link">Meetings</a>
+    <a href="#begin-planning" class="nav__mobile-link text-gold">Enquire Now</a>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero" aria-label="The Pocahontas Room">
+      <div class="page-hero__img" id="hero-img" aria-hidden="true"></div>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__inner">
+        <div class="page-hero__content">
+          <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">›</span>
+            <a href="rooms.html">Our Rooms</a>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">The Pocahontas Room</span>
+          </nav>
+          <h1 class="page-hero__title">
+            The Pocahontas Room.<br />
+            <em>Intimate. Private.</em><br />
+            Entirely Yours.
+          </h1>
+          <p class="page-hero__sub">
+            Our quieter, carpeted room — up to 60 guests, natural light, direct 
+            Lounge Bar access, and a name that carries the weight of Gravesend's 
+            most extraordinary story.
+          </p>
+          <div class="page-hero__actions">
+            <a href="#begin-planning" class="btn btn--primary">Check Availability</a>
+            <a href="ruckland-room.html" class="btn btn--ghost">See the Ruckland Room</a>
+          </div>
+        </div>
+        <div class="page-hero__facts" aria-label="At a glance">
+          <div class="hero-fact">
+            <span class="hero-fact__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <div><span class="hero-fact__value">Up to 60 guests</span><span class="hero-fact__label">Buffet or dining</span></div>
+          </div>
+          <div class="hero-fact">
+            <span class="hero-fact__icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <div><span class="hero-fact__value">Carpeted &amp; quiet</span><span class="hero-fact__label">Warm, private atmosphere</span></div>
+          </div>
+          <div class="hero-fact">
+            <span class="hero-fact__icon"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></span>
+            <div><span class="hero-fact__value">Full blackout</span><span class="hero-fact__label">Or natural daylight</span></div>
+          </div>
+          <div class="hero-fact">
+            <span class="hero-fact__icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
+            <div><span class="hero-fact__value">In-house catering</span><span class="hero-fact__label">Fresh menus, on-site kitchen</span></div>
+          </div>
+          <div class="hero-fact">
+            <span class="hero-fact__icon"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></span>
+            <div><span class="hero-fact__value">Lounge Bar access</span><span class="hero-fact__label">Fully licensed, adjacent</span></div>
+          </div>
+          <div class="hero-fact">
+            <span class="hero-fact__icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <div><span class="hero-fact__value">Free parking</span><span class="hero-fact__label">Private, on-site</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPACITY STRIP -->
+    <div class="cap-strip">
+      <div class="cap-strip__inner">
+        <div class="cap-strip__item"><span class="cap-strip__num">45</span><span class="cap-strip__lbl">Formal Dining</span></div>
+        <div class="cap-strip__div" aria-hidden="true"></div>
+        <div class="cap-strip__item"><span class="cap-strip__num">60</span><span class="cap-strip__lbl">Buffet &amp; Standing</span></div>
+        <div class="cap-strip__div" aria-hidden="true"></div>
+        <div class="cap-strip__item"><span class="cap-strip__num">60</span><span class="cap-strip__lbl">Theatre Style</span></div>
+        <div class="cap-strip__div" aria-hidden="true"></div>
+        <div class="cap-strip__item"><span class="cap-strip__num">20</span><span class="cap-strip__lbl">Boardroom</span></div>
+      </div>
+    </div>
+
+    <!-- INTRO -->
+    <section class="p-intro" aria-labelledby="intro-title">
+      <div class="container">
+        <div class="p-intro__inner">
+          <div class="p-intro__img reveal">
+            <img
+              src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=900&q=85&auto=format&fit=crop"
+              alt="The Pocahontas Room — an intimate, private event space"
+              class="p-intro__img-main"
+              width="900" height="675" loading="lazy"
+            />
+          </div>
+          <div class="reveal reveal--delay-1">
+            <span class="label">The Intimate Space</span>
+            <h2 id="intro-title">The Right Scale<br />for a <em>Personal Occasion.</em></h2>
+            <blockquote class="p-intro__pull">
+              "Small enough to feel genuinely private. Large enough to hold everyone who matters."
+            </blockquote>
+            <p style="max-width:none;">
+              Not every occasion calls for a room that seats 180. The Pocahontas Room is for the 
+              gatherings that work better when the space wraps around the people in it — private 
+              lunches, intimate dinners, smaller birthday celebrations, business meetings where 
+              atmosphere matters as much as agenda.
+            </p>
+            <p style="margin-top:0.75rem; max-width:none;">
+              It's carpeted, quiet, and filled with natural light. Air conditioning keeps it 
+              comfortable year-round, and full blackout is available for presentations or 
+              screenings. The adjacent Lounge Bar opens directly from the room — ideal for 
+              a drinks reception before a lunch, or an informal gathering after a meeting.
+            </p>
+            <p style="margin-top:0.75rem; max-width:none;">
+              The room can also be combined with the Ruckland Room next door for events that 
+              need a main space and a separate break-out area or catering zone. Tracy handles 
+              all of it — layouts, catering, timing — so you don't have to.
+            </p>
+            <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+              <a href="#begin-planning" class="btn btn--primary">Check Availability</a>
+              <a href="ruckland-room.html" class="btn btn--outline">The Ruckland Room</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE NAME — POCAHONTAS STORY -->
+    <section class="p-story" aria-labelledby="story-title">
+      <div class="container">
+        <div class="p-story__inner">
+          <div class="p-story__content reveal">
+            <span class="label">Behind the Name</span>
+            <h2 id="story-title" style="color:var(--white);">A Name with<br /><em style="color:var(--gold-light);">Gravesend at its Heart.</em></h2>
+            <blockquote class="p-story__pull">
+              "Pocahontas died in Gravesend in 1617, on the eve of her return to Virginia. She never made it home. But Gravesend has never forgotten her."
+            </blockquote>
+            <p>
+              Amonute — known to history as Pocahontas — was a Powhatan woman who became one of 
+              the most significant figures in the early colonial encounter between Native America 
+              and England. She travelled to London in 1616, where she was received at court. 
+              She died in Gravesend in March 1617, aged around 21, before her ship could return 
+              her to Virginia.
+            </p>
+            <p style="margin-top:0.75rem;">
+              She is buried at St George's Church, just minutes from Ruckland House. The town 
+              has honoured her memory ever since — in the name of this room, in a statue on 
+              the riverside, and in the town's abiding sense of its own place in history.
+            </p>
+            <p style="margin-top:0.75rem;">
+              Naming this room after her is not a gimmick. It's a quiet acknowledgement that 
+              Gravesend is a town with a remarkable story — and that the building you're in 
+              is part of it.
+            </p>
+          </div>
+          <div class="p-story__fact reveal reveal--delay-1">
+            <span class="p-story__fact-year">1617</span>
+            <p class="p-story__fact-text">
+              Pocahontas died in Gravesend on 21 March 1617, aged approximately 21. 
+              She is buried at St George's Church, a few minutes' walk from Ruckland House. 
+              A bronze statue on Gravesend's riverside commemorates her life and her connection 
+              to the town. She remains one of the most remarkable figures associated with 
+              this corner of Kent.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="p-features" aria-labelledby="features-title">
+      <div class="container" style="max-width:860px;">
+        <header class="p-features__header reveal">
+          <span class="label">What's Included</span>
+          <h2 id="features-title">Everything in Place<br /><em>Before You Arrive.</em></h2>
+          <p style="margin-inline:auto; margin-top:0.75rem;">
+            Every hire of the Pocahontas Room includes this as standard. No hidden charges.
+          </p>
+        </header>
+        <div class="feat-list reveal">
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+            <p class="feat-list__text"><strong>Exclusive room use</strong>Your guests won't share the space with anyone else. The room is set before anyone arrives.</p>
+          </div>
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></span>
+            <p class="feat-list__text"><strong>Air conditioning</strong>Full temperature control — comfortable whatever the season.</p>
+          </div>
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg></span>
+            <p class="feat-list__text"><strong>Wi-Fi &amp; AV</strong>Free internet throughout. Discuss your AV requirements with Tracy when you book.</p>
+          </div>
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></span>
+            <p class="feat-list__text"><strong>Full blackout</strong>Natural light by day; complete blackout available for presentations or screenings.</p>
+          </div>
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg></span>
+            <p class="feat-list__text"><strong>Lounge Bar access</strong>Our fully licensed bar opens directly off the room — ideal for receptions or post-meeting drinks.</p>
+          </div>
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span>
+            <p class="feat-list__text"><strong>Free private parking</strong>On-site car park at no charge. Close to Gravesend station for those travelling by train.</p>
+          </div>
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <p class="feat-list__text"><strong>Tracy — your coordinator</strong>Handles everything from your first call to the end of your event. Knows this room inside out.</p>
+          </div>
+          <div class="feat-list__item">
+            <span class="feat-list__icon"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></span>
+            <p class="feat-list__text"><strong>Flexible layouts</strong>Dining, boardroom, theatre, classroom — set to your specification before you arrive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USES -->
+    <section class="p-uses" aria-labelledby="uses-title">
+      <div class="container">
+        <header class="p-uses__header reveal">
+          <span class="label">What We Host</span>
+          <h2 id="uses-title">The Occasions<br />That Suit <em>This Room Best.</em></h2>
+        </header>
+        <div class="uses-grid">
+          <div class="use-card reveal reveal--delay-1">
+            <div class="use-card__icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <h3 class="use-card__title">Business Meetings</h3>
+            <p class="use-card__desc">A proper meeting room with character. Boardroom for up to 20, theatre for 60. AV, Wi-Fi, and a catering team that can do anything from a coffee tray to a full working lunch.</p>
+            <a href="meetings.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:0.75rem;">View Meetings →</a>
+          </div>
+          <div class="use-card reveal reveal--delay-1">
+            <div class="use-card__icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+            <h3 class="use-card__title">Private Lunches &amp; Dinners</h3>
+            <p class="use-card__desc">A carpeted room with a proper bar next door, a kitchen that cooks fresh, and a team that understands how a private lunch should feel. For families, for small groups, for any gathering that deserves more than a restaurant corner.</p>
+          </div>
+          <div class="use-card reveal reveal--delay-2">
+            <div class="use-card__icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+            <h3 class="use-card__title">Smaller Celebrations</h3>
+            <p class="use-card__desc">Christenings, retirement lunches, intimate birthday gatherings — occasions that want privacy more than scale. Up to 60 guests, a bar, and catering that can be as simple or as generous as you like.</p>
+            <a href="occasions.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:0.75rem;">View Celebrations →</a>
+          </div>
+          <div class="use-card reveal reveal--delay-2">
+            <div class="use-card__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 class="use-card__title">Memorial Gatherings</h3>
+            <p class="use-card__desc">A quiet, warm space where a family can gather close. Less formal than the Ruckland Room, easier on the day. Our team handles every detail so you can focus on the people who matter.</p>
+            <a href="wakes.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:0.75rem;">View Wakes →</a>
+          </div>
+          <div class="use-card reveal reveal--delay-3">
+            <div class="use-card__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <h3 class="use-card__title">Breakout Space</h3>
+            <p class="use-card__desc">Running a larger event in the Ruckland Room? The Pocahontas Room works perfectly as a breakout, a catering area, or a quieter space for smaller group discussions alongside the main event.</p>
+            <a href="ruckland-room.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:0.75rem;">See the Ruckland Room →</a>
+          </div>
+          <div class="use-card reveal reveal--delay-3">
+            <div class="use-card__icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <h3 class="use-card__title">Intimate Weddings</h3>
+            <p class="use-card__desc">Not every wedding needs a room for 180. For smaller ceremonies and close-family receptions, the Pocahontas Room offers privacy, warmth, and an entirely personal feel — with the same kitchen and bar team behind it.</p>
+            <a href="weddings.html" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:var(--font-accent);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);margin-top:0.75rem;">Explore Weddings →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band" id="begin-planning" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-band__inner reveal">
+          <div class="rule"><div class="rule__diamond"></div></div>
+          <span class="label">Book the Room</span>
+          <h2 class="cta-band__title" id="cta-title">The Pocahontas Room<br /><em>is Ready When You Are.</em></h2>
+          <p class="cta-band__sub">
+            Call Tracy with your date and brief. She'll confirm availability, 
+            suggest a layout and catering option, and handle everything from there.
+          </p>
+          <div class="cta-band__actions">
+            <a href="contact.html" class="btn btn--primary">Send an Enquiry</a>
+            <a href="tel:01474352171" class="btn btn--outline">Call 01474 352171</a>
+          </div>
+          <div class="cta-band__contact">
+            <div class="cta-band__contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>25 Wrotham Road, Gravesend, Kent DA11 0PA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALSO SEE -->
+    <section class="p-also" aria-labelledby="also-title">
+      <div class="container">
+        <h2 id="also-title" style="color:var(--white);text-align:center;margin-bottom:var(--gap-lg);">Also at <em style="color:var(--gold-light);">Ruckland House</em></h2>
+        <div class="p-also__inner">
+          <a href="ruckland-room.html" class="p-also__card reveal">
+            <span class="p-also__label">Our Flagship Space</span>
+            <h3 class="p-also__title">The Ruckland Room<br /><em>Bigger. Bolder. Just as personal.</em></h3>
+            <p class="p-also__desc">Up to 180 guests, a sprung dance floor, a raised stage, full sound system, and the same team behind everything. When the occasion calls for scale, this is the room.</p>
+            <span class="p-also__link">Explore the Ruckland Room →</span>
+          </a>
+          <a href="heritage.html" class="p-also__card reveal reveal--delay-1">
+            <span class="p-also__label">Est. 1905</span>
+            <h3 class="p-also__title">Our Heritage<br /><em>Victorian mansion. County cricket. Community.</em></h3>
+            <p class="p-also__desc">Ruckland House has been at the heart of Gravesend since the early nineteenth century. A story worth knowing — and a building worth celebrating in.</p>
+            <span class="p-also__link">Discover our heritage →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__logo-wrap">
+            <img src="images/logo-white.webp" alt="Ruckland House — Gravesend, Est. 1905" class="footer__logo" width="200" loading="lazy" />
+          </div>
+          <p class="footer__tagline">A heritage venue at the heart of Gravesend — for weddings, celebrations, gatherings, and every moment in between.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/Ruckland-House-2132019600415374/" target="_blank" rel="noopener noreferrer" aria-label="Follow Ruckland House on Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Follow on Facebook
+            </a>
+          </div>
+        </div>
+        <nav aria-label="Footer navigation">
+          <span class="footer__col-title">Explore</span>
+          <ul class="footer__nav">
+            <li><a href="rooms.html">Our Rooms</a></li>
+            <li><a href="weddings.html">Weddings</a></li>
+            <li><a href="occasions.html">Celebrations</a></li>
+            <li><a href="wakes.html">Wakes &amp; Memorials</a></li>
+            <li><a href="meetings.html">Meetings &amp; Training</a></li>
+            <li><a href="heritage.html">Our Heritage</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+        <div>
+          <span class="footer__col-title">Find Us</span>
+          <address class="footer__address"><strong>Ruckland House</strong><br />25 Wrotham Road<br />Gravesend<br />Kent<br />DA11 0PA</address>
+          <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.35);max-width:none;">Private car park available.<br />Close to Gravesend railway station.</p>
+        </div>
+        <div>
+          <span class="footer__col-title">Get in Touch</span>
+          <a href="tel:01474352171" class="footer__contact-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            01474 352171
+          </a>
+          <a href="mailto:info@rucklandrooms.com" class="footer__contact-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@rucklandrooms.com
+          </a>
+          <div style="margin-top:1.2rem;">
+            <a href="#begin-planning" class="btn btn--primary" style="font-size:0.7rem;padding:0.7rem 1.4rem;">Make an Enquiry</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <script>document.write(new Date().getFullYear())</script> Ruckland House, Gravesend. All rights reserved.</p>
+        <nav class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="sitemap.html">Sitemap</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+    const heroImg = document.getElementById('hero-img');
+    if (heroImg) {
+      window.addEventListener('scroll', () => { heroImg.style.transform = `translateY(${window.scrollY * 0.2}px)`; }, { passive: true });
+      setTimeout(() => heroImg.classList.add('loaded'), 100);
+    }
+    const toggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('nav-mobile');
+    const closeBtn = document.getElementById('nav-close');
+    function openNav()  { toggle.classList.add('open'); mobileNav.classList.add('open'); mobileNav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeNav() { toggle.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    toggle.addEventListener('click', () => mobileNav.classList.contains('open') ? closeNav() : openNav());
+    closeBtn.addEventListener('click', closeNav);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeNav(); document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded','false')); } });
+    document.querySelectorAll('.nav__mobile-link, .nav__mobile-sub-link').forEach(l => l.addEventListener('click', closeNav));
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+    document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+      btn.addEventListener('click', e => { e.stopPropagation(); const exp = btn.getAttribute('aria-expanded') === 'true'; document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded','false')); if (!exp) btn.setAttribute('aria-expanded','true'); });
+    });
+    document.addEventListener('click', () => { document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded','false')); });
+  </script>
+
+</body>
+</html>
