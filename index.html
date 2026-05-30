@@ -27,49 +27,50 @@
   <!-- ================================================
        HEADER & NAVIGATION
   ================================================ -->
-  <header class="site-header" id="site-header">
+    <header class="site-header" id="site-header">
     <div class="container">
       <nav class="nav" aria-label="Main navigation">
-
-        <!-- Brand -->
         <a href="index.html" class="nav__brand" aria-label="Ruckland House home">
           <span class="nav__brand-name">Ruckland House</span>
           <span class="nav__brand-sub">Gravesend · Est. 1905</span>
         </a>
-
-        <!-- Desktop links -->
         <ul class="nav__links" role="list">
           <li><a href="index.html" class="nav__link" aria-current="page">Home</a></li>
           <li><a href="rooms.html" class="nav__link">Our Rooms</a></li>
-          <li><a href="weddings.html" class="nav__link">Weddings</a></li>
-          <li><a href="occasions.html" class="nav__link">Occasions</a></li>
-          <li><a href="wakes.html" class="nav__link">Wakes</a></li>
-                    <li><a href="heritage.html" class="nav__link">Heritage</a></li>
-          <li><a href="meetings.html" class="nav__link">Meetings</a></li>
+          <li><a href="heritage.html" class="nav__link">Heritage</a></li>
+          <li class="nav__dropdown">
+            <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Occasions
+              <svg class="nav__dropdown-caret" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="nav__dropdown-menu" role="menu">
+              <li role="none"><a href="weddings.html" class="nav__dropdown-item" role="menuitem">Weddings</a></li>
+              <li role="none"><a href="occasions.html" class="nav__dropdown-item" role="menuitem">Celebrations</a></li>
+              <li role="none"><a href="wakes.html" class="nav__dropdown-item" role="menuitem">Wakes</a></li>
+              <li role="none"><a href="meetings.html" class="nav__dropdown-item" role="menuitem">Meetings</a></li>
+            </ul>
+          </li>
         </ul>
-
-        <a href="contact.html" class="nav__cta">Enquire Now</a>
-
-        <!-- Mobile toggle -->
+        <a href="#begin-planning" class="nav__cta">Enquire Now</a>
         <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
           <span></span><span></span><span></span>
         </button>
-
       </nav>
     </div>
   </header>
 
   <!-- Mobile drawer -->
-  <nav class="nav__mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
+    <nav class="nav__mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
     <button class="nav__mobile-close" id="nav-close" aria-label="Close menu">&times;</button>
     <a href="index.html" class="nav__mobile-link">Home</a>
     <a href="rooms.html" class="nav__mobile-link">Our Rooms</a>
-    <a href="weddings.html" class="nav__mobile-link">Weddings</a>
-    <a href="occasions.html" class="nav__mobile-link">Occasions</a>
-    <a href="wakes.html" class="nav__mobile-link">Wakes</a>
     <a href="heritage.html" class="nav__mobile-link">Heritage</a>
-    <a href="meetings.html" class="nav__mobile-link">Meetings</a>
-    <a href="contact.html" class="nav__mobile-link text-gold">Enquire Now</a>
+    <span class="nav__mobile-label">Occasions</span>
+    <a href="weddings.html" class="nav__mobile-sub-link">Weddings</a>
+    <a href="occasions.html" class="nav__mobile-sub-link">Celebrations</a>
+    <a href="wakes.html" class="nav__mobile-sub-link">Wakes</a>
+    <a href="meetings.html" class="nav__mobile-sub-link">Meetings</a>
+    <a href="#begin-planning" class="nav__mobile-link text-gold">Enquire Now</a>
   </nav>
 
   <main>
@@ -694,7 +695,7 @@
     <!-- ================================================
          CTA BAND
     ================================================ -->
-    <section class="cta-band" aria-labelledby="cta-title">
+    <section class="cta-band" id="begin-planning" aria-labelledby="cta-title">
       <div class="container">
         <div class="cta-band__inner reveal">
           <div class="rule"><div class="rule__diamond"></div></div>
@@ -733,12 +734,12 @@
 
         <!-- Brand column -->
         <div>
-          <div class="footer__logo-wrap">
+                    <div class="footer__logo-wrap">
             <img
               src="images/logo-white.webp"
               alt="Ruckland House — Gravesend, Est. 1905"
               class="footer__logo"
-              width="220"
+              width="200"
               loading="lazy"
             />
           </div>
@@ -755,16 +756,15 @@
         </div>
 
         <!-- Quick links -->
-        <nav aria-label="Footer navigation">
+                <nav aria-label="Footer navigation">
           <span class="footer__col-title">Explore</span>
           <ul class="footer__nav">
             <li><a href="rooms.html">Our Rooms</a></li>
             <li><a href="weddings.html">Weddings</a></li>
-            <li><a href="occasions.html">Occasions</a></li>
-            <li><a href="menus.html">Menus &amp; Catering</a></li>
+            <li><a href="occasions.html">Celebrations</a></li>
             <li><a href="wakes.html">Wakes &amp; Memorials</a></li>
-            <li><a href="heritage.html">Our Heritage</a></li>
             <li><a href="meetings.html">Meetings &amp; Training</a></li>
+            <li><a href="heritage.html">Our Heritage</a></li>
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </nav>
