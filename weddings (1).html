@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wedding venue in Gravesend, Kent. Ruckland Rooms — a historic heritage venue for wedding receptions up to 180 guests. Fully inclusive packages from £3,150. In-house catering, licensed bar, private parking." />
+  <meta name="keywords" content="wedding venue Gravesend, wedding reception Kent, function room wedding, Ruckland Rooms wedding, heritage wedding venue" />
+  <meta property="og:title" content="Weddings at Ruckland Rooms — Gravesend, Kent" />
+  <meta property="og:description" content="Your wedding, entirely your way. A century-old heritage venue with in-house catering, a licensed bar and a dedicated coordinator. From £3,150." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.rucklandrooms.com/weddings.html" />
+  <title>Weddings — Ruckland Rooms, Gravesend | Est. 1905</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <style>
+    /* ============================================================
+       WEDDINGS PAGE — additional styles
+    ============================================================ */
+
+    /* Page hero — full-bleed photographic */
+    .page-hero {
+      position: relative;
+      min-height: 92svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-bottom: 6rem;
+    }
+
+    .page-hero__img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+      transition: transform 8s ease-out;
+    }
+    .page-hero__img.loaded { transform: scale(1.03); }
+
+    /* Multi-layer overlay: bottom-up darkness + warm tint */
+    .page-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(14,22,34,0.92) 0%, rgba(14,22,34,0.55) 45%, rgba(14,22,34,0.15) 100%),
+        linear-gradient(160deg, rgba(28,43,58,0.3) 0%, transparent 60%);
+      z-index: 1;
+    }
+
+    .page-hero__inner {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 1180px;
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: flex-end;
+    }
+
+    .page-hero__content { }
+
+    .page-hero__breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-accent);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .page-hero__breadcrumb a { color: rgba(255,255,255,0.4); transition: color var(--duration) var(--ease); }
+    .page-hero__breadcrumb a:hover { color: var(--gold-light); }
+    .page-hero__breadcrumb span { color: rgba(255,255,255,0.2); }
+
+    .page-hero__label {
+      font-family: var(--font-accent);
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.07;
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease) 0.2s forwards;
+    }
+    .page-hero__title em { font-style: italic; color: var(--gold-light); }
+
+    .page-hero__sub {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.75;
+      max-width: 46ch;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease) 0.4s forwards;
+    }
+
+    .page-hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease) 0.6s forwards;
+    }
+
+    /* Hero right — key facts panel */
+    .page-hero__facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease) 0.8s forwards;
+    }
+
+    .hero-fact {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 1rem 1.4rem;
+      transition: background var(--duration) var(--ease);
+    }
+    .hero-fact:first-child { border-radius: 6px 6px 0 0; }
+    .hero-fact:last-child  { border-radius: 0 0 6px 6px; }
+    .hero-fact:hover { background: rgba(255,255,255,0.11); }
+
+    .hero-fact__icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      width: 2rem;
+      text-align: center;
+    }
+
+    .hero-fact__text { flex: 1; }
+    .hero-fact__value {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--white);
+      line-height: 1.2;
+      display: block;
+    }
+    .hero-fact__label {
+      font-family: var(--font-accent);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ============================================================
+       INTRO — the sell
+    ============================================================ */
+    .w-intro {
+      padding: var(--gap-xl) 0;
+      background: var(--cream);
+    }
+
+    .w-intro__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: center;
+    }
+
+    .w-intro__img {
+      position: relative;
+    }
+
+    .w-intro__img-main {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      filter: saturate(0.92);
+    }
+
+    .w-intro__img-accent {
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+      width: 55%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      border: 4px solid var(--cream);
+    }
+
+    /* Gold frame behind main image */
+    .w-intro__img::before {
+      content: '';
+      position: absolute;
+      top: -14px; left: -14px;
+      right: 14px; bottom: 14px;
+      border: 1px solid var(--gold);
+      border-radius: var(--radius-md);
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .w-intro__content { padding-bottom: 2rem; }
+
+    .w-intro__pull {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--navy-mid);
+      line-height: 1.4;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.4rem;
+      margin: var(--gap-md) 0;
+    }
+
+    /* ============================================================
+       PACKAGES SECTION
+    ============================================================ */
+    .w-packages {
+      padding: var(--gap-xl) 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .w-packages::before {
+      content: 'Packages';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 14vw, 14rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.025);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .w-packages__header {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      margin-bottom: var(--gap-lg);
+    }
+    .w-packages__header .label { color: var(--gold-light); }
+    .w-packages__header h2 { color: var(--white); }
+    .w-packages__header p { color: rgba(255,255,255,0.6); margin-inline: auto; margin-top: 0.75rem; }
+
+    .w-packages__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pkg-card {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pkg-card__header {
+      padding: 2rem 2rem 1.5rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-bottom: none;
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+    .pkg-card--featured .pkg-card__header {
+      background: var(--gold);
+    }
+
+    .pkg-card__badge {
+      font-family: var(--font-accent);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .pkg-card--featured .pkg-card__badge { color: rgba(255,255,255,0.7); }
+
+    .pkg-card__name {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.1;
+    }
+    .pkg-card--featured .pkg-card__name { color: var(--navy); }
+
+    .pkg-card__tagline {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 0.4rem;
+      max-width: none;
+    }
+    .pkg-card--featured .pkg-card__tagline { color: rgba(28,43,58,0.7); }
+
+    .pkg-card__body {
+      flex: 1;
+      padding: 1.8rem 2rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-top: none;
+      border-radius: 0 0 var(--radius-md) var(--radius-md);
+    }
+    .pkg-card--featured .pkg-card__body {
+      background: rgba(184,146,74,0.08);
+      border-color: rgba(184,146,74,0.2);
+    }
+
+    .pkg-card__includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 1.6rem;
+    }
+    .pkg-card__includes li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.5;
+    }
+    .pkg-card__includes li::before {
+      content: '◆';
+      color: var(--gold);
+      font-size: 0.45rem;
+      flex-shrink: 0;
+      margin-top: 0.45rem;
+    }
+    .pkg-card--featured .pkg-card__includes li { color: rgba(255,255,255,0.75); }
+
+    .pkg-card__pricing {
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .pkg-card--featured .pkg-card__pricing { border-color: rgba(184,146,74,0.2); }
+
+    .pkg-card__price-label {
+      font-family: var(--font-accent);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .pkg-card__price-sample {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .pkg-card__price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .pkg-card__price-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.45);
+      max-width: none;
+      flex: 1;
+    }
+    .pkg-card__price-val {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--gold-light);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .pkg-card__actions {
+      margin-top: 1.4rem;
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* PDF download button */
+    .btn--download {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-accent);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.75rem 1.4rem;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: all var(--duration) var(--ease);
+      cursor: pointer;
+    }
+    .btn--download:hover {
+      background: rgba(255,255,255,0.13);
+      color: var(--white);
+      border-color: rgba(255,255,255,0.25);
+    }
+    .btn--download svg { flex-shrink: 0; }
+
+    /* ============================================================
+       BUILD YOUR OWN
+    ============================================================ */
+    .w-byo {
+      padding: var(--gap-xl) 0;
+      background: var(--cream-dark);
+    }
+
+    .w-byo__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--gap-xl);
+      align-items: start;
+    }
+
+    .byo-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--gap-md);
+    }
+    .byo-table thead th {
+      font-family: var(--font-accent);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-align: left;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--gold);
+      font-weight: 400;
+    }
+    .byo-table thead th:last-child { text-align: right; }
+    .byo-table tbody tr {
+      border-bottom: 1px solid var(--cream);
+      transition: background var(--duration) var(--ease);
+    }
+    .byo-table tbody tr:hover { background: rgba(184,146,74,0.04); }
+    .byo-table tbody td {
+      padding: 0.85rem 0;
+      font-size: 0.9rem;
+      color: var(--navy-mid);
+      vertical-align: top;
+    }
+    .byo-table tbody td:last-child {
+      text-align: right;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--gold);
+    }
+    .byo-table tbody td small {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--navy-soft);
+      margin-top: 0.1rem;
+    }
+
+    .w-byo__sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .coordinator-card {
+      background: var(--navy);
+      border-radius: var(--radius-md);
+      padding: 2.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .coordinator-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+
+    .coordinator-card__label {
+      font-family: var(--font-accent);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .coordinator-card__name {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .coordinator-card__title {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      max-width: none;
+      margin-bottom: 1.2rem;
+    }
+    .coordinator-card__divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      margin-bottom: 1.2rem;
+    }
+    .coordinator-card__bio {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      max-width: none;
+      margin-bottom: 1.6rem;
+    }
+    .coordinator-card__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .coordinator-card__link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--gold-light);
+      transition: color var(--duration) var(--ease);
+    }
+    .coordinator-card__link:hover { color: var(--white); }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    .w-gallery {
+      padding: var(--gap-xl) 0;
+      background: var(--cream);
+    }
+
+    .w-gallery__header {
+      text-align: center;
+      margin-bottom: var(--gap-lg);
+    }
+
+    .gallery-mosaic {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 280px);
+      gap: 0.75rem;
+    }
+
+    .gallery-mosaic__item {
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      position: relative;
+    }
+    .gallery-mosaic__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.88);
+      transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+    }
+    .gallery-mosaic__item:hover img {
+      transform: scale(1.05);
+      filter: saturate(1.05);
+    }
+
+    .gallery-mosaic__item:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .gallery-mosaic__item:nth-child(2) { grid-column: span 4; }
+    .gallery-mosaic__item:nth-child(3) { grid-column: span 3; }
+    .gallery-mosaic__item:nth-child(4) { grid-column: span 3; }
+    .gallery-mosaic__item:nth-child(5) { grid-column: span 4; }
+
+    /* Caption overlay on hover */
+    .gallery-mosaic__item::after {
+      content: attr(data-caption);
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(14,22,34,0.8), transparent);
+      color: rgba(255,255,255,0.8);
+      font-family: var(--font-accent);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity var(--duration) var(--ease);
+    }
+    .gallery-mosaic__item:hover::after { opacity: 1; }
+
+    /* ============================================================
+       TESTIMONIALS — weddings specific
+    ============================================================ */
+    .w-testimonials {
+      padding: var(--gap-xl) 0;
+      background: var(--cream-dark);
+    }
+
+    .w-testimonials__header {
+      text-align: center;
+      margin-bottom: var(--gap-lg);
+    }
+
+    /* ============================================================
+       PROCESS / TIMELINE
+    ============================================================ */
+    .w-process {
+      padding: var(--gap-xl) 0;
+      background: var(--cream);
+    }
+    .w-process__header {
+      text-align: center;
+      margin-bottom: var(--gap-lg);
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      position: relative;
+    }
+
+    /* Connecting line */
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 2rem;
+      left: calc(12.5% + 1rem);
+      right: calc(12.5% + 1rem);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--gold), transparent);
+      opacity: 0.35;
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .process-step__num {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background: var(--cream-dark);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--gold);
+      margin: 0 auto 1.2rem;
+      position: relative;
+      z-index: 1;
+      transition: background var(--duration) var(--ease),
+                  color var(--duration) var(--ease);
+    }
+    .process-step:hover .process-step__num {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .process-step__title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .process-step__text {
+      font-size: 0.83rem;
+      color: var(--navy-soft);
+      line-height: 1.65;
+      max-width: none;
+    }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    .w-faq {
+      padding: var(--gap-xl) 0;
+      background: var(--navy);
+    }
+    .w-faq__header {
+      text-align: center;
+      margin-bottom: var(--gap-lg);
+    }
+    .w-faq__header .label { color: var(--gold-light); }
+    .w-faq__header h2 { color: var(--white); }
+
+    .faq-list {
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .faq-item summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.3rem 0;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--white);
+      list-style: none;
+      user-select: none;
+      gap: 1rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item__icon {
+      font-size: 1.2rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      transition: transform var(--duration) var(--ease);
+    }
+    details[open] .faq-item__icon { transform: rotate(45deg); }
+    .faq-item__answer {
+      padding-bottom: 1.3rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      max-width: 72ch;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+    .reveal--delay-4 { transition-delay: 0.4s; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .page-hero__inner { grid-template-columns: 1fr; }
+      .page-hero__facts { display: none; }
+      .page-hero { align-items: flex-end; padding-bottom: 4rem; min-height: 80svh; }
+      .w-intro__inner { grid-template-columns: 1fr; }
+      .w-intro__img { max-width: 520px; margin-bottom: 2rem; }
+      .w-intro__img-accent { display: none; }
+      .w-packages__grid { grid-template-columns: 1fr; }
+      .w-byo__inner { grid-template-columns: 1fr; }
+      .w-byo__sidebar { position: static; }
+      .gallery-mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-mosaic__item { grid-column: span 1 !important; aspect-ratio: 4/3; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .process-steps::before { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      .page-hero__title { font-size: clamp(2.6rem, 10vw, 3.5rem); }
+      .page-hero__actions { flex-direction: column; }
+      .w-packages__grid { grid-template-columns: 1fr; }
+      .gallery-mosaic { grid-template-columns: 1fr; }
+      .gallery-mosaic__item { aspect-ratio: 16/9; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ================================================
+     HEADER
+================================================ -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav__brand" aria-label="Ruckland Rooms home">
+        <span class="nav__brand-name">Ruckland Rooms</span>
+        <span class="nav__brand-sub">Gravesend · Est. 1905</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="rooms.html" class="nav__link">Our Rooms</a></li>
+        <li><a href="weddings.html" class="nav__link" aria-current="page">Weddings</a></li>
+        <li><a href="occasions.html" class="nav__link">Occasions</a></li>
+        <li><a href="menus.html" class="nav__link">Menus</a></li>
+        <li><a href="wakes.html" class="nav__link">Wakes</a></li>
+        <li><a href="meetings.html" class="nav__link">Meetings</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta">Enquire Now</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<nav class="nav__mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
+  <button class="nav__mobile-close" id="nav-close" aria-label="Close menu">&times;</button>
+  <a href="index.html" class="nav__mobile-link">Home</a>
+  <a href="rooms.html" class="nav__mobile-link">Our Rooms</a>
+  <a href="weddings.html" class="nav__mobile-link">Weddings</a>
+  <a href="occasions.html" class="nav__mobile-link">Occasions</a>
+  <a href="menus.html" class="nav__mobile-link">Menus</a>
+  <a href="wakes.html" class="nav__mobile-link">Wakes</a>
+  <a href="meetings.html" class="nav__mobile-link">Meetings</a>
+  <a href="contact.html" class="nav__mobile-link text-gold">Enquire Now</a>
+</nav>
+
+<main>
+
+<!-- ================================================
+     PAGE HERO
+     Photo: Unsplash — wedding reception (licence-free)
+================================================ -->
+<section class="page-hero" aria-label="Weddings at Ruckland Rooms">
+  <div class="page-hero__img" id="hero-img" aria-hidden="true"></div>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+
+  <div class="page-hero__inner">
+    <div class="page-hero__content">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">›</span>
+        <span aria-current="page">Weddings</span>
+      </nav>
+
+      <span class="page-hero__label">Wedding Receptions · Gravesend</span>
+
+      <h1 class="page-hero__title">
+        Your Day.<br />
+        <em>Beautifully</em><br />
+        Remembered.
+      </h1>
+
+      <p class="page-hero__sub">
+        A century-old building, an experienced team, and a simple promise — to make 
+        your wedding reception everything you've imagined, without the stress of 
+        making it happen.
+      </p>
+
+      <div class="page-hero__actions">
+        <a href="contact.html" class="btn btn--primary">Begin Your Enquiry</a>
+        <a href="#packages" class="btn btn--ghost">View Packages</a>
+      </div>
+    </div>
+
+    <div class="page-hero__facts" aria-label="At a glance">
+      <div class="hero-fact">
+        <span class="hero-fact__icon" aria-hidden="true">👥</span>
+        <div class="hero-fact__text">
+          <span class="hero-fact__value">Up to 180 guests</span>
+          <span class="hero-fact__label">Reception capacity</span>
+        </div>
+      </div>
+      <div class="hero-fact">
+        <span class="hero-fact__icon" aria-hidden="true">🍽</span>
+        <div class="hero-fact__text">
+          <span class="hero-fact__value">In-house catering</span>
+          <span class="hero-fact__label">Freshly prepared, on-site</span>
+        </div>
+      </div>
+      <div class="hero-fact">
+        <span class="hero-fact__icon" aria-hidden="true">🍷</span>
+        <div class="hero-fact__text">
+          <span class="hero-fact__value">Fully licensed bar</span>
+          <span class="hero-fact__label">Pub prices, all evening</span>
+        </div>
+      </div>
+      <div class="hero-fact">
+        <span class="hero-fact__icon" aria-hidden="true">🚗</span>
+        <div class="hero-fact__text">
+          <span class="hero-fact__value">Private car park</span>
+          <span class="hero-fact__label">On-site, no charge</span>
+        </div>
+      </div>
+      <div class="hero-fact">
+        <span class="hero-fact__icon" aria-hidden="true">💷</span>
+        <div class="hero-fact__text">
+          <span class="hero-fact__value">From £3,150</span>
+          <span class="hero-fact__label">Fully inclusive packages</span>
+        </div>
+      </div>
+      <div class="hero-fact">
+        <span class="hero-fact__icon" aria-hidden="true">📅</span>
+        <div class="hero-fact__text">
+          <span class="hero-fact__value">Est. 1905</span>
+          <span class="hero-fact__label">Over a century of occasions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     INTRO — THE SELL
+================================================ -->
+<section class="w-intro" aria-labelledby="intro-title">
+  <div class="container">
+    <div class="w-intro__inner">
+
+      <div class="w-intro__img reveal">
+        <!-- Unsplash: Ornate wedding table setup, licence-free -->
+        <img
+          class="w-intro__img-main"
+          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=85&auto=format&fit=crop"
+          alt="Beautifully dressed wedding reception tables with white linens, candles and floral centrepieces"
+          width="900"
+          height="1200"
+          loading="lazy"
+        />
+        <!-- Unsplash: champagne glasses, accent -->
+        <img
+          class="w-intro__img-accent"
+          src="https://images.unsplash.com/photo-1547393947-1849a9bc25c8?w=600&q=80&auto=format&fit=crop"
+          alt="Champagne glasses raised in a toast"
+          width="600"
+          height="450"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="w-intro__content reveal reveal--delay-2">
+        <span class="label">Your Wedding, Your Way</span>
+        <h2 id="intro-title">The Setting Is Ready.<br /><em>Are You?</em></h2>
+
+        <blockquote class="w-intro__pull">
+          "A building that has held generations of celebrations — and is ready to hold yours."
+        </blockquote>
+
+        <p style="max-width: none;">
+          Ruckland Rooms has been at the heart of Gravesend since 1905. Its rooms have seen 
+          decades of toasts, first dances, and tearful speeches. That history isn't just 
+          atmosphere — it's the quiet confidence of a venue that knows how to hold a great occasion.
+        </p>
+        <p style="margin-top: 0.75rem; max-width: none;">
+          We offer two clear routes. Take our fully inclusive package and let us handle 
+          everything — catering, bar, décor essentials, entertainment, and a dedicated 
+          coordinator who's been doing this for years. Or hire the room on your own terms, 
+          bring your own suppliers, and build the day piece by piece. Either way, the 
+          kitchen, the bar, and the team are yours.
+        </p>
+        <p style="margin-top: 0.75rem; max-width: none;">
+          There's no corporate events manager here passing your file between departments. 
+          When you call us, you speak to Tracy. She's planned hundreds of weddings at 
+          Ruckland Rooms and she'll remember yours long after it's done.
+        </p>
+
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+          <a href="#packages" class="btn btn--primary">Explore Packages</a>
+          <a href="contact.html" class="btn btn--outline">Talk to Tracy</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     PACKAGES
+================================================ -->
+<section class="w-packages" id="packages" aria-labelledby="packages-title">
+  <div class="container">
+    <header class="w-packages__header reveal">
+      <span class="label">Wedding Packages</span>
+      <h2 id="packages-title">Two Ways to Do It</h2>
+      <p>Choose the level of support that suits you — both deliver the same beautiful venue and brilliant team.</p>
+    </header>
+
+    <div class="w-packages__grid">
+
+      <!-- PACKAGE 1: All-Inclusive -->
+      <div class="pkg-card pkg-card--featured reveal reveal--delay-1">
+        <div class="pkg-card__header">
+          <span class="pkg-card__badge">Most Popular · Stress-Free</span>
+          <div class="pkg-card__name">The All-Inclusive Package</div>
+          <p class="pkg-card__tagline">Every detail handled. One price. Zero surprises.</p>
+        </div>
+        <div class="pkg-card__body">
+          <ul class="pkg-card__includes">
+            <li>Choice of wedding breakfast — 3-course sit-down, fork buffet, or carvery</li>
+            <li>Evening finger buffet for your later guests</li>
+            <li>Arrival drink, wine for the wedding breakfast &amp; prosecco for the toast</li>
+            <li>Excellent wedding DJ included</li>
+            <li>White chair covers with your choice of colour sash</li>
+            <li>Starlight screen and table skirt dressing</li>
+            <li>Crisp white linen tablecloths throughout</li>
+            <li>Table decorations, post box, cake stand &amp; knife</li>
+            <li>Easel to display your table plan</li>
+            <li>Choice of round or long tables</li>
+            <li>Exclusive use of rooms and bar area</li>
+            <li>Fully licensed bar at pub prices, all evening</li>
+            <li>Air conditioning — comfortable in any season</li>
+            <li>Dedicated wedding coordinator Tracy, from first call to final dance</li>
+          </ul>
+
+          <div class="pkg-card__pricing">
+            <span class="pkg-card__price-label">Sample pricing — 50 breakfast, 120 evening guests</span>
+            <div class="pkg-card__price-sample">
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">3-course sit-down wedding breakfast</span>
+                <span class="pkg-card__price-val">from £3,750</span>
+              </div>
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">2-course carvery wedding breakfast</span>
+                <span class="pkg-card__price-val">from £3,450</span>
+              </div>
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">2-course fork buffet wedding breakfast</span>
+                <span class="pkg-card__price-val">from £3,150</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pkg-card__actions">
+            <a href="contact.html" class="btn btn--primary" style="font-size:0.78rem; padding:0.8rem 1.6rem;">Enquire About This Package</a>
+            <a href="pdfs/ruckland-rooms-all-inclusive-wedding-package.pdf" class="btn--download" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PACKAGE 2: Build Your Own -->
+      <div class="pkg-card reveal reveal--delay-2">
+        <div class="pkg-card__header">
+          <span class="pkg-card__badge">Flexible · Your Suppliers</span>
+          <div class="pkg-card__name">Build Your Own</div>
+          <p class="pkg-card__tagline">Take the room, the bar, and the kitchen — and make it your own.</p>
+        </div>
+        <div class="pkg-card__body">
+          <ul class="pkg-card__includes">
+            <li>Exclusive room hire — the Ruckland Room, yours for the day</li>
+            <li>Fully licensed bar staffed by our team all evening</li>
+            <li>In-house catering at per-head rates — no outsourcing</li>
+            <li>Choose your own entertainment, florist, photographer</li>
+            <li>Complete flexibility on décor and styling</li>
+            <li>Guidance from Tracy throughout the planning process</li>
+            <li>Private car park for all guests</li>
+            <li>Air conditioning throughout</li>
+            <li>Use of tables, chairs, and basic linen</li>
+          </ul>
+
+          <div class="pkg-card__pricing">
+            <span class="pkg-card__price-label">A la carte rates</span>
+            <div class="pkg-card__price-sample">
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">Hall hire</span>
+                <span class="pkg-card__price-val">£500</span>
+              </div>
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">3-course sit-down, per person</span>
+                <span class="pkg-card__price-val">from £28</span>
+              </div>
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">2-course carvery, per person</span>
+                <span class="pkg-card__price-val">from £25</span>
+              </div>
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">2-course fork buffet, per person</span>
+                <span class="pkg-card__price-val">from £17</span>
+              </div>
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">Evening buffet, per person</span>
+                <span class="pkg-card__price-val">from £6.75</span>
+              </div>
+              <div class="pkg-card__price-row">
+                <span class="pkg-card__price-desc">Drinks package, per person</span>
+                <span class="pkg-card__price-val">from £11</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pkg-card__actions">
+            <a href="contact.html" class="btn btn--primary" style="font-size:0.78rem; padding:0.8rem 1.6rem; background: rgba(255,255,255,0.12); color:var(--white); border:1px solid rgba(255,255,255,0.2);">Request a Full Quote</a>
+            <a href="pdfs/ruckland-rooms-build-your-own-wedding.pdf" class="btn--download" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     BUILD YOUR OWN TABLE + COORDINATOR CARD
+================================================ -->
+<section class="w-byo" aria-labelledby="byo-title">
+  <div class="container">
+    <div class="w-byo__inner">
+
+      <div class="reveal">
+        <span class="label">The Details</span>
+        <h2 id="byo-title">Transparent Pricing.<br /><em>No Hidden Extras.</em></h2>
+        <p style="margin-top:0.75rem; max-width:none;">
+          Every quote we provide is a fixed price — no gratuity charges added at the end, 
+          no surprise corkage fees. What Tracy quotes you is what you pay.
+        </p>
+
+        <table class="byo-table" aria-label="Build your own wedding pricing">
+          <thead>
+            <tr>
+              <th scope="col">Item</th>
+              <th scope="col">Starting from</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                Hall hire
+                <small>Exclusive use, full day</small>
+              </td>
+              <td>£500</td>
+            </tr>
+            <tr>
+              <td>
+                3-course sit-down meal
+                <small>Per wedding breakfast guest</small>
+              </td>
+              <td>£28 pp</td>
+            </tr>
+            <tr>
+              <td>
+                2-course carvery
+                <small>Per wedding breakfast guest</small>
+              </td>
+              <td>£25 pp</td>
+            </tr>
+            <tr>
+              <td>
+                2-course fork buffet
+                <small>Per wedding breakfast guest</small>
+              </td>
+              <td>£17 pp</td>
+            </tr>
+            <tr>
+              <td>
+                Evening finger buffet
+                <small>Per evening guest</small>
+              </td>
+              <td>£6.75 pp</td>
+            </tr>
+            <tr>
+              <td>
+                Drinks package
+                <small>Arrival drink, wine, toast — per person</small>
+              </td>
+              <td>£11 pp</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="margin-top:1.5rem; font-size:0.82rem; color:var(--navy-soft); max-width:none;">
+          Prices shown are starting rates and will vary depending on menu selections 
+          and number of guests. Contact Tracy for a personalised quote.
+        </p>
+      </div>
+
+      <!-- Coordinator card -->
+      <div class="w-byo__sidebar reveal reveal--delay-2">
+        <div class="coordinator-card">
+          <span class="coordinator-card__label">Your Wedding Coordinator</span>
+          <div class="coordinator-card__name">Tracy</div>
+          <p class="coordinator-card__title">Wedding &amp; Events Manager · Ruckland Rooms</p>
+          <div class="coordinator-card__divider"></div>
+          <p class="coordinator-card__bio">
+            Tracy has been coordinating weddings at Ruckland Rooms for years. 
+            She knows every corner of the building, every supplier worth calling, 
+            and exactly what makes a reception feel effortless for the couple and 
+            their guests. She'll work with you from your first enquiry through to 
+            the morning after — and she genuinely loves what she does.
+          </p>
+          <p class="coordinator-card__bio" style="margin-top:0;">
+            Couples consistently describe her as the reason their day ran so smoothly. 
+            That's not an accident.
+          </p>
+          <div class="coordinator-card__contact">
+            <a href="tel:01474352171" class="coordinator-card__link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              01474 352171
+            </a>
+            <a href="tel:07850484975" class="coordinator-card__link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              07850 48 49 75
+            </a>
+            <a href="mailto:weddings@rucklandrooms.com" class="coordinator-card__link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              weddings@rucklandrooms.com
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick CTA below card -->
+        <div style="margin-top:1.5rem; background:var(--cream); border-radius:var(--radius-md); padding:1.6rem; border:1px solid var(--cream-dark);">
+          <span class="label" style="font-size:0.65rem;">Check Availability</span>
+          <p style="font-size:0.85rem; color:var(--navy-mid); margin-top:0.25rem; max-width:none;">
+            Popular Saturdays book up quickly. We recommend getting in touch as 
+            soon as you have a date in mind — there's no obligation at that stage.
+          </p>
+          <a href="contact.html" class="btn btn--primary" style="margin-top:1rem; font-size:0.75rem; padding:0.75rem 1.4rem;">
+            Check Your Date
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     GALLERY
+     All images: Unsplash licence-free
+================================================ -->
+<section class="w-gallery" aria-labelledby="gallery-title">
+  <div class="container">
+    <header class="w-gallery__header reveal">
+      <span class="label">The Atmosphere</span>
+      <h2 id="gallery-title">See the Space</h2>
+      <p style="margin-inline:auto; margin-top:0.75rem;">
+        A venue that photographs beautifully — because it's genuinely beautiful.
+      </p>
+    </header>
+
+    <div class="gallery-mosaic reveal">
+      <div class="gallery-mosaic__item" data-caption="The Ruckland Room">
+        <img
+          src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=900&q=80&auto=format&fit=crop"
+          alt="Elegant wedding reception hall with round tables, white linens and warm lighting"
+          width="900" height="1200" loading="lazy"
+        />
+      </div>
+      <div class="gallery-mosaic__item" data-caption="Table Settings">
+        <img
+          src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=80&auto=format&fit=crop"
+          alt="Beautifully set wedding table with floral centrepiece and candles"
+          width="800" height="533" loading="lazy"
+        />
+      </div>
+      <div class="gallery-mosaic__item" data-caption="The Celebration">
+        <img
+          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=80&auto=format&fit=crop"
+          alt="Guests celebrating at a wedding reception"
+          width="700" height="467" loading="lazy"
+        />
+      </div>
+      <div class="gallery-mosaic__item" data-caption="The Details">
+        <img
+          src="https://images.unsplash.com/photo-1547393947-1849a9bc25c8?w=700&q=80&auto=format&fit=crop"
+          alt="Champagne glasses raised in celebration"
+          width="700" height="467" loading="lazy"
+        />
+      </div>
+      <div class="gallery-mosaic__item" data-caption="The Cake">
+        <img
+          src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80&auto=format&fit=crop"
+          alt="Wedding cake beautifully decorated with flowers"
+          width="800" height="533" loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     HOW IT WORKS
+================================================ -->
+<section class="w-process" aria-labelledby="process-title">
+  <div class="container">
+    <header class="w-process__header reveal">
+      <span class="label">The Journey</span>
+      <h2 id="process-title">From First Call to Last Dance</h2>
+      <p style="margin-inline:auto; margin-top:0.75rem;">
+        We've been doing this long enough to know that the best weddings 
+        come from clear planning and a relaxed couple.
+      </p>
+    </header>
+
+    <div class="process-steps">
+      <div class="process-step reveal reveal--delay-1">
+        <div class="process-step__num" aria-hidden="true">1</div>
+        <h3 class="process-step__title">Get in Touch</h3>
+        <p class="process-step__text">
+          Call or email Tracy with your date and rough numbers. We'll check 
+          availability and have an honest conversation about what's possible.
+        </p>
+      </div>
+      <div class="process-step reveal reveal--delay-2">
+        <div class="process-step__num" aria-hidden="true">2</div>
+        <h3 class="process-step__title">Visit the Venue</h3>
+        <p class="process-step__text">
+          Come and walk the rooms, ask every question you have, and get a feel 
+          for the space before committing to anything.
+        </p>
+      </div>
+      <div class="process-step reveal reveal--delay-3">
+        <div class="process-step__num" aria-hidden="true">3</div>
+        <h3 class="process-step__title">Plan Together</h3>
+        <p class="process-step__text">
+          Tracy works through every detail with you — menus, layout, timings, 
+          décor — until the day is exactly as you've pictured it.
+        </p>
+      </div>
+      <div class="process-step reveal reveal--delay-4">
+        <div class="process-step__num" aria-hidden="true">4</div>
+        <h3 class="process-step__title">Enjoy Your Day</h3>
+        <p class="process-step__text">
+          On the day itself, our team handles everything so you can be present 
+          for every moment that matters.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     TESTIMONIALS
+================================================ -->
+<section class="w-testimonials" aria-labelledby="testimonials-title">
+  <div class="container">
+    <header class="w-testimonials__header reveal">
+      <span class="label">Couples Who've Been Here</span>
+      <h2 id="testimonials-title">In Their Own Words</h2>
+    </header>
+
+    <div class="testimonials__grid">
+      <article class="testimonial-card reveal reveal--delay-1">
+        <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+        <p class="testimonial-card__text">
+          "Would definitely recommend Ruckland Rooms. Tracy is extremely helpful 
+          from start to finish. We had the carvery for our wedding breakfast and 
+          had nothing but compliments from our guests — the food was genuinely 
+          excellent."
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">S</div>
+          <div>
+            <span class="testimonial-card__name">Sarah &amp; Tom</span>
+            <span class="testimonial-card__occasion">Wedding Reception</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card reveal reveal--delay-2">
+        <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+        <p class="testimonial-card__text">
+          "A big thank you for making our wedding day another night to remember. 
+          The catering and bar staff did us proud — they were attentive, warm, 
+          and clearly took real pride in what they were doing. We couldn't have 
+          asked for more."
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">M</div>
+          <div>
+            <span class="testimonial-card__name">Michelle &amp; David</span>
+            <span class="testimonial-card__occasion">Wedding Reception</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card reveal reveal--delay-3">
+        <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+        <p class="testimonial-card__text">
+          "We were nervous about the whole thing but Tracy put us at ease from 
+          the very first call. On the day she was everywhere at once — you'd 
+          barely notice a thing was missing before she'd already sorted it. 
+          Magical day."
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">L</div>
+          <div>
+            <span class="testimonial-card__name">Laura &amp; James</span>
+            <span class="testimonial-card__occasion">Wedding Reception</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     FAQ
+================================================ -->
+<section class="w-faq" aria-labelledby="faq-title">
+  <div class="container container--narrow">
+    <header class="w-faq__header reveal">
+      <span class="label">Common Questions</span>
+      <h2 id="faq-title">Good to Know Before You Book</h2>
+    </header>
+
+    <div class="faq-list reveal">
+
+      <details class="faq-item">
+        <summary>
+          How many guests can Ruckland Rooms accommodate?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-item__answer">
+          The Ruckland Room seats up to 120 guests for a formal sit-down wedding breakfast, 
+          or accommodates up to 180 for a buffet-style or evening reception. For smaller, 
+          more intimate gatherings, the Pocahontas Room with its adjoining Lounge Bar is 
+          an excellent alternative.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Do we have to use your caterer?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-item__answer">
+          On a room-hire basis, you're welcome to bring an approved external caterer — 
+          Tracy can provide a list. That said, most couples find our in-house team 
+          provides everything they need at excellent value, and the convenience of 
+          everything under one roof is genuinely hard to beat.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is there a minimum number of guests?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-item__answer">
+          We don't impose a strict minimum, but our pricing works best from around 
+          50 guests for a wedding breakfast. If you're planning something more 
+          intimate, call Tracy and she'll work out what makes sense for your numbers.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Is there parking at the venue?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-item__answer">
+          Yes — Ruckland Rooms has its own private car park at no extra charge. 
+          The venue is also centrally located in Gravesend, close to the railway 
+          station, so guests travelling without a car are well catered for too.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          What's included in the drinks package?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-item__answer">
+          The standard drinks package includes an arrival drink, one third of a 
+          bottle of wine per person during the wedding breakfast, and a glass of 
+          prosecco for the toasting drink. Beyond that, our fully licensed bar 
+          operates at pub prices throughout the evening — no hotel-style markups.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          How far in advance should we book?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-item__answer">
+          Popular dates — especially Saturdays between April and October — 
+          can book up 12 to 18 months in advance. We'd recommend making an 
+          enquiry as soon as you have a date in mind. There's no obligation at 
+          the enquiry stage, and checking availability costs nothing.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>
+          Can we see the venue before we commit?
+          <span class="faq-item__icon" aria-hidden="true">+</span>
+        </summary>
+        <p class="faq-item__answer">
+          Absolutely — we actively encourage it. Call Tracy to arrange a viewing 
+          and she'll show you around both rooms, answer your questions, and walk 
+          you through how your day might look. There's never any pressure to book 
+          on the spot.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================
+     CTA BAND
+================================================ -->
+<section class="cta-band" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-band__inner reveal">
+      <div class="rule"><div class="rule__diamond"></div></div>
+      <span class="label">Begin Planning</span>
+      <h2 class="cta-band__title" id="cta-title">Your Wedding Starts<br /><em>With a Conversation</em></h2>
+      <p class="cta-band__sub">
+        No online forms, no waiting lists. Just call Tracy, tell her your date, 
+        and let's see what we can build together.
+      </p>
+      <div class="cta-band__actions">
+        <a href="contact.html" class="btn btn--primary">Send an Enquiry</a>
+        <a href="tel:01474352171" class="btn btn--outline">Call 01474 352171</a>
+      </div>
+      <div class="cta-band__contact">
+        <div class="cta-band__contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>25 Wrotham Road, Gravesend, Kent DA11 0PA</span>
+        </div>
+        <div class="cta-band__contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:weddings@rucklandrooms.com">weddings@rucklandrooms.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================================================
+     FOOTER
+================================================ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand-name">Ruckland Rooms</div>
+        <span class="footer__brand-sub">Gravesend · Est. 1905</span>
+        <p class="footer__tagline">A heritage venue at the heart of Gravesend — for weddings, celebrations, gatherings, and every moment in between.</p>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/Ruckland-House-2132019600415374/" target="_blank" rel="noopener noreferrer" aria-label="Follow Ruckland Rooms on Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Follow on Facebook
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Footer navigation">
+        <span class="footer__col-title">Explore</span>
+        <ul class="footer__nav">
+          <li><a href="rooms.html">Our Rooms</a></li>
+          <li><a href="weddings.html">Weddings</a></li>
+          <li><a href="occasions.html">Occasions</a></li>
+          <li><a href="menus.html">Menus &amp; Catering</a></li>
+          <li><a href="wakes.html">Wakes &amp; Memorials</a></li>
+          <li><a href="meetings.html">Meetings &amp; Training</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div>
+        <span class="footer__col-title">Find Us</span>
+        <address class="footer__address">
+          <strong>Ruckland Rooms</strong><br />
+          25 Wrotham Road<br />Gravesend<br />Kent<br />DA11 0PA
+        </address>
+        <p style="margin-top:0.75rem; font-size:0.75rem; color:rgba(255,255,255,0.35); max-width:none;">Private car park available.<br />Close to Gravesend railway station.</p>
+      </div>
+      <div>
+        <span class="footer__col-title">Get in Touch</span>
+        <a href="tel:01474352171" class="footer__contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          01474 352171
+        </a>
+        <a href="mailto:weddings@rucklandrooms.com" class="footer__contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          weddings@rucklandrooms.com
+        </a>
+        <div style="margin-top:1.2rem;">
+          <a href="contact.html" class="btn btn--primary" style="font-size:0.7rem; padding:0.7rem 1.4rem;">Make an Enquiry</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Ruckland Rooms, Gravesend. All rights reserved. All hires are subject to our terms &amp; conditions, available on request.</p>
+      <nav class="footer__legal" aria-label="Legal navigation">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="sitemap.html">Sitemap</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Parallax hero image
+  const heroImg = document.getElementById('hero-img');
+  if (heroImg) {
+    heroImg.classList.add('loaded');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      heroImg.style.transform = `translateY(${scrolled * 0.25}px)`;
+    }, { passive: true });
+  }
+
+  // Mobile nav
+  const toggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('nav-mobile');
+  const closeBtn = document.getElementById('nav-close');
+  function openNav() { toggle.classList.add('open'); mobileNav.classList.add('open'); mobileNav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeNav() { toggle.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  toggle.addEventListener('click', () => mobileNav.classList.contains('open') ? closeNav() : openNav());
+  closeBtn.addEventListener('click', closeNav);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+  document.querySelectorAll('.nav__mobile-link').forEach(l => l.addEventListener('click', closeNav));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
