@@ -75,62 +75,67 @@
   <main>
 
     <!-- ================================================
-         HERO
+         HERO — Centred, magazine-cover layout
     ================================================ -->
     <section class="hero" aria-label="Welcome to Ruckland House">
       <div class="hero__bg" aria-hidden="true"></div>
-      <div class="hero__panel" aria-hidden="true"></div>
 
-      <div class="container hero__inner">
-        <div class="hero__content">
-          <span class="hero__badge" aria-label="Established 1905">
-            Est. &nbsp;1905
-          </span>
+      <!-- Centred content -->
+      <div class="hero__centre">
 
-          <h1 class="hero__title">
-            Where<br />
-            <em>Gravesend</em><br />
-            Gathers
-          </h1>
-
-          <p class="hero__sub">
-            A venue with a century of stories. Whether you're celebrating a wedding, 
-            marking a birthday, or simply bringing people together — Ruckland House 
-            is the warm, beautiful backdrop your occasion deserves.
-          </p>
-
-          <div class="hero__actions">
-            <a href="contact.html" class="btn btn--primary">Plan Your Event</a>
-            <a href="rooms.html" class="btn btn--ghost">Explore the Rooms</a>
-          </div>
+        <!-- Logo as centrepiece -->
+        <div class="hero__logo-wrap" aria-hidden="true">
+          <img
+            src="images/logo-white.png"
+            alt="Ruckland House"
+            class="hero__logo"
+            width="340"
+            height="272"
+          />
         </div>
 
-        <!-- Stat cards — desktop only -->
-        <div class="hero__stats" aria-hidden="true">
-          <div class="hero__stat">
-            <span class="hero__stat-number">120+</span>
-            <span class="hero__stat-label">Years of Events</span>
+        <h1 class="hero__title">
+          Where <em>Gravesend</em> Gathers
+        </h1>
+
+        <p class="hero__sub">
+          A venue with a century of stories. Whether you're celebrating a wedding, 
+          marking a birthday, or simply bringing people together — Ruckland House 
+          is the warm, beautiful backdrop your occasion deserves.
+        </p>
+
+        <div class="hero__actions">
+          <a href="contact.html" class="btn btn--primary">Plan Your Event</a>
+          <a href="rooms.html" class="btn btn--ghost">Explore the Rooms</a>
+        </div>
+
+      </div>
+
+      <!-- Stat strip — full width along the bottom -->
+      <div class="hero__strip" aria-hidden="true">
+        <div class="hero__strip-inner">
+          <div class="hero__strip-item">
+            <span class="hero__strip-num">120+</span>
+            <span class="hero__strip-lbl">Years of Events</span>
           </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number">180</span>
-            <span class="hero__stat-label">Guests, Dining</span>
+          <div class="hero__strip-div" aria-hidden="true"></div>
+          <div class="hero__strip-item">
+            <span class="hero__strip-num">180</span>
+            <span class="hero__strip-lbl">Guests, Dining</span>
           </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number">2</span>
-            <span class="hero__stat-label">Private Rooms</span>
+          <div class="hero__strip-div" aria-hidden="true"></div>
+          <div class="hero__strip-item">
+            <span class="hero__strip-num">2</span>
+            <span class="hero__strip-lbl">Private Rooms</span>
           </div>
-          <div class="hero__stat">
-            <span class="hero__stat-number">★ 5</span>
-            <span class="hero__stat-label">Star Reviews</span>
+          <div class="hero__strip-div" aria-hidden="true"></div>
+          <div class="hero__strip-item">
+            <span class="hero__strip-num">&#9733;&nbsp;5</span>
+            <span class="hero__strip-lbl">Star Reviews</span>
           </div>
         </div>
       </div>
 
-      <!-- Scroll cue -->
-      <div class="hero__scroll" aria-hidden="true">
-        <div class="hero__scroll-line"></div>
-        <span>Scroll</span>
-      </div>
     </section>
 
     <!-- ================================================
@@ -661,7 +666,7 @@
         <div>
           <div class="footer__logo-wrap">
             <img
-              src="images/logo.avif"
+              src="images/logo-white.png"
               alt="Ruckland House — Gravesend, Est. 1905"
               class="footer__logo"
               width="220"
