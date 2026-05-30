@@ -1,5 +1,5 @@
 /* ============================================================
-   RUCKLAND ROOMS — style.css
+   RUCKLAND HOUSE — style.css
    Aesthetic: Heritage Refined × Modernist Warmth
    Old meets new: 1800s building soul, 1970s structure, today's clarity
    ============================================================ */
@@ -243,13 +243,35 @@ p {
 
 .nav__brand {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
   line-height: 1;
+}
+
+/* Logo mark — the RH monogram extracted from the full logo */
+.nav__logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  /* Invert to white on transparent hero, revert on scrolled white header */
+  filter: brightness(0) invert(1);
+  transition: filter var(--duration) var(--ease), opacity var(--duration) var(--ease);
+}
+
+.site-header.scrolled .nav__logo {
+  filter: none;
+}
+
+.nav__brand-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .nav__brand-name {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--white);
   transition: color var(--duration) var(--ease);
@@ -1281,6 +1303,23 @@ p {
   transition: color var(--duration) var(--ease);
 }
 .cta-band__contact-item a:hover { color: var(--gold); }
+
+
+/* ============================================================
+   FOOTER LOGO
+   ============================================================ */
+.footer__logo-wrap {
+  margin-bottom: var(--gap-sm);
+}
+
+.footer__logo {
+  width: 220px;
+  height: auto;
+  display: block;
+  /* Lighten slightly so it reads on dark navy */
+  opacity: 0.92;
+  filter: brightness(1.1);
+}
 
 /* ============================================================
    FOOTER
