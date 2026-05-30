@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Wakes and memorial gatherings in Gravesend, Kent. Ruckland Rooms — a quiet, dignified venue for funeral receptions with in-house catering and a fully licensed bar. We handle every detail with care." />
+  <meta name="keywords" content="wake venue Gravesend, funeral reception Kent, memorial gathering venue, wake catering Gravesend" />
+  <meta property="og:title" content="Wakes & Memorial Gatherings — Ruckland Rooms, Gravesend" />
+  <meta property="og:description" content="A quiet, dignified space for those who need to gather, grieve and remember together. We take care of everything, so you don't have to." />
+  <meta property="og:type" content="website" />
+  <title>Wakes & Memorial Gatherings — Ruckland Rooms, Gravesend</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <style>
+    /* ============================================================
+       WAKES PAGE
+       Tone: calm, warm, dignified. Muted palette, generous space.
+    ============================================================ */
+
+    /* Override cream to be even quieter on this page */
+    :root {
+      --cream:      #F5F1EB;
+      --cream-dark: #EBE4D8;
+    }
+
+    /* ---- Hero ---- */
+    .page-hero {
+      position: relative;
+      min-height: 75svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-bottom: 5rem;
+    }
+    .page-hero__img {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1490750967868-88df5691cc8e?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 35%;
+      z-index: 0;
+      filter: grayscale(25%) brightness(0.85);
+    }
+    .page-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(14,22,34,0.92) 0%, rgba(14,22,34,0.5) 50%, rgba(14,22,34,0.2) 100%);
+      z-index: 1;
+    }
+    .page-hero__inner {
+      position: relative; z-index: 2;
+      width: 90%; max-width: 780px;
+      margin-inline: auto;
+    }
+    .page-hero__breadcrumb {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-accent); font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 1.5rem;
+    }
+    .page-hero__breadcrumb a { color: rgba(255,255,255,0.4); transition: color var(--duration) var(--ease); }
+    .page-hero__breadcrumb a:hover { color: var(--gold-light); }
+    .page-hero__breadcrumb span { color: rgba(255,255,255,0.2); }
+    .page-hero__label {
+      font-family: var(--font-accent); font-size: 0.72rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-light); display: block; margin-bottom: 0.75rem;
+    }
+    .page-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+      font-weight: 300; color: var(--white);
+      line-height: 1.1; margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.2s forwards;
+    }
+    .page-hero__title em { font-style: italic; color: var(--gold-light); }
+    .page-hero__sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      line-height: 1.8; max-width: 52ch; margin-bottom: 2rem;
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.4s forwards;
+    }
+    .page-hero__actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 1s var(--ease) 0.6s forwards;
+    }
+
+    /* ---- Quiet intro ---- */
+    .w-intro {
+      padding: var(--gap-xl) 0;
+      background: var(--cream);
+    }
+    .w-intro__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: center;
+    }
+    .w-intro__img { position: relative; }
+    .w-intro__img-main {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover; border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      filter: saturate(0.6) brightness(0.96);
+    }
+    .w-intro__img::before {
+      content: '';
+      position: absolute; top: -14px; left: -14px;
+      right: 14px; bottom: 14px;
+      border: 1px solid var(--gold); border-radius: var(--radius-md);
+      opacity: 0.25; z-index: -1;
+    }
+    .w-intro__pull {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      font-weight: 400; font-style: italic;
+      color: var(--navy-mid); line-height: 1.5;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.4rem; margin: var(--gap-md) 0;
+    }
+
+    /* ---- What we provide ---- */
+    .w-provide {
+      padding: var(--gap-xl) 0;
+      background: var(--cream-dark);
+    }
+    .w-provide__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: start;
+    }
+    .provide-list {
+      display: flex; flex-direction: column; gap: 1rem;
+      margin-top: var(--gap-md);
+    }
+    .provide-item {
+      display: grid;
+      grid-template-columns: 2.4rem 1fr;
+      gap: 0.75rem; align-items: start;
+    }
+    .provide-item__icon {
+      width: 2.4rem; height: 2.4rem;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .provide-item__icon svg {
+      width: 13px; height: 13px;
+      stroke: var(--gold); fill: none;
+      stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .provide-item__title {
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--navy); display: block; line-height: 1.3;
+    }
+    .provide-item__desc {
+      font-size: 0.8rem; color: var(--navy-soft);
+      line-height: 1.55; max-width: none; margin-top: 0.1rem;
+    }
+
+    /* Soft contact card */
+    .soft-contact-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 2.4rem;
+      border: 1px solid var(--cream-dark);
+      box-shadow: var(--shadow-card);
+    }
+    .soft-contact-card__label {
+      font-family: var(--font-accent); font-size: 0.62rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 0.5rem;
+    }
+    .soft-contact-card__name {
+      font-family: var(--font-display); font-size: 1.8rem;
+      font-weight: 400; color: var(--navy); margin-bottom: 0.25rem;
+    }
+    .soft-contact-card__title {
+      font-size: 0.8rem; color: var(--stone); max-width: none; margin-bottom: 1rem;
+    }
+    .soft-contact-card__divider {
+      width: 36px; height: 1px; background: var(--gold); opacity: 0.4; margin-bottom: 1rem;
+    }
+    .soft-contact-card__body {
+      font-size: 0.88rem; color: var(--navy-mid);
+      line-height: 1.75; max-width: none; margin-bottom: 1.4rem;
+    }
+    .soft-contact-card__links { display: flex; flex-direction: column; gap: 0.6rem; }
+    .soft-contact-card__link {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.9rem; color: var(--navy-mid);
+      transition: color var(--duration) var(--ease);
+    }
+    .soft-contact-card__link:hover { color: var(--gold); }
+    .soft-contact-card__link svg {
+      stroke: var(--gold); flex-shrink: 0;
+    }
+
+    /* ---- Menus ---- */
+    .w-menus {
+      padding: var(--gap-xl) 0;
+      background: var(--navy);
+      position: relative; overflow: hidden;
+    }
+    .w-menus::before {
+      content: 'Menus';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: clamp(6rem, 14vw, 14rem);
+      font-weight: 300; color: rgba(255,255,255,0.025);
+      white-space: nowrap; pointer-events: none; z-index: 0;
+    }
+    .w-menus__header {
+      text-align: center; position: relative; z-index: 1;
+      margin-bottom: var(--gap-lg);
+    }
+    .w-menus__header .label { color: var(--gold-light); }
+    .w-menus__header h2 { color: var(--white); }
+    .w-menus__header p { color: rgba(255,255,255,0.6); margin-inline: auto; margin-top: 0.75rem; }
+    .w-menus__grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; position: relative; z-index: 1;
+    }
+
+    /* Menu card — same pattern as occasions */
+    .menu-card {
+      border-radius: var(--radius-md); overflow: hidden;
+      display: flex; flex-direction: column;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      transition: background var(--duration) var(--ease);
+    }
+    .menu-card:hover { background: rgba(255,255,255,0.08); }
+    .menu-card__header {
+      padding: 1.6rem 1.8rem 1.2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 1rem;
+    }
+    .menu-card__badge {
+      font-family: var(--font-accent); font-size: 0.6rem;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-light); display: block; margin-bottom: 0.3rem;
+    }
+    .menu-card__name {
+      font-family: var(--font-display); font-size: 1.45rem;
+      font-weight: 400; color: var(--white); line-height: 1.15;
+    }
+    .menu-card__price {
+      font-family: var(--font-display); font-size: 1.9rem;
+      color: var(--gold-light); white-space: nowrap;
+      line-height: 1; padding-top: 0.25rem;
+    }
+    .menu-card__price-label {
+      font-family: var(--font-accent); font-size: 0.55rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35); display: block;
+      text-align: right; margin-top: 0.15rem;
+    }
+    .menu-card__body { padding: 1.4rem 1.8rem 1.8rem; flex: 1; }
+    .menu-card__items { display: flex; flex-direction: column; }
+    .menu-card__item {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.85rem; color: rgba(255,255,255,0.6);
+      line-height: 1.5; padding: 0.22rem 0;
+    }
+    .menu-card__item::before {
+      content: ''; display: block;
+      width: 3px; height: 3px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0;
+      margin-top: 0.55rem; opacity: 0.7;
+    }
+    .menu-card__actions { padding: 0 1.8rem 1.6rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .btn--download {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-accent); font-size: 0.72rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.75rem 1.4rem; border-radius: var(--radius-sm);
+      background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: all var(--duration) var(--ease); cursor: pointer;
+    }
+    .btn--download:hover {
+      background: rgba(255,255,255,0.13); color: var(--white);
+      border-color: rgba(255,255,255,0.25);
+    }
+
+    /* ---- FAQ ---- */
+    .w-faq { padding: var(--gap-xl) 0; background: var(--cream); }
+    .w-faq__header { text-align: center; margin-bottom: var(--gap-lg); }
+    .faq-list--light { border-top: 1px solid var(--cream-dark); }
+    .faq-list--light .faq-item { border-bottom: 1px solid var(--cream-dark); }
+    .faq-list--light .faq-item summary {
+      font-family: var(--font-display); font-size: 1.1rem;
+      color: var(--navy); list-style: none; display: flex;
+      justify-content: space-between; align-items: center;
+      padding: 1.2rem 0; cursor: pointer; user-select: none; gap: 1rem;
+    }
+    .faq-list--light .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-list--light .faq-item__icon { color: var(--gold); font-size: 1.1rem; flex-shrink: 0; transition: transform var(--duration) var(--ease); }
+    .faq-list--light details[open] .faq-item__icon { transform: rotate(45deg); }
+    .faq-list--light .faq-item__answer {
+      font-size: 0.9rem; color: var(--navy-soft); line-height: 1.75;
+      max-width: 68ch; padding-bottom: 1.2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .page-hero { min-height: 65svh; }
+      .w-intro__inner { grid-template-columns: 1fr; }
+      .w-provide__inner { grid-template-columns: 1fr; }
+      .w-menus__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .page-hero__title { font-size: clamp(2.4rem, 9vw, 3.2rem); }
+      .page-hero__actions { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="site-header">
+  <div class="container">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__brand-name">Ruckland Rooms</span>
+        <span class="nav__brand-sub">Gravesend · Est. 1905</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="nav__link">Home</a></li>
+        <li><a href="rooms.html" class="nav__link">Our Rooms</a></li>
+        <li><a href="weddings.html" class="nav__link">Weddings</a></li>
+        <li><a href="occasions.html" class="nav__link">Occasions</a></li>
+        <li><a href="menus.html" class="nav__link">Menus</a></li>
+        <li><a href="wakes.html" class="nav__link" aria-current="page">Wakes</a></li>
+        <li><a href="meetings.html" class="nav__link">Meetings</a></li>
+      </ul>
+      <a href="contact.html" class="nav__cta">Enquire Now</a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<nav class="nav__mobile" id="nav-mobile" aria-hidden="true">
+  <button class="nav__mobile-close" id="nav-close" aria-label="Close menu">&times;</button>
+  <a href="index.html" class="nav__mobile-link">Home</a>
+  <a href="rooms.html" class="nav__mobile-link">Our Rooms</a>
+  <a href="weddings.html" class="nav__mobile-link">Weddings</a>
+  <a href="occasions.html" class="nav__mobile-link">Occasions</a>
+  <a href="menus.html" class="nav__mobile-link">Menus</a>
+  <a href="wakes.html" class="nav__mobile-link">Wakes</a>
+  <a href="meetings.html" class="nav__mobile-link">Meetings</a>
+  <a href="contact.html" class="nav__mobile-link text-gold">Enquire Now</a>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="page-hero" aria-label="Wakes and memorial gatherings">
+  <div class="page-hero__img" id="hero-img" aria-hidden="true"></div>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="page-hero__inner">
+    <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span aria-hidden="true">›</span>
+      <span aria-current="page">Wakes</span>
+    </nav>
+    <span class="page-hero__label">Wakes &amp; Memorial Gatherings · Gravesend</span>
+    <h1 class="page-hero__title">
+      A Place to<br />
+      Gather, Grieve,<br />
+      and <em>Remember.</em>
+    </h1>
+    <p class="page-hero__sub">
+      When a family needs to come together, the last thing anyone should be
+      worrying about is the catering. Ruckland Rooms offers a quiet, dignified
+      space where we take care of everything — so you can focus on the people
+      who matter most.
+    </p>
+    <div class="page-hero__actions">
+      <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+      <a href="#menus" class="btn btn--ghost">View Menus</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="w-intro" aria-labelledby="intro-title">
+  <div class="container">
+    <div class="w-intro__inner">
+      <div class="w-intro__img reveal">
+        <img class="w-intro__img-main"
+          src="https://images.unsplash.com/photo-1603574670812-d24560880210?w=900&q=85&auto=format&fit=crop"
+          alt="A quiet, warm room prepared for a gathering"
+          width="900" height="675" loading="lazy" />
+      </div>
+      <div class="reveal reveal--delay-2">
+        <span class="label">Handled With Care</span>
+        <h2 id="intro-title">We Take Care of<br />the <em>Details.</em></h2>
+        <blockquote class="w-intro__pull">
+          "A familiar, welcoming space where people can gather without fuss — and remember without distraction."
+        </blockquote>
+        <p style="max-width:none;">
+          Ruckland Rooms has been at the heart of the Gravesend community for over a century.
+          We understand that when families gather to honour someone they've lost, the
+          surroundings should feel warm and uncomplicated — not formal, not clinical.
+        </p>
+        <p style="margin-top:0.75rem; max-width:none;">
+          Our team has supported many families through this kind of occasion. We approach
+          every wake with the same care we bring to any event — but with a quieter hand.
+          You tell us what you need. We'll make it happen. If you're not sure what you
+          need, we'll help you work it out.
+        </p>
+        <p style="margin-top:0.75rem; max-width:none;">
+          Rooms are available on a half-day or full-day basis. All menus can be adapted
+          to suit the occasion, and every item below is a starting point — not a fixed list.
+        </p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
+          <a href="contact.html" class="btn btn--primary">Talk to Us</a>
+          <a href="#menus" class="btn btn--outline">See the Menus</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE PROVIDE -->
+<section class="w-provide" aria-labelledby="provide-title">
+  <div class="container">
+    <div class="w-provide__inner">
+      <div class="reveal">
+        <span class="label">What's Included</span>
+        <h2 id="provide-title">Everything Arranged.<br /><em>Nothing Overlooked.</em></h2>
+        <p style="margin-top:0.75rem; max-width:none;">
+          When you hire Ruckland Rooms for a wake, everything below is in place
+          before your guests arrive.
+        </p>
+        <div class="provide-list">
+          <div class="provide-item">
+            <div class="provide-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div>
+              <span class="provide-item__title">Private room — exclusively yours</span>
+              <span class="provide-item__desc">Your guests won't share the space with anyone else. The room is set and ready before anyone arrives.</span>
+            </div>
+          </div>
+          <div class="provide-item">
+            <div class="provide-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+            </div>
+            <div>
+              <span class="provide-item__title">In-house catering, freshly prepared</span>
+              <span class="provide-item__desc">Our kitchen handles all food on-site. All menus include tea and coffee as standard.</span>
+            </div>
+          </div>
+          <div class="provide-item">
+            <div class="provide-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 11v11"/><path d="M5 3h14a1 1 0 0 1 .8 1.6l-4.8 6.4a2 2 0 0 0-.4 1.2V14a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-1.8a2 2 0 0 0-.4-1.2L5.2 4.6A1 1 0 0 1 5 3z"/></svg>
+            </div>
+            <div>
+              <span class="provide-item__title">Fully licensed bar</span>
+              <span class="provide-item__desc">Available throughout the gathering if required. Staffed by our own team, at pub prices.</span>
+            </div>
+          </div>
+          <div class="provide-item">
+            <div class="provide-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div>
+              <span class="provide-item__title">Private car park</span>
+              <span class="provide-item__desc">On-site, free of charge. Close to Gravesend railway station for those travelling by train.</span>
+            </div>
+          </div>
+          <div class="provide-item">
+            <div class="provide-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <span class="provide-item__title">Tracy — our events coordinator</span>
+              <span class="provide-item__desc">Available from your first call to the end of the day. She'll manage everything quietly, so you don't have to.</span>
+            </div>
+          </div>
+          <div class="provide-item">
+            <div class="provide-item__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <div>
+              <span class="provide-item__title">Half-day or full-day hire</span>
+              <span class="provide-item__desc">Flexible timings to suit the occasion. We'll work around what you need, not the other way around.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft contact card -->
+      <div class="reveal reveal--delay-2">
+        <div class="soft-contact-card">
+          <span class="soft-contact-card__label">Speak to Someone Now</span>
+          <div class="soft-contact-card__name">Tracy</div>
+          <p class="soft-contact-card__title">Events Coordinator · Ruckland Rooms</p>
+          <div class="soft-contact-card__divider"></div>
+          <p class="soft-contact-card__body">
+            Tracy has supported many families through the process of organising a wake
+            at Ruckland Rooms. She understands that decisions need to be made quickly,
+            and that the last thing a family needs is unnecessary complication.
+          </p>
+          <p class="soft-contact-card__body" style="margin-top:0;">
+            Call or email — whichever feels right. She'll talk you through the options,
+            check availability, and handle everything from there.
+          </p>
+          <div class="soft-contact-card__links">
+            <a href="tel:01474352171" class="soft-contact-card__link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              01474 352171
+            </a>
+            <a href="tel:07850484975" class="soft-contact-card__link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              07850 48 49 75
+            </a>
+            <a href="mailto:info@rucklandrooms.com" class="soft-contact-card__link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              info@rucklandrooms.com
+            </a>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem; padding:1.4rem; background:var(--white); border:1px solid var(--cream-dark); border-radius:var(--radius-md);">
+          <p style="font-size:0.85rem; color:var(--navy-soft); max-width:none; line-height:1.7;">
+            We understand that arrangements sometimes need to be made at short notice.
+            Please call us — we'll do everything we can to accommodate you.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MENUS -->
+<section class="w-menus" id="menus" aria-labelledby="menus-title">
+  <div class="container">
+    <header class="w-menus__header reveal">
+      <span class="label">Catering Menus</span>
+      <h2 id="menus-title">Simple. Generous. Freshly Made.</h2>
+      <p>
+        All menus include tea and coffee as standard and are prepared fresh
+        in our own kitchen. Every option can be tailored. Prices are inclusive of VAT.
+      </p>
+    </header>
+
+    <div class="w-menus__grid">
+
+      <!-- Fork Buffet 1 -->
+      <div class="menu-card reveal reveal--delay-1">
+        <div class="menu-card__header">
+          <div>
+            <span class="menu-card__badge">Fork Buffet</span>
+            <div class="menu-card__name">Fork Buffet One</div>
+          </div>
+          <div style="text-align:right; flex-shrink:0;">
+            <div class="menu-card__price">£15.00</div>
+            <span class="menu-card__price-label">per person · inc. VAT</span>
+          </div>
+        </div>
+        <div class="menu-card__body">
+          <div class="menu-card__items">
+            <div class="menu-card__item">Roasted Topside of Beef</div>
+            <div class="menu-card__item">Honey Glazed Ham</div>
+            <div class="menu-card__item">Selection of Quiches</div>
+            <div class="menu-card__item">Caesar Salad</div>
+            <div class="menu-card__item">Pasta Salad · Coleslaw · Mixed Salad</div>
+            <div class="menu-card__item">New Potatoes · French Bread · Crisps</div>
+            <div class="menu-card__item">Tea &amp; Coffee</div>
+          </div>
+        </div>
+        <div class="menu-card__actions">
+          <a href="pdfs/ruckland-rooms-wake-menus.pdf" class="btn--download" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Menu PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Fork Buffet 2 -->
+      <div class="menu-card reveal reveal--delay-2">
+        <div class="menu-card__header">
+          <div>
+            <span class="menu-card__badge">Fork Buffet</span>
+            <div class="menu-card__name">Fork Buffet Two</div>
+          </div>
+          <div style="text-align:right; flex-shrink:0;">
+            <div class="menu-card__price">£14.75</div>
+            <span class="menu-card__price-label">per person · inc. VAT</span>
+          </div>
+        </div>
+        <div class="menu-card__body">
+          <div class="menu-card__items">
+            <div class="menu-card__item">Selection of Quiches</div>
+            <div class="menu-card__item">Selection of Rustic Sandwiches</div>
+            <div class="menu-card__item">Prawn Filled Vol-au-vents</div>
+            <div class="menu-card__item">Vegetable Samosas · Chicken Satay · Spring Rolls</div>
+            <div class="menu-card__item">Potato Salad · Coleslaw</div>
+            <div class="menu-card__item">Warm Baby Jacket Potatoes with Sour Cream &amp; Chive</div>
+            <div class="menu-card__item">Crisps &amp; Olives · Tortilla Chips with Tangy Dips</div>
+            <div class="menu-card__item">Scones with Cream &amp; Jam · Tea &amp; Coffee</div>
+          </div>
+        </div>
+        <div class="menu-card__actions">
+          <a href="pdfs/ruckland-rooms-wake-menus.pdf" class="btn--download" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Menu PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Finger Buffet 3 -->
+      <div class="menu-card reveal reveal--delay-1">
+        <div class="menu-card__header">
+          <div>
+            <span class="menu-card__badge">Finger Buffet</span>
+            <div class="menu-card__name">Finger Buffet Three</div>
+          </div>
+          <div style="text-align:right; flex-shrink:0;">
+            <div class="menu-card__price">£9.50</div>
+            <span class="menu-card__price-label">per person · inc. VAT</span>
+          </div>
+        </div>
+        <div class="menu-card__body">
+          <div class="menu-card__items">
+            <div class="menu-card__item">Selection of Quiches</div>
+            <div class="menu-card__item">Selection of Sandwiches</div>
+            <div class="menu-card__item">Cocktail Samosas · Pork Pies · Sausage Rolls</div>
+            <div class="menu-card__item">Roast Chicken Nibbles in a Southern Style Crumb</div>
+            <div class="menu-card__item">Honey &amp; Rosemary Glazed Sausages</div>
+            <div class="menu-card__item">Spring Rolls · Crisps</div>
+            <div class="menu-card__item">Tea &amp; Coffee</div>
+          </div>
+        </div>
+        <div class="menu-card__actions">
+          <a href="pdfs/ruckland-rooms-wake-menus.pdf" class="btn--download" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Menu PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Finger Buffet 4 -->
+      <div class="menu-card reveal reveal--delay-2">
+        <div class="menu-card__header">
+          <div>
+            <span class="menu-card__badge">Finger Buffet</span>
+            <div class="menu-card__name">Finger Buffet Four</div>
+          </div>
+          <div style="text-align:right; flex-shrink:0;">
+            <div class="menu-card__price">£8.75</div>
+            <span class="menu-card__price-label">per person · inc. VAT</span>
+          </div>
+        </div>
+        <div class="menu-card__body">
+          <div class="menu-card__items">
+            <div class="menu-card__item">Selection of Quiches</div>
+            <div class="menu-card__item">Selection of Sandwiches</div>
+            <div class="menu-card__item">Cocktail Sausages · Sausage Rolls</div>
+            <div class="menu-card__item">Chicken Pieces · Mini Scotch Eggs</div>
+            <div class="menu-card__item">Crudités &amp; Dips · Crisps</div>
+            <div class="menu-card__item">Tea &amp; Coffee</div>
+          </div>
+        </div>
+        <div class="menu-card__actions">
+          <a href="pdfs/ruckland-rooms-wake-menus.pdf" class="btn--download" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Menu PDF
+          </a>
+        </div>
+      </div>
+
+      <!-- Bespoke note -->
+      <div class="menu-card reveal" style="grid-column:span 2; background:rgba(255,255,255,0.04); border-color:rgba(255,255,255,0.1);">
+        <div class="menu-card__body" style="padding:2rem;">
+          <span class="label" style="color:var(--gold-light);">Bespoke Arrangements</span>
+          <p style="font-size:0.9rem; color:rgba(255,255,255,0.65); line-height:1.8; max-width:none; margin-top:0.5rem;">
+            Every menu above can be modified. If you'd like particular dishes added, items removed,
+            or dietary needs accommodated, simply ask Tracy and she'll arrange a revised menu
+            and quote. We understand that arrangements for a wake are often made at short notice —
+            please don't hesitate to call.
+          </p>
+          <div style="margin-top:1.2rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+            <a href="contact.html" class="btn btn--primary" style="font-size:0.78rem; padding:0.8rem 1.6rem;">Contact Us</a>
+            <a href="pdfs/ruckland-rooms-wake-menus.pdf" class="btn--download" download>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download All Menus
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="w-faq" aria-labelledby="faq-title">
+  <div class="container container--narrow">
+    <header class="w-faq__header reveal">
+      <span class="label">Practical Information</span>
+      <h2 id="faq-title">Common Questions</h2>
+    </header>
+    <div class="faq-list--light reveal">
+      <details class="faq-item">
+        <summary>How quickly can you accommodate a booking?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
+        <p class="faq-item__answer">We understand that funeral arrangements often move quickly. Please call Tracy directly on 01474 352171 or 07850 48 49 75 — we'll do everything we can to accommodate short-notice bookings and confirm availability as soon as possible.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many guests can the room hold?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
+        <p class="faq-item__answer">The Ruckland Room accommodates up to 120 guests seated or 180 for a standing or buffet-style gathering. For smaller, more intimate groups, the Pocahontas Room with its adjoining Lounge Bar is a comfortable alternative.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can the menu be changed or adapted?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
+        <p class="faq-item__answer">Yes — every menu is a starting point. Items can be added, removed or swapped to suit dietary requirements or personal wishes. Just ask Tracy and she'll provide a revised menu and quote.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is the bar available at a wake?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
+        <p class="faq-item__answer">Yes. Our fully licensed bar is available throughout your gathering if required, staffed by our own team. We can discuss what's appropriate for your occasion when you call.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is there parking?<span class="faq-item__icon" aria-hidden="true">+</span></summary>
+        <p class="faq-item__answer">Yes — our private car park is available to all guests free of charge. The venue is also very close to Gravesend railway station for guests travelling by train.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="cta-band__inner reveal">
+      <div class="rule"><div class="rule__diamond"></div></div>
+      <span class="label">Get in Touch</span>
+      <h2 class="cta-band__title" id="cta-title">We're Here<br /><em>Whenever You Need Us.</em></h2>
+      <p class="cta-band__sub">
+        Call Tracy directly, or send a message. We'll come back to you promptly
+        and handle everything from there with care.
+      </p>
+      <div class="cta-band__actions">
+        <a href="contact.html" class="btn btn--primary">Send a Message</a>
+        <a href="tel:01474352171" class="btn btn--outline">Call 01474 352171</a>
+      </div>
+      <div class="cta-band__contact">
+        <div class="cta-band__contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>25 Wrotham Road, Gravesend, Kent DA11 0PA</span>
+        </div>
+        <div class="cta-band__contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@rucklandrooms.com">info@rucklandrooms.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div>
+        <div class="footer__brand-name">Ruckland Rooms</div>
+        <span class="footer__brand-sub">Gravesend · Est. 1905</span>
+        <p class="footer__tagline">A heritage venue at the heart of Gravesend — for weddings, celebrations, gatherings, and every moment in between.</p>
+        <div class="footer__social">
+          <a href="https://www.facebook.com/Ruckland-House-2132019600415374/" target="_blank" rel="noopener noreferrer" aria-label="Follow Ruckland Rooms on Facebook">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Follow on Facebook
+          </a>
+        </div>
+      </div>
+      <nav aria-label="Footer navigation">
+        <span class="footer__col-title">Explore</span>
+        <ul class="footer__nav">
+          <li><a href="rooms.html">Our Rooms</a></li>
+          <li><a href="weddings.html">Weddings</a></li>
+          <li><a href="occasions.html">Occasions</a></li>
+          <li><a href="menus.html">Menus &amp; Catering</a></li>
+          <li><a href="wakes.html">Wakes &amp; Memorials</a></li>
+          <li><a href="meetings.html">Meetings &amp; Training</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+      <div>
+        <span class="footer__col-title">Find Us</span>
+        <address class="footer__address">
+          <strong>Ruckland Rooms</strong><br />
+          25 Wrotham Road<br />Gravesend<br />Kent<br />DA11 0PA
+        </address>
+        <p style="margin-top:0.75rem; font-size:0.75rem; color:rgba(255,255,255,0.35); max-width:none;">Private car park available.<br />Close to Gravesend railway station.</p>
+      </div>
+      <div>
+        <span class="footer__col-title">Get in Touch</span>
+        <a href="tel:01474352171" class="footer__contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          01474 352171
+        </a>
+        <a href="mailto:info@rucklandrooms.com" class="footer__contact-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          info@rucklandrooms.com
+        </a>
+        <div style="margin-top:1.2rem;">
+          <a href="contact.html" class="btn btn--primary" style="font-size:0.7rem; padding:0.7rem 1.4rem;">Make an Enquiry</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Ruckland Rooms, Gravesend. All rights reserved. All hires are subject to our terms &amp; conditions, available on request.</p>
+      <nav class="footer__legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="sitemap.html">Sitemap</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+  const heroImg = document.getElementById('hero-img');
+  if (heroImg) window.addEventListener('scroll', () => { heroImg.style.transform = `translateY(${window.scrollY * 0.2}px)`; }, { passive: true });
+  const toggle = document.getElementById('nav-toggle');
+  const mobileNav = document.getElementById('nav-mobile');
+  const closeBtn = document.getElementById('nav-close');
+  function openNav() { toggle.classList.add('open'); mobileNav.classList.add('open'); mobileNav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeNav() { toggle.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  toggle.addEventListener('click', () => mobileNav.classList.contains('open') ? closeNav() : openNav());
+  closeBtn.addEventListener('click', closeNav);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+  document.querySelectorAll('.nav__mobile-link').forEach(l => l.addEventListener('click', closeNav));
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
