@@ -243,9 +243,10 @@ p {
 
 .nav__brand {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.15rem;
   line-height: 1;
 }
 
@@ -434,7 +435,7 @@ p {
 
 .nav__mobile-sub-link {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 4vw, 1.4rem);
   font-weight: 300;
   color: rgba(255,255,255,0.65);
   letter-spacing: 0.02em;
@@ -477,10 +478,12 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: var(--gap-md);
+  gap: 1.2rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--duration) var(--ease);
+  overflow-y: auto;
+  padding: 5rem 2rem 3rem;
 }
 .nav__mobile.open {
   opacity: 1;
@@ -488,7 +491,7 @@ p {
 }
 .nav__mobile-link {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(1.4rem, 5vw, 2rem);
   font-weight: 400;
   color: var(--white);
   letter-spacing: 0.02em;
@@ -1592,33 +1595,46 @@ p {
 /* ============================================================
    RESPONSIVE — TABLET (≤ 1024px)
    ============================================================ */
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 1024px)
+   ============================================================ */
 @media (max-width: 1024px) {
-  .hero__inner { grid-template-columns: 1fr; }
+  /* Hero */
+  .hero__inner { grid-template-columns: 1fr; gap: var(--gap-md); padding-top: 2.5rem; padding-bottom: 2rem; }
   .hero__stats { display: none; }
   .hero__panel { display: none; }
-  .hero__inner { grid-template-columns: 1fr; gap: var(--gap-md); padding-top: 2rem; padding-bottom: 2rem; }
   .hero__features { display: none; }
   .hero__strip-item { padding: 1.1rem 1.5rem; }
   .hero__strip-num { font-size: 1.6rem; }
 
+  /* Heritage */
   .heritage__inner { grid-template-columns: 1fr; }
   .heritage__visual { order: -1; }
   .heritage__img-frame { display: none; }
   .heritage__est-badge { right: var(--gap-sm); }
 
+  /* Spaces */
   .spaces__grid { grid-template-columns: 1fr 1fr; }
 
+  /* Catering */
   .catering__inner { grid-template-columns: 1fr; }
   .catering__menu-cols { grid-template-columns: repeat(2, 1fr); }
 
+  /* Footer */
   .footer__inner { grid-template-columns: 1fr 1fr; gap: var(--gap-md); }
 
+  /* Intro strip */
   .intro-strip__inner { flex-direction: column; gap: var(--gap-md); text-align: center; }
   .intro-strip__details { justify-content: center; }
 
+  /* Occasions */
   .occasions__grid { grid-template-columns: 1fr; }
   .occasion-card--large { grid-row: span 1; }
   .occasion-card { aspect-ratio: 16/9; }
+
+  /* Page hero inner — two columns to single */
+  .page-hero__inner { grid-template-columns: 1fr !important; gap: 2rem; }
+  .page-hero__facts { display: none; }
 }
 
 /* ============================================================
@@ -1630,28 +1646,82 @@ p {
     --gap-xl: 4rem;
   }
 
+  /* Navigation */
   .nav__links,
   .nav__cta { display: none; }
   .nav__toggle { display: flex; }
   .nav__mobile { display: flex; }
 
-  .spaces__grid { grid-template-columns: 1fr; }
-  .testimonials__grid { grid-template-columns: 1fr; }
-  .catering__features { grid-template-columns: 1fr; }
-  .catering__menu-cols { grid-template-columns: 1fr; }
-  .footer__inner { grid-template-columns: 1fr; }
-
-  .hero__title { font-size: clamp(2.4rem, 9vw, 3.4rem); }
-  .hero__actions { flex-direction: column; }
+  /* Hero */
+  .hero__title { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero__sub { font-size: 0.95rem; max-width: none; }
+  .hero__actions { flex-direction: column; align-items: flex-start; }
+  .hero__actions .btn { width: 100%; text-align: center; }
   .hero__strip-inner { flex-wrap: wrap; gap: 0; }
   .hero__strip-item { padding: 1rem 1rem; min-width: 45%; }
   .hero__strip-div { display: none; }
+  .hero__feat-item { padding: 0.9rem 1rem; }
 
-  .footer__bottom { flex-direction: column; text-align: center; }
-  .footer__legal { justify-content: center; }
+  /* Page hero */
+  .page-hero { min-height: 70svh; padding-bottom: 3rem; }
+  .page-hero__inner { padding-top: 3rem !important; }
+  .page-hero__title { font-size: clamp(2rem, 8vw, 3rem) !important; }
+  .page-hero__sub { font-size: 0.95rem !important; }
+  .page-hero__actions { flex-direction: column; }
+  .page-hero__actions .btn { width: 100%; text-align: center; }
+  .page-hero__facts { display: none; }
 
-  .occasions__grid { grid-template-columns: 1fr; }
+  /* Spaces */
+  .spaces__grid { grid-template-columns: 1fr; }
+
+  /* Testimonials */
+  .testimonials__grid { grid-template-columns: 1fr; }
+
+  /* Catering */
+  .catering__features { grid-template-columns: 1fr; }
+  .catering__menu-cols { grid-template-columns: 1fr; }
   .catering__actions { flex-direction: column; }
+
+  /* Footer */
+  .footer__inner { grid-template-columns: 1fr; }
+  .footer__bottom { flex-direction: column; text-align: center; }
+  .footer__legal { justify-content: center; flex-wrap: wrap; gap: var(--gap-sm); }
+  .footer__logo { width: 160px; }
+
+  /* Occasions */
+  .occasions__grid { grid-template-columns: 1fr; }
+  .occasion-card { aspect-ratio: 4/3; }
+
+  /* Heritage section */
+  .heritage__inner { grid-template-columns: 1fr; gap: var(--gap-md); }
+
+  /* Buttons — minimum touch target */
+  .btn { min-height: 48px; padding: 0.85rem 1.6rem; }
+
+  /* Dropdown — disable hover on mobile (JS handles click) */
+  .nav__dropdown:hover .nav__dropdown-menu { opacity: 0; pointer-events: none; }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .hero__title { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .hero__strip-item { min-width: 100%; border-bottom: 1px solid rgba(184,146,74,0.15); }
+  .hero__strip-inner { flex-direction: column; }
+
+  .footer__inner { gap: var(--gap-md); }
+  .footer__logo { width: 140px; }
+  .footer__legal { gap: 0.75rem; }
+
+  .occasion-card { aspect-ratio: 3/2; }
+  .spaces__grid { grid-template-columns: 1fr; }
+
+  /* Tighten spacing */
+  :root {
+    --gap-lg: 2rem;
+    --gap-xl: 3rem;
+  }
 }
 
 /* ============================================================
