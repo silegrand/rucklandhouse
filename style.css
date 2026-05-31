@@ -249,29 +249,7 @@ p {
   line-height: 1;
 }
 
-/* Nav logos — white shown by default, colour shown when scrolled */
-.nav__logo {
-  height: 52px;
-  width: auto;
-  display: block;
-  flex-shrink: 0;
-  transition: opacity var(--duration) var(--ease);
-  position: absolute;
-}
 
-.nav__logo--white  { opacity: 1; }
-.nav__logo--colour { opacity: 0; }
-
-.site-header.scrolled .nav__logo--white  { opacity: 0; }
-.site-header.scrolled .nav__logo--colour { opacity: 1; }
-
-/* Wrapper to contain the stacked logos */
-.nav__logo-wrap {
-  position: relative;
-  width: 52px;
-  height: 52px;
-  flex-shrink: 0;
-}
 
 .nav__brand-text {
   display: flex;
@@ -579,20 +557,6 @@ p {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-/* Logo above the headline */
-.hero__logo-wrap {
-  margin-bottom: 1.75rem;
-  opacity: 0;
-  animation: fadeUp 0.9s var(--ease) 0.1s forwards;
-}
-
-.hero__logo {
-  width: clamp(160px, 20vw, 260px);
-  height: auto;
-  display: block;
-  filter: drop-shadow(0 6px 24px rgba(0,0,0,0.3));
 }
 
 /* Headline */
