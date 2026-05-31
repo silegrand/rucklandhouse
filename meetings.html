@@ -197,6 +197,28 @@
       .feat-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
+      /* Hero */
+      .page-hero__inner { grid-template-columns: 1fr !important; padding-top: 3rem; }
+      .page-hero__facts { display: none; }
+      .page-hero__title { font-size: clamp(2rem, 8vw, 3rem); }
+      .page-hero__actions { flex-direction: column; }
+      .page-hero__actions .btn { width: 100%; text-align: center; }
+      /* Intro */
+      .m-intro__inner { grid-template-columns: 1fr; }
+      /* Rooms */
+      .m-rooms__grid { grid-template-columns: 1fr; }
+      .cap-grid { grid-template-columns: repeat(3, 1fr); }
+      /* Hire */
+      .hire-options__grid { grid-template-columns: 1fr; }
+      /* Catering */
+      .catering-table { font-size: 0.82rem; }
+      /* Coordinator */
+      .coordinator-card { flex-direction: column; text-align: center; }
+      /* FAQ */
+      .faq-grid { grid-template-columns: 1fr; }
+      /* CTA */
+      .cta-band__actions { flex-direction: column; align-items: center; }
+      .cta-band__actions .btn { width: 100%; max-width: 320px; }
       .page-hero__title { font-size: clamp(2.6rem, 10vw, 3.5rem); }
       .page-hero__actions { flex-direction: column; }
       .cap-grid { grid-template-columns: repeat(3, 1fr); }
