@@ -182,17 +182,6 @@
       box-shadow: var(--shadow-soft);
       filter: saturate(0.92);
     }
-    .o-intro__img-accent {
-      position: absolute;
-      bottom: -2rem;
-      right: -2rem;
-      width: 55%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-soft);
-      border: 4px solid var(--cream);
-    }
     .o-intro__img::before {
       content: '';
       position: absolute;
@@ -597,6 +586,7 @@
     .gallery-mosaic__item:nth-child(3) { grid-column: span 3; }
     .gallery-mosaic__item:nth-child(4) { grid-column: span 3; }
     .gallery-mosaic__item:nth-child(5) { grid-column: span 5; }
+    .gallery-mosaic__item:nth-child(6) { grid-column: span 4; }
     .gallery-mosaic__item::after {
       content: attr(data-caption);
       position: absolute;
@@ -672,7 +662,6 @@
       .page-hero { padding-bottom: 4rem; min-height: 80svh; }
       .o-intro__inner { grid-template-columns: 1fr; }
       .o-intro__img { max-width: 520px; margin-bottom: 2rem; }
-      .o-intro__img-accent { display: none; }
       .o-occasions__grid { grid-template-columns: 1fr 1fr; }
       .o-menus__grid { grid-template-columns: 1fr; }
       .menu-card--featured { grid-column: span 1; }
@@ -846,13 +835,9 @@
     <div class="o-intro__inner">
       <div class="o-intro__img reveal">
         <img class="o-intro__img-main"
-          src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=900&q=85&auto=format&fit=crop"
-          alt="Beautifully set celebration table with flowers and candles"
+          src="images/rh28.webp"
+          alt="Ruckland House — celebrations and occasions"
           width="900" height="1200" loading="lazy" />
-        <img class="o-intro__img-accent"
-          src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&q=80&auto=format&fit=crop"
-          alt="Birthday celebration with guests"
-          width="600" height="450" loading="lazy" />
       </div>
 
       <div class="reveal reveal--delay-2">
@@ -953,8 +938,8 @@
 
       <article class="occ-card reveal reveal--delay-1">
         <img class="occ-card__img"
-          src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&q=80&auto=format&fit=crop"
-          alt="Retirement party celebration" width="700" height="394" loading="lazy" />
+          src="images/rh32.webp"
+          alt="Retirement party at Ruckland House" width="700" height="394" loading="lazy" />
         <div class="occ-card__body">
           <div class="occ-card__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -1355,24 +1340,22 @@
 
     <div class="gallery-mosaic reveal">
       <div class="gallery-mosaic__item" data-caption="The Ruckland Room">
-        <img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?w=900&q=80&auto=format&fit=crop"
-          alt="The Ruckland Room set for a celebration" width="900" height="1200" loading="lazy" />
+        <img src="images/rh13.webp" alt="Ruckland House — the venue" width="900" height="1200" loading="lazy" />
       </div>
-      <div class="gallery-mosaic__item" data-caption="Celebration Setting">
-        <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80&auto=format&fit=crop"
-          alt="Guests enjoying a celebration at Ruckland Rooms" width="800" height="533" loading="lazy" />
+      <div class="gallery-mosaic__item" data-caption="The Space">
+        <img src="images/rh14.webp" alt="Ruckland House — celebration setting" width="800" height="533" loading="lazy" />
       </div>
-      <div class="gallery-mosaic__item" data-caption="Table Dressing">
-        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=700&q=80&auto=format&fit=crop"
-          alt="Beautifully dressed event table" width="700" height="467" loading="lazy" />
+      <div class="gallery-mosaic__item" data-caption="The Setting">
+        <img src="images/rh15.webp" alt="Ruckland House — room setting" width="700" height="467" loading="lazy" />
       </div>
-      <div class="gallery-mosaic__item" data-caption="The Details">
-        <img src="https://images.unsplash.com/photo-1547393947-1849a9bc25c8?w=700&q=80&auto=format&fit=crop"
-          alt="Celebration drinks and details" width="700" height="467" loading="lazy" />
+      <div class="gallery-mosaic__item" data-caption="The Celebration">
+        <img src="images/rh16.webp" alt="Ruckland House — celebration" width="700" height="467" loading="lazy" />
       </div>
-      <div class="gallery-mosaic__item" data-caption="The Bar">
-        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&q=80&auto=format&fit=crop"
-          alt="Guests at a function at Ruckland Rooms" width="800" height="533" loading="lazy" />
+      <div class="gallery-mosaic__item" data-caption="The Detail">
+        <img src="images/rh17.webp" alt="Ruckland House — details" width="800" height="533" loading="lazy" />
+      </div>
+      <div class="gallery-mosaic__item" data-caption="The Occasion">
+        <img src="images/rh18.webp" alt="Ruckland House — the occasion" width="800" height="533" loading="lazy" />
       </div>
     </div>
   </div>
