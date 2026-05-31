@@ -360,21 +360,32 @@ p {
 
 .nav__dropdown-menu {
   position: absolute;
-  top: calc(100% + 0.6rem);
+  top: 100%; /* flush — no gap */
   left: 50%;
   transform: translateX(-50%);
   background: var(--navy);
   border: 1px solid rgba(184,146,74,0.2);
   border-radius: var(--radius-md);
-  min-width: 160px;
-  padding: 0.4rem 0;
+  min-width: 180px;
+  padding: 0.8rem 0 0.4rem; /* top padding acts as the visual gap */
   list-style: none;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-50%) translateY(-6px);
-  transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
+  transform: translateX(-50%) translateY(-4px);
+  /* Show instantly, hide with 150ms delay so cursor can travel to menu */
+  transition: opacity 0.2s var(--ease) 0s, transform 0.2s var(--ease) 0s;
   z-index: 200;
   box-shadow: 0 8px 32px rgba(14,22,34,0.35);
+}
+
+/* Invisible bridge fills gap between button and menu — prevents hover dropout */
+.nav__dropdown-menu::after {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 
 /* Gold hairline top accent */
@@ -391,6 +402,13 @@ p {
   opacity: 1;
   pointer-events: all;
   transform: translateX(-50%) translateY(0);
+  /* Show with no delay, hide delay is on the menu itself */
+  transition: opacity 0.2s var(--ease) 0s, transform 0.2s var(--ease) 0s;
+}
+
+/* When NOT hovered — apply hide delay of 200ms */
+.nav__dropdown:not(:hover) .nav__dropdown-menu {
+  transition: opacity 0.2s var(--ease) 0.2s, transform 0.2s var(--ease) 0.2s;
 }
 
 .nav__dropdown-item {
