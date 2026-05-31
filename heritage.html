@@ -392,6 +392,20 @@
 
     /* ---- Responsive ---- */
     @media (max-width: 840px) {
+      .h-section__inner, .h-section__inner--reverse { grid-template-columns: 1fr; gap: 2.5rem; }
+      .h-sidebar { position: static; }
+      .h-section__inner--reverse .h-sidebar { order: -1; }
+      .h-stats { grid-template-columns: repeat(2, 1fr); }
+      /* Timeline */
+      .timeline-strip { padding: 14px 16px; }
+      .ts-item__year { font-size: 0.9rem; }
+      .ts-item__label { font-size: 0.55rem; }
+      /* Hero */
+      .page-hero__title { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+      .page-hero__inner { max-width: none; padding-top: 3rem; }
+      /* Dark section */
+      .h-body-img { margin: 1.2rem 0; }
+      .h-pull { padding: 1.2rem 1.4rem; }
       .h-section__inner,
       .h-section__inner--reverse {
         grid-template-columns: 1fr;
