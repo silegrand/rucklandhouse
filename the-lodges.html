@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Masonic lodges of Gravesend have met at Ruckland House since 1905. Discover what they've given back to the community — and what Freemasonry actually is." />
+  <meta property="og:title" content="The Lodges — Ruckland House, Gravesend" />
+  <meta property="og:description" content="Over a century of community, charity, and fellowship. The story of the Masonic lodges that call Ruckland House home." />
+  <meta property="og:type" content="website" />
+  <title>The Lodges — Ruckland House, Gravesend | Est. 1905</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <style>
+
+    /* ── HERO ── */
+    .lodge-hero {
+      position: relative;
+      min-height: 85svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      padding-bottom: 0;
+    }
+
+    .lodge-hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('images/rh23.webp');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+      filter: brightness(0.45) saturate(0.7);
+      transition: transform 8s ease-out;
+    }
+    .lodge-hero__bg.loaded { transform: scale(1.03); }
+
+    .lodge-hero__overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to top, rgba(14,22,34,0.98) 0%, rgba(14,22,34,0.7) 40%, rgba(14,22,34,0.25) 100%),
+        linear-gradient(160deg, rgba(28,43,58,0.6) 0%, transparent 55%);
+      z-index: 1;
+    }
+
+    .lodge-hero__inner {
+      position: relative; z-index: 2;
+      width: 90%; max-width: 900px;
+      margin-inline: auto;
+      padding-bottom: 5rem;
+      padding-top: 5rem;
+    }
+
+    .lodge-hero__eyebrow {
+      font-family: var(--font-accent);
+      font-size: 0.65rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease) 0.1s forwards;
+    }
+    .lodge-hero__eyebrow::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .lodge-hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease) 0.25s forwards;
+    }
+    .lodge-hero__title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .lodge-hero__sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.8;
+      max-width: 58ch;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s var(--ease) 0.4s forwards;
+    }
+
+    /* ── IMPACT STRIP ── */
+    .impact-strip {
+      background: var(--gold);
+      position: relative;
+      z-index: 2;
+    }
+    .impact-strip__inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 5%;
+      display: flex;
+      align-items: stretch;
+    }
+    .impact-item {
+      flex: 1;
+      padding: 1.6rem 1rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.25);
+    }
+    .impact-item:last-child { border-right: none; }
+    .impact-item__num {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      display: block;
+    }
+    .impact-item__label {
+      font-family: var(--font-accent);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(28,43,58,0.75);
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    /* ── OPENING STATEMENT ── */
+    .lodge-open {
+      padding: 7rem 0 5rem;
+      background: var(--cream);
+    }
+    .lodge-open__inner {
+      width: 90%; max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .lodge-open__quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+    }
+    .lodge-open__quote strong {
+      font-weight: 500;
+      font-style: normal;
+      color: var(--gold);
+    }
+    .lodge-open__body {
+      font-size: 1.05rem;
+      color: var(--navy-soft);
+      line-height: 1.85;
+      max-width: 62ch;
+      margin: 0 auto;
+    }
+
+    /* ── WHAT THEY'VE DONE — Stories ── */
+    .lodge-stories {
+      padding: var(--gap-xl) 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+    .lodge-stories::before {
+      content: '1905';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-size: clamp(10rem, 20vw, 22rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.025);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .lodge-stories__header {
+      width: 90%; max-width: 780px;
+      margin: 0 auto var(--gap-lg);
+      text-align: center;
+      position: relative; z-index: 1;
+    }
+    .lodge-stories__header .label { color: var(--gold-light); }
+    .lodge-stories__header h2 { color: var(--white); }
+    .lodge-stories__header p {
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.75rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 54ch;
+      margin-inline: auto;
+    }
+
+    .stories-grid {
+      width: 90%; max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      position: relative; z-index: 1;
+    }
+
+    .story-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(184,146,74,0.2);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      transition: background var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    }
+    .story-card:hover {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(184,146,74,0.5);
+    }
+    .story-card__icon {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(184,146,74,0.12);
+      border: 1px solid rgba(184,146,74,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+    }
+    .story-card__icon svg {
+      width: 20px; height: 20px;
+      stroke: currentColor; fill: none;
+      stroke-width: 1.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .story-card__tag {
+      font-family: var(--font-accent);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .story-card__title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+    }
+    .story-card__body {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      max-width: none;
+    }
+    .story-card__figure {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--gold);
+      margin-top: 1.2rem;
+      display: block;
+      line-height: 1;
+    }
+    .story-card__figure-label {
+      font-family: var(--font-accent);
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    /* ── WHAT IS FREEMASONRY ── */
+    .lodge-explainer {
+      padding: var(--gap-xl) 0;
+      background: var(--cream);
+    }
+    .lodge-explainer__inner {
+      width: 90%; max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-xl);
+      align-items: start;
+    }
+    .lodge-explainer__sticky {
+      position: sticky;
+      top: 100px;
+    }
+    .lodge-explainer__sticky h2 {
+      margin-bottom: 1rem;
+    }
+    .lodge-explainer__sticky p {
+      color: var(--navy-soft);
+      line-height: 1.85;
+      margin-bottom: 0.75rem;
+      max-width: none;
+    }
+    .lodge-explainer__sticky blockquote {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--navy-mid);
+      border-left: 3px solid var(--gold);
+      padding-left: 1.2rem;
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .values-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .value-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+      padding: 1.4rem;
+      border: 1px solid var(--cream-dark);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      transition: box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    }
+    .value-item:hover {
+      box-shadow: var(--shadow-soft);
+      border-color: var(--gold);
+    }
+    .value-item__num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 2.5rem;
+      text-align: center;
+    }
+    .value-item__title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .value-item__body {
+      font-size: 0.88rem;
+      color: var(--navy-soft);
+      line-height: 1.7;
+      max-width: none;
+    }
+
+    /* ── THE GRAVESEND LODGES ── */
+    .lodge-local {
+      padding: var(--gap-xl) 0;
+      background: var(--cream-dark);
+    }
+    .lodge-local__header {
+      width: 90%; max-width: 780px;
+      margin: 0 auto var(--gap-lg);
+      text-align: center;
+    }
+    .lodge-local__header p {
+      color: var(--navy-soft);
+      margin-top: 0.75rem;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 54ch;
+      margin-inline: auto;
+    }
+    .lodges-grid {
+      width: 90%; max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    .lodge-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border-left: 3px solid var(--gold);
+      box-shadow: var(--shadow-card);
+      transition: box-shadow var(--duration) var(--ease), transform var(--duration) var(--ease);
+    }
+    .lodge-card:hover {
+      box-shadow: var(--shadow-soft);
+      transform: translateY(-2px);
+    }
+    .lodge-card__number {
+      font-family: var(--font-accent);
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .lodge-card__name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .lodge-card__body {
+      font-size: 0.88rem;
+      color: var(--navy-soft);
+      line-height: 1.75;
+      max-width: none;
+    }
+
+    /* ── MISCONCEPTIONS ── */
+    .lodge-myths {
+      padding: var(--gap-xl) 0;
+      background: var(--navy);
+      position: relative;
+    }
+    .lodge-myths__header {
+      width: 90%; max-width: 780px;
+      margin: 0 auto var(--gap-lg);
+      text-align: center;
+    }
+    .lodge-myths__header .label { color: var(--gold-light); }
+    .lodge-myths__header h2 { color: var(--white); }
+    .lodge-myths__header p {
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 52ch;
+      margin-inline: auto;
+    }
+    .myths-grid {
+      width: 90%; max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border: 1px solid rgba(184,146,74,0.15);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .myth-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .myth-item__myth {
+      background: rgba(255,255,255,0.04);
+      padding: 1.6rem 2rem;
+      border-right: 1px solid rgba(184,146,74,0.12);
+    }
+    .myth-item__reality {
+      background: rgba(184,146,74,0.06);
+      padding: 1.6rem 2rem;
+    }
+    .myth-item + .myth-item {
+      border-top: 1px solid rgba(184,146,74,0.12);
+    }
+    .myth-label {
+      font-family: var(--font-accent);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .myth-item__myth .myth-label { color: rgba(255,255,255,0.3); }
+    .myth-item__reality .myth-label { color: var(--gold-light); }
+    .myth-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      max-width: none;
+    }
+    .myth-item__myth .myth-text { color: rgba(255,255,255,0.5); font-style: italic; }
+    .myth-item__reality .myth-text { color: rgba(255,255,255,0.8); }
+
+    /* ── CURIOUS? ── */
+    .lodge-cta {
+      padding: var(--gap-xl) 0;
+      background: var(--cream);
+      text-align: center;
+    }
+    .lodge-cta__inner {
+      width: 90%; max-width: 700px;
+      margin: 0 auto;
+    }
+    .lodge-cta h2 {
+      margin-bottom: 1rem;
+    }
+    .lodge-cta p {
+      color: var(--navy-soft);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 2rem;
+      max-width: none;
+    }
+    .lodge-cta__links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .lodge-cta__note {
+      font-family: var(--font-accent);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--stone);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal--delay-1 { transition-delay: 0.1s; }
+    .reveal--delay-2 { transition-delay: 0.2s; }
+    .reveal--delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .stories-grid { grid-template-columns: 1fr 1fr; }
+      .lodge-explainer__inner { grid-template-columns: 1fr; }
+      .lodge-explainer__sticky { position: static; }
+    }
+    @media (max-width: 768px) {
+      .lodge-hero { min-height: 75svh; }
+      .lodge-hero__title { font-size: clamp(2.4rem, 9vw, 3.4rem); }
+      .impact-strip__inner { flex-wrap: wrap; }
+      .impact-item { min-width: 45%; border-bottom: 1px solid rgba(255,255,255,0.15); }
+      .impact-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.25); }
+      .impact-item:nth-child(even) { border-right: none; }
+      .stories-grid { grid-template-columns: 1fr; }
+      .lodges-grid { grid-template-columns: 1fr; }
+      .myth-item { grid-template-columns: 1fr; }
+      .myth-item__myth { border-right: none; border-bottom: 1px solid rgba(184,146,74,0.12); }
+      .lodge-cta__links { flex-direction: column; align-items: center; }
+      .lodge-cta__links .btn { width: 100%; max-width: 320px; }
+    }
+    @media (max-width: 480px) {
+      .impact-item { min-width: 100%; border-right: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html" class="nav__brand" aria-label="Ruckland House home">
+          <span class="nav__brand-name">Ruckland House</span>
+          <span class="nav__brand-sub">Gravesend · Est. 1905</span>
+        </a>
+        <ul class="nav__links" role="list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li class="nav__dropdown">
+            <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Our Rooms
+              <svg class="nav__dropdown-caret" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="nav__dropdown-menu" role="menu">
+              <li role="none"><a href="ruckland-room.html" class="nav__dropdown-item" role="menuitem">The Ruckland Room</a></li>
+              <li role="none"><a href="pocahontas-room.html" class="nav__dropdown-item" role="menuitem">The Pocahontas Room</a></li>
+            </ul>
+          </li>
+          <li><a href="heritage.html" class="nav__link">Heritage</a></li>
+          <li><a href="the-lodges.html" class="nav__link" aria-current="page">The Lodges</a></li>
+          <li class="nav__dropdown">
+            <button class="nav__link nav__dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+              Occasions
+              <svg class="nav__dropdown-caret" width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 3.5l3 3 3-3"/></svg>
+            </button>
+            <ul class="nav__dropdown-menu" role="menu">
+              <li role="none"><a href="weddings.html" class="nav__dropdown-item" role="menuitem">Weddings</a></li>
+              <li role="none"><a href="occasions.html" class="nav__dropdown-item" role="menuitem">Celebrations</a></li>
+              <li role="none"><a href="wakes.html" class="nav__dropdown-item" role="menuitem">Wakes</a></li>
+              <li role="none"><a href="meetings.html" class="nav__dropdown-item" role="menuitem">Meetings</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#begin-planning" class="nav__cta">Enquire Now</a>
+        <button class="nav__toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="nav__mobile" id="nav-mobile" aria-label="Mobile navigation" aria-hidden="true">
+    <button class="nav__mobile-close" id="nav-close" aria-label="Close menu">&times;</button>
+    <a href="index.html" class="nav__mobile-link">Home</a>
+    <span class="nav__mobile-label">Our Rooms</span>
+    <a href="ruckland-room.html" class="nav__mobile-sub-link">The Ruckland Room</a>
+    <a href="pocahontas-room.html" class="nav__mobile-sub-link">The Pocahontas Room</a>
+    <a href="heritage.html" class="nav__mobile-link">Heritage</a>
+    <a href="the-lodges.html" class="nav__mobile-link">The Lodges</a>
+    <span class="nav__mobile-label">Occasions</span>
+    <a href="weddings.html" class="nav__mobile-sub-link">Weddings</a>
+    <a href="occasions.html" class="nav__mobile-sub-link">Celebrations</a>
+    <a href="wakes.html" class="nav__mobile-sub-link">Wakes</a>
+    <a href="meetings.html" class="nav__mobile-sub-link">Meetings</a>
+    <a href="#begin-planning" class="nav__mobile-link text-gold">Enquire Now</a>
+  </nav>
+
+  <main>
+
+    <!-- ── HERO ── -->
+    <section class="lodge-hero" aria-label="The Lodges of Ruckland House">
+      <div class="lodge-hero__bg" id="hero-img" aria-hidden="true"></div>
+      <div class="lodge-hero__overlay" aria-hidden="true"></div>
+      <div class="lodge-hero__inner">
+        <p class="lodge-hero__eyebrow">Gravesend · Est. 1905</p>
+        <h1 class="lodge-hero__title">
+          The Men Who<br />Meet in <em>This Room</em><br />Give Back.
+        </h1>
+        <p class="lodge-hero__sub">
+          Since 1905, Masonic lodges have gathered at Ruckland House. What happens 
+          behind these doors isn't a secret — it's a quiet commitment to friendship, 
+          integrity, and making things a little better for the people around them.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── IMPACT STRIP ── -->
+    <div class="impact-strip" aria-label="Freemasonry charitable impact">
+      <div class="impact-strip__inner">
+        <div class="impact-item">
+          <span class="impact-item__num">£430k+</span>
+          <span class="impact-item__label">Donated by East Kent lodges since 2014</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-item__num">300+</span>
+          <span class="impact-item__label">Years of Freemasonry in England</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-item__num">169</span>
+          <span class="impact-item__label">Individuals &amp; families helped in East Kent</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-item__num">£5m+</span>
+          <span class="impact-item__label">Given to local &amp; national charities annually</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── OPENING STATEMENT ── -->
+    <section class="lodge-open">
+      <div class="lodge-open__inner reveal">
+        <p class="lodge-open__quote">
+          "We are just a group of ordinary people<br />
+          who like to have fun — and <strong>help out others.</strong>"
+        </p>
+        <p class="lodge-open__body">
+          That's how the Freemasons of East Kent describe themselves. No grand claims, 
+          no mystique. Just men from every walk of life — doctors, tradespeople, teachers, 
+          retired pilots, young professionals — who share a common belief: that you leave 
+          the world slightly better than you found it. The lodges at Ruckland House have 
+          been doing exactly that since 1905. This is their story.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── WHAT THEY'VE DONE ── -->
+    <section class="lodge-stories" aria-labelledby="stories-title">
+      <div class="lodge-stories__header reveal">
+        <span class="label">What the lodges have done</span>
+        <h2 id="stories-title" style="color:var(--white);">Charity Is Not<br /><em style="color:var(--gold-light);">a Side Project.</em></h2>
+        <p>
+          Across East Kent, Masonic lodges have quietly funded food banks, 
+          children's education, community health projects, and emergency support 
+          for families in crisis. Here is a small part of what that looks like in practice.
+        </p>
+      </div>
+
+      <div class="stories-grid">
+
+        <div class="story-card reveal reveal--delay-1">
+          <div class="story-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <span class="story-card__tag">Children &amp; Young People</span>
+          <h3 class="story-card__title">Supporting Education Across Kent</h3>
+          <p class="story-card__body">
+            The Cornwallis East Kent Freemasons' Charity has directed over £35,000 
+            specifically to support the education of children and young people across 
+            the county — funding equipment, experiences, and opportunities that 
+            families in financial difficulty could not otherwise access.
+          </p>
+          <span class="story-card__figure">£35,555</span>
+          <span class="story-card__figure-label">To children's education in East Kent</span>
+        </div>
+
+        <div class="story-card reveal reveal--delay-2">
+          <div class="story-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <span class="story-card__tag">Health &amp; Wellbeing</span>
+          <h3 class="story-card__title">Care for People in Crisis</h3>
+          <p class="story-card__body">
+            Over £300,000 has been granted to help cover the daily living costs of 
+            individuals and families experiencing genuine hardship — and a further 
+            £167,000 to support health, care and wellbeing. These are not abstract 
+            figures. They represent real people in Kent whose lives were materially changed.
+          </p>
+          <span class="story-card__figure">£504,047</span>
+          <span class="story-card__figure-label">In grants to individuals &amp; families</span>
+        </div>
+
+        <div class="story-card reveal reveal--delay-3">
+          <div class="story-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="story-card__tag">Community</span>
+          <h3 class="story-card__title">Food Banks &amp; Emergency Relief</h3>
+          <p class="story-card__body">
+            When the Thanington Food Bank needed support, East Kent Freemasons were 
+            there with a donation. When East Kent Hospitals needed colouring books 
+            for patients — children, elderly, those in long-term care — 3,000 were 
+            delivered by hand. Small gestures, real impact.
+          </p>
+          <span class="story-card__figure">3,000</span>
+          <span class="story-card__figure-label">Books delivered to East Kent Hospitals</span>
+        </div>
+
+        <div class="story-card reveal reveal--delay-1">
+          <div class="story-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <span class="story-card__tag">Young People</span>
+          <h3 class="story-card__title">Restoring a Sensory Garden for Scouts</h3>
+          <p class="story-card__body">
+            In 2024, a lodge noticed a Scout group in Maidstone had a sensory garden 
+            that had fallen into disrepair — vital for young people with physical and 
+            mental needs. Freemasons fundraised, applied for grants, and on two 
+            weekends showed up with shovels and wheelbarrows. The garden was restored.
+          </p>
+          <span class="story-card__figure">£6,000</span>
+          <span class="story-card__figure-label">Masonic Charitable Foundation grant awarded</span>
+        </div>
+
+        <div class="story-card reveal reveal--delay-2">
+          <div class="story-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <span class="story-card__tag">Disability &amp; Inclusion</span>
+          <h3 class="story-card__title">Fishing Days for Special Needs Schools</h3>
+          <p class="story-card__body">
+            The East Kent Masonic Fishing Charity takes students from special needs 
+            schools and centres — and people who have experienced trauma — to spend 
+            a day fishing in the countryside. The students look forward to it all year. 
+            No agenda. Just a good day out.
+          </p>
+          <span class="story-card__figure">Annual</span>
+          <span class="story-card__figure-label">Countryside experiences for students</span>
+        </div>
+
+        <div class="story-card reveal reveal--delay-3">
+          <div class="story-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <span class="story-card__tag">Armed Forces</span>
+          <h3 class="story-card__title">Supporting Those Who Served</h3>
+          <p class="story-card__body">
+            East Kent Freemasons are proud signatories of the Armed Forces Covenant, 
+            working to ensure that veterans, serving personnel, and their families 
+            are treated with fairness and respect. It reflects a principle central 
+            to Freemasonry: that service is not just a value, it's a practice.
+          </p>
+          <span class="story-card__figure">Covenant</span>
+          <span class="story-card__figure-label">Armed Forces signatory, East Kent</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── WHAT IS FREEMASONRY ── -->
+    <section class="lodge-explainer" aria-labelledby="explainer-title">
+      <div class="lodge-explainer__inner">
+
+        <div class="lodge-explainer__sticky reveal">
+          <span class="label">So what is it?</span>
+          <h2 id="explainer-title">Freemasonry<br /><em>in Plain English.</em></h2>
+          <p>
+            Freemasonry is one of the world's oldest membership organisations — 
+            founded on the idea that men of good character, whatever their background, 
+            profession or faith, can come together around shared values and do something 
+            useful with that connection.
+          </p>
+          <p>
+            It is not a religion. It has no political affiliation. It does not ask 
+            you to believe anything you don't already believe. What it does ask 
+            is that you commit to treating people with integrity, to giving something 
+            back, and to showing up — for the lodge, and for the community around it.
+          </p>
+          <p>
+            In England, Freemasonry has existed for over 300 years. The United Grand 
+            Lodge of England (UGLE) oversees hundreds of lodges across the country, 
+            each one a local community of members who meet regularly, observe 
+            centuries-old ceremonial traditions, and raise money for charity.
+          </p>
+          <blockquote>
+            "Having no political or religious affiliations, we comprise members of 
+            all ages, races, religions, cultures and backgrounds — who make time 
+            to eat, drink and meet together, and form lifelong friendships."
+            <cite style="display:block; font-family:var(--font-accent); font-size:0.6rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--stone); font-style:normal; margin-top:0.75rem;">United Grand Lodge of England</cite>
+          </blockquote>
+        </div>
+
+        <div class="values-list reveal reveal--delay-1">
+          <div class="value-item">
+            <span class="value-item__num">I</span>
+            <div>
+              <div class="value-item__title">Integrity</div>
+              <p class="value-item__body">
+                Acting honestly and with good conscience — in the lodge, in business, 
+                and in everyday life. It is the first thing a Freemason commits to, 
+                and the standard by which members hold each other.
+              </p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-item__num">II</span>
+            <div>
+              <div class="value-item__title">Friendship</div>
+              <p class="value-item__body">
+                Lodge membership creates genuine bonds across the usual divides of 
+                profession, background and age. A retired headteacher and an 
+                apprentice plumber can share the same table, and often do. That's 
+                not incidental to Freemasonry — it's central to it.
+              </p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-item__num">III</span>
+            <div>
+              <div class="value-item__title">Respect</div>
+              <p class="value-item__body">
+                For people of all faiths, none, and every background. Freemasonry 
+                has no doctrine beyond the expectation that members treat others 
+                with the same dignity they would want for themselves.
+              </p>
+            </div>
+          </div>
+          <div class="value-item">
+            <span class="value-item__num">IV</span>
+            <div>
+              <div class="value-item__title">Service</div>
+              <p class="value-item__body">
+                Giving back to the community — through charitable donations, 
+                volunteer work, and direct action. Not as an obligation, but as 
+                an expression of what membership stands for. In East Kent alone, 
+                £430,000 has been donated since 2014.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── THE GRAVESEND LODGES ── -->
+    <section class="lodge-local" aria-labelledby="local-title">
+      <div class="lodge-local__header reveal">
+        <span class="label">At Ruckland House</span>
+        <h2 id="local-title">The Lodges That<br /><em>Call This Place Home.</em></h2>
+        <p>
+          Several lodges have met at Ruckland House for generations. Each has its 
+          own history, its own character, and its own place in the life of Gravesend.
+        </p>
+      </div>
+      <div class="lodges-grid">
+
+        <div class="lodge-card reveal reveal--delay-1">
+          <span class="lodge-card__number">No. 483</span>
+          <h3 class="lodge-card__name">Lodge of Sympathy</h3>
+          <p class="lodge-card__body">
+            One of the older lodges meeting at Ruckland House, the Lodge of Sympathy 
+            carries a name that speaks to the founding spirit of Masonic charity — 
+            a concern for others that has been its guiding principle since the 
+            nineteenth century. A long and distinguished presence in Gravesend's 
+            Masonic life.
+          </p>
+        </div>
+
+        <div class="lodge-card reveal reveal--delay-2">
+          <span class="lodge-card__number">No. 6433</span>
+          <h3 class="lodge-card__name">Libertas Secunda Lodge</h3>
+          <p class="lodge-card__body">
+            Founded in 1947 by local river pilots — men who guided ships through the 
+            Thames estuary and knew Gravesend's waterfront as well as anyone alive. 
+            The name means "Second Freedom" — a freedom earned through service and 
+            brotherhood. Their story is inseparable from the town's history as a 
+            working river port.
+          </p>
+        </div>
+
+        <div class="lodge-card reveal reveal--delay-1">
+          <span class="lodge-card__number">No. 6454</span>
+          <h3 class="lodge-card__name">Chantry Lodge</h3>
+          <p class="lodge-card__body">
+            Named for the historic Chantry heritage of the area, this lodge continues 
+            the tradition of community engagement and charitable giving that has 
+            characterised the lodges at Ruckland House throughout their time here. 
+            A committed presence in the East Kent Masonic community.
+          </p>
+        </div>
+
+        <div class="lodge-card reveal reveal--delay-2">
+          <span class="lodge-card__number">No. 7269</span>
+          <h3 class="lodge-card__name">Cobham Lodge</h3>
+          <p class="lodge-card__body">
+            Taking its name from nearby Cobham — home to Cobham Hall and the Darnley 
+            family who were among the early owners of Ruckland House itself — Cobham 
+            Lodge connects the building's heritage to the wider history of North Kent. 
+            A lodge with a sense of place and a strong local identity.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── MISCONCEPTIONS ── -->
+    <section class="lodge-myths" aria-labelledby="myths-title">
+      <div class="lodge-myths__header reveal">
+        <span class="label">Setting the record straight</span>
+        <h2 id="myths-title" style="color:var(--white);">What People Think.<br /><em style="color:var(--gold-light);">What Is Actually True.</em></h2>
+        <p>
+          Freemasonry has accumulated more myths than almost any other organisation 
+          in history. Most of them are wrong. Here are the most common ones.
+        </p>
+      </div>
+      <div class="myths-grid reveal">
+
+        <div class="myth-item">
+          <div class="myth-item__myth">
+            <span class="myth-label">The myth</span>
+            <p class="myth-text">"It's a secret society with hidden agendas."</p>
+          </div>
+          <div class="myth-item__reality">
+            <span class="myth-label">The reality</span>
+            <p class="myth-text">Freemasonry is a society with private traditions — not a secret organisation. Lodge locations, membership, and charitable activities are all publicly available. What happens in a meeting isn't broadcast, but it isn't hidden either.</p>
+          </div>
+        </div>
+
+        <div class="myth-item">
+          <div class="myth-item__myth">
+            <span class="myth-label">The myth</span>
+            <p class="myth-text">"You have to be invited, and only the right sort of person gets in."</p>
+          </div>
+          <div class="myth-item__reality">
+            <span class="myth-label">The reality</span>
+            <p class="myth-text">Any man of good character can enquire about joining. The UGLE actively welcomes enquiries from men of all backgrounds, ages, faiths and professions. You don't need to know a member — you can simply ask.</p>
+          </div>
+        </div>
+
+        <div class="myth-item">
+          <div class="myth-item__myth">
+            <span class="myth-label">The myth</span>
+            <p class="myth-text">"It's a religious organisation."</p>
+          </div>
+          <div class="myth-item__reality">
+            <span class="myth-label">The reality</span>
+            <p class="myth-text">Freemasonry has no creed, no doctrine, and no affiliation to any religion. It asks only that members believe in a Supreme Being — defined entirely according to their own faith or philosophy. Christians, Muslims, Jews, Sikhs and many others are members.</p>
+          </div>
+        </div>
+
+        <div class="myth-item">
+          <div class="myth-item__myth">
+            <span class="myth-label">The myth</span>
+            <p class="myth-text">"Members help each other at the expense of outsiders."</p>
+          </div>
+          <div class="myth-item__reality">
+            <span class="myth-label">The reality</span>
+            <p class="myth-text">Freemasonry explicitly prohibits members from using their membership for personal or professional advantage. The charitable giving — over £42 million nationally in a single year — goes overwhelmingly to people with no connection to Freemasonry at all.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── CURIOUS? ── -->
+    <section class="lodge-cta" id="begin-planning" aria-labelledby="cta-title">
+      <div class="lodge-cta__inner reveal">
+        <div class="rule" aria-hidden="true"><div class="rule__diamond"></div></div>
+        <span class="label">Find out more</span>
+        <h2 id="cta-title">Curious About<br /><em>The Lodges?</em></h2>
+        <p>
+          If you'd like to know more about the lodges at Ruckland House — their 
+          charitable work, their history, or simply what a lodge meeting involves — 
+          we'd be glad to point you in the right direction. There's no obligation, 
+          no pressure, and no catch.
+        </p>
+        <div class="lodge-cta__links">
+          <a href="contact.html" class="btn btn--primary">Get in Touch</a>
+          <a href="https://www.ugle.org.uk/find-a-lodge" target="_blank" rel="noopener noreferrer" class="btn btn--outline">Find a Lodge Near You</a>
+          <a href="https://eastkentfreemasons.org" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">East Kent Freemasons</a>
+        </div>
+        <p class="lodge-cta__note">
+          Ruckland House is home to the Gravesend Masonic Centre — 
+          the building has been in Masonic stewardship since 1905.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <div>
+          <div class="footer__logo-wrap">
+            <img src="images/logo-white.webp" alt="Ruckland House — Gravesend, Est. 1905" class="footer__logo" width="200" loading="lazy" />
+          </div>
+          <p class="footer__tagline">A heritage venue at the heart of Gravesend — for weddings, celebrations, gatherings, and every moment in between.</p>
+          <div class="footer__social">
+            <a href="https://www.facebook.com/Ruckland-House-2132019600415374/" target="_blank" rel="noopener noreferrer" aria-label="Follow Ruckland House on Facebook">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Follow on Facebook
+            </a>
+          </div>
+        </div>
+        <nav aria-label="Footer navigation">
+          <span class="footer__col-title">Explore</span>
+          <ul class="footer__nav">
+            <li><a href="ruckland-room.html">The Ruckland Room</a></li>
+            <li><a href="pocahontas-room.html">The Pocahontas Room</a></li>
+            <li><a href="weddings.html">Weddings</a></li>
+            <li><a href="occasions.html">Celebrations</a></li>
+            <li><a href="wakes.html">Wakes &amp; Memorials</a></li>
+            <li><a href="meetings.html">Meetings &amp; Training</a></li>
+            <li><a href="heritage.html">Our Heritage</a></li>
+            <li><a href="the-lodges.html">The Lodges</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+        <div>
+          <span class="footer__col-title">Find Us</span>
+          <address class="footer__address"><strong>Ruckland House</strong><br />25 Wrotham Road<br />Gravesend<br />Kent<br />DA11 0PA</address>
+          <p style="margin-top:0.75rem;font-size:0.75rem;color:rgba(255,255,255,0.35);max-width:none;">Private car park available.<br />Close to Gravesend railway station.</p>
+        </div>
+        <div>
+          <span class="footer__col-title">Get in Touch</span>
+          <a href="tel:01474352171" class="footer__contact-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.79-1.79a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            01474 352171
+          </a>
+          <a href="mailto:info@rucklandrooms.com" class="footer__contact-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            info@rucklandrooms.com
+          </a>
+          <div style="margin-top:1.2rem;">
+            <a href="#begin-planning" class="btn btn--primary" style="font-size:0.7rem;padding:0.7rem 1.4rem;">Make an Enquiry</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <script>document.write(new Date().getFullYear())</script> Ruckland House, Gravesend. All rights reserved.</p>
+        <nav class="footer__legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><a href="sitemap.html">Sitemap</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Header scroll
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
+
+    // Hero parallax
+    const heroImg = document.getElementById('hero-img');
+    if (heroImg) {
+      window.addEventListener('scroll', () => { heroImg.style.transform = `translateY(${window.scrollY * 0.15}px)`; }, { passive: true });
+      setTimeout(() => heroImg.classList.add('loaded'), 100);
+    }
+
+    // Mobile nav
+    const toggle = document.getElementById('nav-toggle');
+    const mobileNav = document.getElementById('nav-mobile');
+    const closeBtn = document.getElementById('nav-close');
+    function openNav()  { toggle.classList.add('open'); mobileNav.classList.add('open'); mobileNav.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+    function closeNav() { toggle.classList.remove('open'); mobileNav.classList.remove('open'); mobileNav.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+    toggle.addEventListener('click', () => mobileNav.classList.contains('open') ? closeNav() : openNav());
+    closeBtn.addEventListener('click', closeNav);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeNav(); document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded','false')); } });
+    document.querySelectorAll('.nav__mobile-link, .nav__mobile-sub-link').forEach(l => l.addEventListener('click', closeNav));
+
+    // Dropdown
+    document.querySelectorAll('.nav__dropdown-toggle').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const exp = btn.getAttribute('aria-expanded') === 'true';
+        document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded','false'));
+        if (!exp) btn.setAttribute('aria-expanded','true');
+      });
+    });
+    document.addEventListener('click', () => { document.querySelectorAll('.nav__dropdown-toggle').forEach(b => b.setAttribute('aria-expanded','false')); });
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
