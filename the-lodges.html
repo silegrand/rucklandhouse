@@ -530,6 +530,118 @@
     }
 
     /* ── ANIMATIONS ── */
+
+    /* ── GRAVESEND STORY ── */
+    .lodge-gravesend {
+      padding: var(--gap-xl) 0;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .lodge-gravesend::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .lodge-gravesend__inner {
+      width: 90%; max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--gap-xl);
+      align-items: start;
+    }
+    .lodge-gravesend__sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .lodge-gravesend__sidebar h2 {
+      margin-bottom: 1.2rem;
+    }
+    .lodge-gravesend__sidebar p {
+      color: var(--navy-soft);
+      font-size: 1rem;
+      line-height: 1.85;
+      max-width: none;
+      margin-bottom: 0.75rem;
+    }
+    .lodge-gravesend__pull {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--navy-mid);
+      line-height: 1.6;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.4rem;
+      margin: 1.75rem 0;
+    }
+    .lodge-gravesend__body {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .gravesend-block {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .gravesend-block:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .gravesend-block__era {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .gravesend-block__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .gravesend-block__text {
+      font-size: 0.92rem;
+      color: var(--navy-soft);
+      line-height: 1.85;
+      max-width: none;
+    }
+    .gravesend-block__text + .gravesend-block__text {
+      margin-top: 0.75rem;
+    }
+    .quiet-giving {
+      background: var(--navy);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .quiet-giving__title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .quiet-giving__title em { color: var(--gold-light); font-style: italic; }
+    .quiet-giving__text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      max-width: none;
+    }
+
+    @media (max-width: 1024px) {
+      .lodge-gravesend__inner { grid-template-columns: 1fr; }
+      .lodge-gravesend__sidebar { position: static; }
+    }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -941,6 +1053,126 @@
           </p>
         </div>
 
+      </div>
+    </section>
+
+
+    <!-- ── GRAVESEND: THE RIVER TOWN ── -->
+    <section class="lodge-gravesend" aria-labelledby="gravesend-title">
+      <div class="lodge-gravesend__inner">
+
+        <div class="lodge-gravesend__sidebar reveal">
+          <span class="label">Gravesend &amp; the River</span>
+          <h2 id="gravesend-title">A Town Built on<br /><em>the Water.</em></h2>
+          <p>
+            To understand why Freemasonry took root so deeply in Gravesend, you 
+            need to understand the town. For centuries, Gravesend was the last 
+            place England ended and the wider world began.
+          </p>
+          <p>
+            Every ship leaving London for the open ocean passed through here. 
+            Every vessel arriving from foreign ports stopped here first. 
+            The pilots who guided those ships — men who knew every sandbank, 
+            every channel, every mood of the Thames estuary — were Gravesend men. 
+            And when they came ashore, many of them came to this building.
+          </p>
+          <blockquote class="lodge-gravesend__pull">
+            "At Gravesend all foreign-going vessels are compelled to stop and 
+            embark pilots, while homeward-bound ships take aboard a customs house 
+            officer. Day and night the channel is full of every class and 
+            description of shipping."
+            <cite style="display:block; font-family:var(--font-accent); font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--stone); font-style:normal; margin-top:0.75rem;">Thames: Waterway of the World, 1893</cite>
+          </blockquote>
+        </div>
+
+        <div class="lodge-gravesend__body reveal reveal--delay-1">
+
+          <div class="gravesend-block">
+            <span class="gravesend-block__era">1751</span>
+            <h3 class="gravesend-block__title">The Oldest Kentish Lodge Meets in Gravesend</h3>
+            <p class="gravesend-block__text">
+              The Lodge of Freedom — No. 77 in the national register — was founded in 
+              Gravesend in July 1751, making it the oldest lodge in Kent. Its name was 
+              formally adopted in April 1789, as the word "freedom" carried particular 
+              weight in an era of revolution and reform. The lodge's ritual is unique 
+              within English Freemasonry — protected when the United Grand Lodge was 
+              formed in 1813 on the condition that it could keep its own workings.
+            </p>
+            <p class="gravesend-block__text">
+              For nearly three centuries, that lodge has met in this town. The men 
+              who joined it were merchants, mariners, customs officers — the working 
+              fabric of a port town that controlled the gateway to the world's 
+              greatest trading river.
+            </p>
+          </div>
+
+          <div class="gravesend-block">
+            <span class="gravesend-block__era">19th Century</span>
+            <h3 class="gravesend-block__title">The River Men and Their Brotherhood</h3>
+            <p class="gravesend-block__text">
+              Gravesend's watermen were often born into the trade. The town's watermen 
+              were frequently part of a family tradition — generation following generation 
+              onto the river, learning its moods and channels from fathers and 
+              grandfathers. The Superintendent at Gravesend held the ancient title 
+              of Ruler of Pilots, and around 400 Trinity House pilots worked the London 
+              District alone — many of them Gravesend men.
+            </p>
+            <p class="gravesend-block__text">
+              These were skilled, proud, independent men. They worked in conditions 
+              of real danger — in bad weather, tugs went out looking for damaged 
+              sailing ships, to tow them into port — and they understood what it 
+              meant to depend on other men for your life. That understanding, that 
+              quiet bond forged on the water, translated naturally into the lodge room. 
+              Freemasonry gave it structure, tradition, and a purpose beyond the self.
+            </p>
+          </div>
+
+          <div class="gravesend-block">
+            <span class="gravesend-block__era">1947</span>
+            <h3 class="gravesend-block__title">Libertas Secunda: The Pilots' Lodge</h3>
+            <p class="gravesend-block__text">
+              Two years after the end of the Second World War, a group of Gravesend 
+              river pilots came together to form their own lodge. They called it 
+              Libertas Secunda — Second Freedom. The name acknowledged both the 
+              tradition they were joining and the moment they were living through: 
+              a country rebuilding itself, a river town returning to its purpose, 
+              men who had kept the Thames open through six years of war now 
+              choosing to keep something else alive.
+            </p>
+            <p class="gravesend-block__text">
+              Libertas Secunda Lodge No. 6433 was founded in 1947 and continues 
+              to have a connection with the River Thames and its associated industries. 
+              That connection has never been severed. The lodge remains, still meeting 
+              at Ruckland House, still carrying the tradition its founders began on 
+              the waterfront of a working port town.
+            </p>
+          </div>
+
+          <div class="quiet-giving">
+            <h3 class="quiet-giving__title">
+              The Point of All of It.<br />
+              <em>Giving without being seen.</em>
+            </h3>
+            <p class="quiet-giving__text">
+              What bound these men together — the pilots, the watermen, the merchants, 
+              the customs officers who had watched the world come and go through 
+              Gravesend's waterfront — was not a desire for recognition. It was the 
+              opposite. Freemasonry offered something that public charity never could: 
+              the chance to give quietly, without fanfare, without the expectation of 
+              thanks. To support a family in difficulty without that family ever knowing 
+              who helped them. To fund a community project without a plaque bearing 
+              your name.
+            </p>
+            <p class="quiet-giving__text" style="margin-top:0.75rem;">
+              That is still what the lodges at Ruckland House do. The money raised, 
+              the time given, the support offered — most of it will never be publicly 
+              attributed. That is not a failure of communication. That is the point. 
+              In a town that has always worked harder than it has been celebrated, 
+              that kind of giving feels entirely at home.
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
 
